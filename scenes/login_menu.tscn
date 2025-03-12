@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://i4aubypnxhke"]
 
-[ext_resource type="Script" path="res://scripts/login_menu.gd" id="1_bmxdy"]
+[ext_resource type="Script" uid="uid://crrxyg17t2at7" path="res://scripts/login_menu.gd" id="1_bmxdy"]
 [ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="2_7i4bj"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_0yvew"]
 
@@ -129,8 +129,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -149,8 +149,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -164,13 +164,33 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_wyuon")
 text = "Registruotis
 "
 
+[node name="Password reset Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0hy8w")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_aau6d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yvcyp")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_psofu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_vrodn")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_uhxar")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wyuon")
+text = "Pamirštas slaptažodis
+"
+
 [node name="Exit Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -207,4 +227,5 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Login Button" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Register Button" to="." method="_on_register_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Password reset Button" to="." method="_on_password_reset_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit Button" to="." method="_on_exit_button_pressed"]

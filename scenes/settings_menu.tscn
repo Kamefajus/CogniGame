@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://7kc4h8hcyrxm"]
 
-[ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_cdykr"]
+[ext_resource type="Script" uid="uid://c6ok3ib8f228" path="res://scripts/settings_menu.gd" id="1_cdykr"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="2_qvap1"]
 [ext_resource type="PackedScene" uid="uid://c01jp6v3rb024" path="res://scenes/settings_tab_container.tscn" id="3_xauxx"]
 
