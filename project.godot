@@ -11,9 +11,18 @@ config_version=5
 [application]
 
 config/name="CogniGame"
+run/main_scene="res://scenes/login_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Database="*res://scripts/database.gd"
 
 [dotnet]
 
 project/assembly_name="CogniGame"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
