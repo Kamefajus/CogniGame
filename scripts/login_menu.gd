@@ -32,3 +32,7 @@ func _on_register_button_pressed() -> void:
 
 func _on_exit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_password_reset_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/password_reset_scenes/enter_email_scene.tscn")

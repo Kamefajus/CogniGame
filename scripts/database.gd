@@ -58,3 +58,26 @@ func verify_login(nickname: String, password: String) -> bool:
 	else:
 		print("Error checking login: ", db.get_last_error_message())
 		return false
+
+func verify_email(email: String) -> bool:
+	var login_query = "SELECT * FROM users WHERE email = ?;"
+	if db.query_with_bindings(login_query, [email]):
+		if db.query_result.size() > 0:
+			print("Email verification successful!")
+			return true
+		else:
+			print("Email verification failed!")
+			return false
+	else:
+		print("Error checking login: ", db.get_last_error_message())
+		return false
+
+
+func update_user_password(email: String, password: String) -> bool:
+	var insert_query = "UPDATE users SET password = ? WHERE email = ?;"
+	if db.query_with_bindings(insert_query, [password, email]):
+		print("User registered successfully.")
+		return true
+	else:
+		print("Error inserting user: ", db.get_last_error_message())
+		return false
