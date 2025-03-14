@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://p3unbatqxpwj"]
+
+[ext_resource type="Script" uid="uid://bhlysxj6sva2l" path="res://scripts/Quitbutton.gd" id="1_v0wls"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.0347222
+anchor_bottom = 0.0617284
+color = Color(0.366595, 0.366595, 0.366595, 1)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 62.0
+offset_right = 282.0
+offset_bottom = 93.0
+text = "Gerai"
+script = ExtResource("1_v0wls")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 10.0
+offset_right = 224.0
+offset_bottom = 59.0
+text = "Jau žaidi valandą, gal laikas 
+padaryti pertrauką ?"
+justification_flags = 169
