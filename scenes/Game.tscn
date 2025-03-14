@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ceahp5eua2xfs"]
+[gd_scene load_steps=6 format=3 uid="uid://ceahp5eua2xfs"]
 
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="1_lit5x"]
-[ext_resource type="Script" path="res://scripts/game.gd" id="1_ni8nd"]
+[ext_resource type="Script" uid="uid://bu41ynlsc0qsa" path="res://scripts/game.gd" id="1_ni8nd"]
 [ext_resource type="Texture2D" uid="uid://babwrq4y5iqrw" path="res://Under_Construction_Warning_Sign_PNG_Clipart-839.png" id="2_n8vej"]
+[ext_resource type="AudioStream" uid="uid://djm7vsb42x1ey" path="res://sounds/768284__lolamoore__reflective-melancholic-piano.mp3" id="4_78awf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nrd5"]
 texture = ExtResource("2_n8vej")
@@ -29,7 +30,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Panel" type="Panel" parent="."]
-anchors_preset = -1
 offset_left = 423.0
 offset_top = 184.0
 offset_right = 603.0
@@ -51,5 +51,10 @@ offset_bottom = 516.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Grįžti atgal"
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_78awf")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

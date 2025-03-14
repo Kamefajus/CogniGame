@@ -8,6 +8,14 @@ var email = "";
 
 func _ready() -> void:
 	Database._ready()
+	_add_click_sounds_to_buttons(self)
+
+func _add_click_sounds_to_buttons(node):
+	for child in node.get_children():
+		if child is Button:
+			child.connect("pressed", Callable(AudioManager, "play_click"))
+		elif child.get_child_count() > 0:
+			_add_click_sounds_to_buttons(child)
 
 
 func _on_change_password_button_pressed() -> void:

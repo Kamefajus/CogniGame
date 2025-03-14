@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://p3unbatqxpwj"]
 
-[ext_resource type="Script" path="res://scripts/Quitbutton.gd" id="1_v0wls"]
+[ext_resource type="Script" uid="uid://bhlysxj6sva2l" path="res://scripts/Quitbutton.gd" id="1_v0wls"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
