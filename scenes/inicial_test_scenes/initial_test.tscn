@@ -1,0 +1,1166 @@
+[gd_scene load_steps=25 format=3 uid="uid://d4kyyr1vmfuf6"]
+
+[ext_resource type="Script" uid="uid://kfmfk05i2iob" path="res://scripts/initial_test.gd" id="1_0al8a"]
+[ext_resource type="Texture2D" uid="uid://bitq2cfqnvl1n" path="res://assets/Untitled.png" id="2_0al8a"]
+[ext_resource type="Texture2D" uid="uid://bg0gcw1mak0bc" path="res://assets/Ishihara_01.jpg" id="3_p6pp8"]
+[ext_resource type="Texture2D" uid="uid://dxlnjp5hdwn6d" path="res://assets/Ishihara_02.jpg" id="4_4yueo"]
+[ext_resource type="Texture2D" uid="uid://cf1qlq1d8tnww" path="res://assets/Ishihara_03.jpg" id="5_kf630"]
+[ext_resource type="Texture2D" uid="uid://dhtmjb6igthpu" path="res://assets/Ishihara_04.jpg" id="6_jifux"]
+[ext_resource type="Texture2D" uid="uid://dyqskomkvk6hw" path="res://assets/Ishihara_11.jpg" id="7_a1kxh"]
+[ext_resource type="Texture2D" uid="uid://yw0pkrlmka6m" path="res://assets/Ishihara_05.jpg" id="7_jifux"]
+[ext_resource type="Texture2D" uid="uid://cmtvd145on20s" path="res://assets/Ishihara_06.jpg" id="8_a1kxh"]
+[ext_resource type="Texture2D" uid="uid://gwxshv5dh6yb" path="res://assets/Ishihara_07.jpg" id="9_3ohio"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_86n8p"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp01e"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m657s"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gjrpu"]
+texture = ExtResource("2_0al8a")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ohio"]
+bg_color = Color(0.522223, 0.569276, 0.391464, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qrf5i"]
+bg_color = Color(0.458824, 0.627451, 0.776471, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yol30"]
+texture = ExtResource("3_p6pp8")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s4eor"]
+texture = ExtResource("4_4yueo")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rnhmx"]
+texture = ExtResource("5_kf630")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hcfmn"]
+texture = ExtResource("6_jifux")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qrf5i"]
+texture = ExtResource("7_jifux")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4c7sq"]
+texture = ExtResource("8_a1kxh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nbb6o"]
+texture = ExtResource("9_3ohio")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lf670"]
+texture = ExtResource("7_a1kxh")
+
+[node name="initialTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0al8a")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.31
+anchor_top = 0.394
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -357.12
+offset_top = -255.312
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_86n8p")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_right = 1150.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_sp01e")
+current_tab = 11
+
+[node name="1" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 0
+
+[node name="Panel" type="Panel" parent="TabContainer/1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gjrpu")
+
+[node name="Label" type="Label" parent="TabContainer/1"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/1"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/1"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="2" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 1
+
+[node name="Panel" type="Panel" parent="TabContainer/2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yol30")
+
+[node name="Label" type="Label" parent="TabContainer/2"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/2"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/2"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="3" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 2
+
+[node name="Panel" type="Panel" parent="TabContainer/3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_s4eor")
+
+[node name="Label" type="Label" parent="TabContainer/3"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/3"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/3"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="4" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 3
+
+[node name="Panel" type="Panel" parent="TabContainer/4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rnhmx")
+
+[node name="Label" type="Label" parent="TabContainer/4"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/4"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/4"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="5" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 4
+
+[node name="Panel" type="Panel" parent="TabContainer/5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_hcfmn")
+
+[node name="Label" type="Label" parent="TabContainer/5"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/5"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/5"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="6" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 5
+
+[node name="Panel" type="Panel" parent="TabContainer/6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_qrf5i")
+
+[node name="Label" type="Label" parent="TabContainer/6"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/6"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/6"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="7" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 6
+
+[node name="Panel" type="Panel" parent="TabContainer/7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4c7sq")
+
+[node name="Label" type="Label" parent="TabContainer/7"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/7"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/7"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="8" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 7
+
+[node name="Panel" type="Panel" parent="TabContainer/8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nbb6o")
+
+[node name="Label" type="Label" parent="TabContainer/8"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/8"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/8"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="9" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 8
+
+[node name="Panel" type="Panel" parent="TabContainer/9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -196.5
+offset_top = -199.5
+offset_right = 203.5
+offset_bottom = 200.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_lf670")
+
+[node name="Label" type="Label" parent="TabContainer/9"]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 42.0
+offset_right = 759.0
+offset_bottom = 101.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Įrašykite kokį skaičių matote
+ (Jei nematote palikite lauką tuščią)"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="TabContainer/9"]
+layout_mode = 0
+offset_left = 417.0
+offset_top = 518.0
+offset_right = 539.0
+offset_bottom = 556.0
+placeholder_text = "skaičius"
+
+[node name="Button" type="Button" parent="TabContainer/9"]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 510.0
+offset_right = 753.0
+offset_bottom = 561.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="10" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 9
+
+[node name="Label" type="Label" parent="TabContainer/10"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 30.0
+offset_right = 806.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Kuo tiksliau atsakykite į pateiktus klausimus."
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/10"]
+layout_mode = 2
+offset_left = 32.0
+offset_top = 111.0
+offset_right = 204.0
+offset_bottom = 142.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton2" type="OptionButton" parent="TabContainer/10"]
+offset_left = 33.0
+offset_top = 196.0
+offset_right = 205.0
+offset_bottom = 227.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton3" type="OptionButton" parent="TabContainer/10"]
+offset_left = 33.0
+offset_top = 269.0
+offset_right = 205.0
+offset_bottom = 300.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton4" type="OptionButton" parent="TabContainer/10"]
+offset_left = 34.0
+offset_top = 332.0
+offset_right = 206.0
+offset_bottom = 363.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton5" type="OptionButton" parent="TabContainer/10"]
+offset_left = 35.0
+offset_top = 416.0
+offset_right = 207.0
+offset_bottom = 447.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton6" type="OptionButton" parent="TabContainer/10"]
+offset_left = 36.0
+offset_top = 485.0
+offset_right = 208.0
+offset_bottom = 516.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/10"]
+clip_contents = true
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+offset_left = 229.0
+offset_top = 96.0
+offset_right = 1079.0
+offset_bottom = 521.0
+theme_override_constants/separation = 25
+
+[node name="Label2" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku užbaigti paskutines projekto detales, kai sunkiausia dalis jau padaryta?"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku suplanuoti užduotis, kai reikia atlikti užduotį, reikalaujančią organizuotumo?"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai pamirštate dalykus?"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kai turite užduotį, kuriai reikia daug mąstymo, kaip dažnai vengiate ją pradėti arba ją atidėliojate?"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai judinate rankas ar kojas arba nerimastingai muistotės, kai tenka ilgai sėdėti?"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="TabContainer/10/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jaučiatės pernelyg aktyvus ir verčiamas kažką daryti?"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = 248.5
+offset_right = 71.5
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="11" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 10
+
+[node name="Label" type="Label" parent="TabContainer/11"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 30.0
+offset_right = 806.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Kuo tiksliau atsakykite į pateiktus klausimus."
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/11"]
+layout_mode = 2
+offset_left = 34.0
+offset_top = 117.0
+offset_right = 206.0
+offset_bottom = 148.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton2" type="OptionButton" parent="TabContainer/11"]
+offset_left = 33.0
+offset_top = 190.0
+offset_right = 205.0
+offset_bottom = 221.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton3" type="OptionButton" parent="TabContainer/11"]
+offset_left = 36.0
+offset_top = 259.0
+offset_right = 208.0
+offset_bottom = 290.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton4" type="OptionButton" parent="TabContainer/11"]
+offset_left = 37.0
+offset_top = 335.0
+offset_right = 209.0
+offset_bottom = 366.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton5" type="OptionButton" parent="TabContainer/11"]
+offset_left = 38.0
+offset_top = 394.0
+offset_right = 210.0
+offset_bottom = 425.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton6" type="OptionButton" parent="TabContainer/11"]
+offset_left = 39.0
+offset_top = 451.0
+offset_right = 211.0
+offset_bottom = 482.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/11"]
+clip_contents = true
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+offset_left = 229.0
+offset_top = 99.0
+offset_right = 1079.0
+offset_bottom = 521.0
+theme_override_constants/separation = 30
+
+[node name="Label2" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai darote neatsargias klaidas, kai dirbate prie nuobodaus ar sudėtingo projekto?"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku išlaikyti dėmesį atliekant nuobodų ar pasikartojantį darbą?"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku susikoncentruoti į tai, ką žmonės jums sako, net kai jie kalba tiesiogiai su jumis?"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai pametate arba sunkiai randate daiktus?"
+autowrap_mode = 2
+
+[node name="Label6" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jus išblaško aplinkinė veikla ar triukšmas?"
+autowrap_mode = 2
+
+[node name="Label7" type="Label" parent="TabContainer/11/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai nenusėdite kėdėje?"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="TabContainer/11"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = 248.5
+offset_right = 71.5
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Kitas"
+
+[node name="12" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_m657s")
+metadata/_tab_index = 11
+
+[node name="Label" type="Label" parent="TabContainer/12"]
+layout_mode = 0
+offset_left = 265.0
+offset_top = 30.0
+offset_right = 806.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Kuo tiksliau atsakykite į pateiktus klausimus."
+
+[node name="ErrorLabel" type="Label" parent="TabContainer/12"]
+offset_left = 70.0
+offset_top = 495.0
+offset_right = 1105.0
+offset_bottom = 523.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/12"]
+layout_mode = 2
+offset_left = 31.0
+offset_top = 98.0
+offset_right = 203.0
+offset_bottom = 129.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton2" type="OptionButton" parent="TabContainer/12"]
+offset_left = 33.0
+offset_top = 157.0
+offset_right = 205.0
+offset_bottom = 188.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton3" type="OptionButton" parent="TabContainer/12"]
+offset_left = 32.0
+offset_top = 215.0
+offset_right = 204.0
+offset_bottom = 246.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="OptionButton4" type="OptionButton" parent="TabContainer/12"]
+offset_left = 33.0
+offset_top = 275.0
+offset_right = 205.0
+offset_bottom = 306.0
+item_count = 5
+popup/item_0/text = "Niekada"
+popup/item_0/id = 0
+popup/item_1/text = "Retai"
+popup/item_1/id = 1
+popup/item_2/text = "Kartais"
+popup/item_2/id = 2
+popup/item_3/text = "Dažnai"
+popup/item_3/id = 3
+popup/item_4/text = "Labai dažnai"
+popup/item_4/id = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="TabContainer/12"]
+clip_contents = true
+custom_minimum_size = Vector2(850, 0)
+layout_mode = 2
+offset_left = 229.0
+offset_top = 96.0
+offset_right = 1079.0
+offset_bottom = 521.0
+theme_override_constants/separation = 31
+
+[node name="Label2" type="Label" parent="TabContainer/12/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku atsipalaiduoti ir pailsėti, kai turite laisvo laiko?"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="TabContainer/12/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai pastebite, kad per daug kalbate?"
+autowrap_mode = 2
+
+[node name="Label4" type="Label" parent="TabContainer/12/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kai kalbatės su kitais, kaip dažnai baigiate jų sakinius, prieš jiems patiems tai padarant?"
+autowrap_mode = 2
+
+[node name="Label5" type="Label" parent="TabContainer/12/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kaip dažnai jums sunku laukti savo eilė?"
+autowrap_mode = 2
+
+[node name="Done Button" type="Button" parent="TabContainer/12"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -83.5
+offset_top = 248.5
+offset_right = 86.5
+offset_bottom = 287.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_3ohio")
+theme_override_styles/normal = SubResource("StyleBoxFlat_qrf5i")
+text = "Baigti testą"
+
+[connection signal="pressed" from="TabContainer/1/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/2/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/3/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/4/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/5/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/6/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/7/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/8/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/9/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TabContainer/10/Button" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="TabContainer/11/Button" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="TabContainer/12/Done Button" to="." method="_on_done_button_pressed"]
