@@ -136,7 +136,7 @@ func get_items_by_category(category: String):
 
 
 func get_owened_items_by_user(category: String, user_id: int):
-	var item_query = "SELECT items.id FROM users_items
+	var item_query = "SELECT items.id, items.name, items.asset FROM users_items
 					  JOIN items ON items.id = users_items.item_id
 					  WHERE users_items.user_id = ? AND  items.type = ?
 					  ORDER by items.id;"
@@ -144,7 +144,9 @@ func get_owened_items_by_user(category: String, user_id: int):
 	if db.query_with_bindings(item_query, [user_id, category]):
 		for row in db.query_result:
 			var item = {
-				"id": row["id"]
+				"id": row["id"],
+				"name": row["name"],
+				"asset": row["asset"]
 			}
 			items.append(item)
 		print("Items got succesfuly.")
@@ -168,5 +170,25 @@ func insert_owned_item(u_id: int, it_id: int) -> void:
 					  VALUES (?, ?, false);"
 	if db.query_with_bindings(item_query, [u_id, it_id]):
 		print("purchesed successfully.")
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+
+
+func get_equipped_item(category: String, user_id: int):
+	var item_query = "SELECT items.id, items.name, items.asset FROM users_items 
+		JOIN items ON items.id = users_items.item_id
+		WHERE users_items.user_id = ? AND  items.type = ? AND is_equipped = TRUE;"
+	if db.query_with_bindings(item_query, [user_id, category]):
+		return db.query_result
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+		return db.query_result
+	
+	
+func change_equipped_item(item_id: int, user_id: int) -> void:
+	var item_query = "UPDATE users_items SET is_equipped = NOT is_equipped
+					  WHERE user_id = ? AND item_id = ?;"
+	if db.query_with_bindings(item_query, [user_id, item_id]):
+		print("changed item")
 	else:
 		print("Error retreving items: ", db.get_last_error_message())

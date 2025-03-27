@@ -71,7 +71,6 @@ func spawn_items(indx, name, price, id, is_owned) -> void:
 func _on_button_pressed(button: Button) -> void:
 	print(button.name + " was clicked!")
 	if is_clear:
-		var number = answer_array[int(button.name.split("_")[1])][1]
 		is_clear = false
 		emit_signal("update_money", int(button.name.split("_")[1]))
 
@@ -87,7 +86,9 @@ func update(user_id: int) -> void:
 	node = $RichTextLabel/Node2D
 	var indx = 0
 	for n in range(items.size()):
-		if items[n]["id"] == owned_items[indx]['id']:
+		if owned_items.size() <= indx:
+			spawn_items(n, items[n]["name"], items[n]["price"], items[n]["id"], false)
+		elif items[n]["id"] == owned_items[indx]['id']:
 			spawn_items(n, items[n]["name"], items[n]["price"], items[n]["id"], true)
 			indx = indx + 1
 		else:

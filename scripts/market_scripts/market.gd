@@ -40,3 +40,11 @@ func _on_yes_button_pressed() -> void:
 		Database.insert_owned_item(1, temp_id)
 		temp_id = -1
 		emit_signal("update", true)
+
+
+func change_equipped(old_id: int, new_id: int) -> void:
+	var u_id = 0
+	if old_id >= 0:
+		Database.change_equipped_item(old_id, u_id)
+	if new_id >= 0:
+		Database.change_equipped_item(new_id, u_id)
