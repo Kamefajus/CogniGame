@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5x1kg02pbpdk"]
+
+[ext_resource type="PackedScene" uid="uid://hn60i48ju6ek" path="res://scenes/options_display_button.tscn" id="1_bif8i"]
+[ext_resource type="Script" path="res://window_mode.gd" id="2_edclg"]
+
+[node name="Window_Mode" instance=ExtResource("1_bif8i")]
+script = ExtResource("2_edclg")
+
+[node name="Label" parent="HBoxContainer" index="0"]
+text = "Ekrano Tipas"
