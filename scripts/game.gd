@@ -26,7 +26,6 @@ func show_notification() -> void:
 func _input(ev):
 	if Input.is_action_just_pressed("ui_cancel"):
 		if pause == null:
-			print(pause)
 			pause = pause_scene.instantiate()
 			get_tree().get_root().add_child(pause)
 		elif pause != null and pause.visible == true:
