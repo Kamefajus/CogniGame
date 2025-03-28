@@ -26,6 +26,38 @@ func _ready():
 		print("Users table ensured.")
 	else:
 		print("Error creating table: ", db.get_last_error_message())
+		
+	var create_table_query_1 = """
+		CREATE TABLE IF NOT EXISTS users_items (
+			user_id INTEGER NOT NULL,
+			item_id INTEGER NOT NULL,
+			is_equipped BOOLEAN NOT NULL,
+			PRIMARY KEY (user_id, item_id),
+			FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+			FOREIGN KEY (item_id) REFERENCES items(id) ON DELETE CASCADE
+		);
+	"""
+	
+	if db.query(create_table_query_1):
+		print("Users items table ensured.")
+	else:
+		print("Error users items creating table: ", db.query_errors)
+	
+	var create_table_query_2 = """
+		CREATE TABLE IF NOT EXISTS items (
+			id INTEGER PRIMARY KEY AUTOINCREMENT,
+			name TEXT NOT NULL,
+			type TEXT NOT NULL,
+			asset TEXT NOT NULL,
+			price INTEGER NOT NULL DEFAULT 0
+		);
+	"""
+	
+	if db.query(create_table_query_2):
+		print("Items table ensured.")
+	else:
+		print("Error items creating table: ", db.query_errors)
+
 
 # Register a new user
 func register_user(name: String, nickname: String, email: String, password: String) -> bool:
@@ -81,3 +113,82 @@ func update_user_password(email: String, password: String) -> bool:
 	else:
 		print("Error inserting user: ", db.get_last_error_message())
 		return false
+
+
+func get_items_by_category(category: String):
+	var item_query = "SELECT * FROM items WHERE type = ?
+					  ORDER by id;"
+	var items = []
+	if db.query_with_bindings(item_query, [category]):
+		for row in db.query_result:
+			var item = {
+				"id": row["id"],
+				"name": row["name"],
+				"asset": row["asset"],
+				"price": row["price"]
+			}
+			items.append(item)
+		print("Items got succesfuly.")
+		return items
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+		return items
+
+
+func get_owened_items_by_user(category: String, user_id: int):
+	var item_query = "SELECT items.id, items.name, items.asset FROM users_items
+					  JOIN items ON items.id = users_items.item_id
+					  WHERE users_items.user_id = ? AND  items.type = ?
+					  ORDER by items.id;"
+	var items = []
+	if db.query_with_bindings(item_query, [user_id, category]):
+		for row in db.query_result:
+			var item = {
+				"id": row["id"],
+				"name": row["name"],
+				"asset": row["asset"]
+			}
+			items.append(item)
+		print("Items got succesfuly.")
+		return items
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+		return items
+
+
+func get_iten_price_by_id(id: int) -> int:
+	var item_query = "SELECT price FROM items WHERE id = ?"
+	if db.query_with_bindings(item_query, [id]):
+		return db.query_result[0]['price']
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+		return -1
+
+
+func insert_owned_item(u_id: int, it_id: int) -> void:
+	var item_query = "INSERT INTO users_items (user_id, item_id, is_equipped)
+					  VALUES (?, ?, false);"
+	if db.query_with_bindings(item_query, [u_id, it_id]):
+		print("purchesed successfully.")
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+
+
+func get_equipped_item(category: String, user_id: int):
+	var item_query = "SELECT items.id, items.name, items.asset FROM users_items 
+		JOIN items ON items.id = users_items.item_id
+		WHERE users_items.user_id = ? AND  items.type = ? AND is_equipped = TRUE;"
+	if db.query_with_bindings(item_query, [user_id, category]):
+		return db.query_result
+	else:
+		print("Error retreving items: ", db.get_last_error_message())
+		return db.query_result
+	
+	
+func change_equipped_item(item_id: int, user_id: int) -> void:
+	var item_query = "UPDATE users_items SET is_equipped = NOT is_equipped
+					  WHERE user_id = ? AND item_id = ?;"
+	if db.query_with_bindings(item_query, [user_id, item_id]):
+		print("changed item")
+	else:
+		print("Error retreving items: ", db.get_last_error_message())

@@ -1,0 +1,64 @@
+[gd_scene load_steps=4 format=3 uid="uid://c644kowwnvb7x"]
+
+[ext_resource type="Script" uid="uid://dsamapk717lim" path="res://scripts/temp_avatar_change_scene.gd" id="1_d67f5"]
+[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="1_lfl8j"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d67f5"]
+texture = ExtResource("1_lfl8j")
+
+[node name="TempAvatarChangeScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d67f5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_d67f5")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 68.0
+offset_right = 134.0
+offset_bottom = 128.0
+
+[node name="AvatarPanel" type="TextureButton" parent="Panel2"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 61.0
+offset_bottom = 61.0
+
+[node name="Panel" type="Panel" parent="Panel2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 292.0
+offset_bottom = 307.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel2/Panel"]
+offset_right = 291.0
+offset_bottom = 224.0
+
+[node name="Node2D" type="Node2D" parent="Panel2/Panel/RichTextLabel"]
+
+[node name="VScrollBar" type="VScrollBar" parent="Panel2/Panel"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+grow_horizontal = 0
+grow_vertical = 2
+page = 10.0
+
+[connection signal="pressed" from="Panel2/AvatarPanel" to="." method="_on_avatar_panel_pressed"]
