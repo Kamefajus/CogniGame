@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cglsxsyeetk5d"]
+[gd_scene load_steps=15 format=3 uid="uid://cglsxsyeetk5d"]
 
 [ext_resource type="Script" uid="uid://ciojxcnbyoop" path="res://scripts/main_menu.gd" id="1_28nqc"]
-[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="2_64pis"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_64pis"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_gxfir"]
+[ext_resource type="Theme" uid="uid://cg805hpb7bv8k" path="res://label.tres" id="3_wu84c"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a456"]
 texture = ExtResource("2_64pis")
@@ -184,6 +185,7 @@ offset_right = 233.5
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_wu84c")
 theme_override_fonts/font = ExtResource("3_gxfir")
 theme_override_font_sizes/font_size = 60
 text = "CogniGame"
