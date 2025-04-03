@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://i4aubypnxhke"]
 
 [ext_resource type="Script" uid="uid://crrxyg17t2at7" path="res://scripts/login_menu.gd" id="1_bmxdy"]
-[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="2_7i4bj"]
+[ext_resource type="Texture2D" uid="uid://5o0j0qgy7qqr" path="res://FknQrN.png" id="2_7i4bj"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_0yvew"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rxj13"]
