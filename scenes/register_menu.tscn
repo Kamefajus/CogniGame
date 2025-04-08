@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://eaxa328e6pg4"]
+[gd_scene load_steps=15 format=3 uid="uid://eaxa328e6pg4"]
 
-[ext_resource type="Script" path="res://scripts/register_menu.gd" id="1_r8ci7"]
-[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="2_rs8ge"]
+[ext_resource type="Script" uid="uid://cmvevbebt136y" path="res://scripts/register_menu.gd" id="1_r8ci7"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_rs8ge"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_ayagu"]
+[ext_resource type="Theme" uid="uid://cg805hpb7bv8k" path="res://label.tres" id="3_ywuet"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n02rp"]
 texture = ExtResource("2_rs8ge")
@@ -143,8 +144,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4usve")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4fh0p")
@@ -163,8 +164,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4usve")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_4fh0p")
@@ -193,6 +194,7 @@ offset_right = 233.5
 offset_bottom = -192.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ywuet")
 theme_override_fonts/font = ExtResource("3_ayagu")
 theme_override_font_sizes/font_size = 60
 text = "CogniGame"

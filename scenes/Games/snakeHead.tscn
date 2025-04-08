@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://b68vkbelj58nl"]
+
+[ext_resource type="Texture2D" uid="uid://bitq2cfqnvl1n" path="res://assets/Untitled.png" id="1_vfv5w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ma37i"]
+size = Vector2(148, 149)
+
+[node name="SnakeHead" type="Node2D"]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+motion_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(94, 98)
+scale = Vector2(4.78125, 4.78125)
+texture = ExtResource("1_vfv5w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(94, 98.5)
+shape = SubResource("RectangleShape2D_ma37i")
