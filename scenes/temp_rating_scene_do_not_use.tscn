@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwc72m7g875k"]
+
+[ext_resource type="Script" uid="uid://gcdnajjr3qxs" path="res://scripts/temp_rating_scene_do_not_use.gd" id="1_05hiv"]
+[ext_resource type="Texture2D" uid="uid://drf1r46gnxfao" path="res://assets/U1f.jpg" id="2_05hiv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4f2xd"]
+texture = ExtResource("2_05hiv")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_11vja"]
+bg_color = Color(0.556953, 0.556953, 0.556953, 1)
+
+[node name="TempRatingSceneDoNotUse" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_05hiv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4f2xd")
+
+[node name="Panel2" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -225.0
+offset_right = 400.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_11vja")

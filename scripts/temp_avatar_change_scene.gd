@@ -40,7 +40,11 @@ func _on_avatar_panel_pressed() -> void:
 
 func draw_options(user_id: int) -> void:
 	var owned_items = Database.get_owened_items_by_user("avatar", user_id)
-	var adj_size = owned_items.size() - 6
+	var adj_size = owned_items.size() - 15
+	if adj_size <= 0:
+		$Panel2/Panel/VScrollBar.max_value = 0
+	else:
+		$Panel2/Panel/VScrollBar.max_value = (adj_size % 4) * 60
 	node = $Panel2/Panel/RichTextLabel/Node2D
 	spawn_items(0, "res://assets/avatars/7.png", -1)
 	var indx = 1
