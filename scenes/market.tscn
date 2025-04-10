@@ -1,7 +1,7 @@
-[gd_scene load_steps=27 format=3 uid="uid://qladkhimii0d"]
+[gd_scene load_steps=27 format=3 uid="uid://bwkdr8bjogdub"]
 
 [ext_resource type="Script" uid="uid://bw0g8x2ten05y" path="res://scripts/market_scripts/market.gd" id="1_k70a0"]
-[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="2_7bpo7"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_7bpo7"]
 [ext_resource type="Texture2D" uid="uid://cnr40r3xcjlw6" path="res://assets/pngimg.com - coin_PNG36871.png" id="3_7bpo7"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_d6tgm"]
 [ext_resource type="Script" uid="uid://boilin5o2upr4" path="res://scripts/market_scripts/tab_bar.gd" id="4_d6tgm"]

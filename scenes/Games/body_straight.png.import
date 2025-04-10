@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uxq7ruma2fy5"
-path="res://.godot/imported/FknQrN.png-d863bfb46a2582401441e6a2316eb680.ctex"
+uid="uid://datwsi06nqpqg"
+path="res://.godot/imported/body_straight.png-8bb046260b9bb6e9b34fef67dafa26d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://FknQrN.png"
-dest_files=["res://.godot/imported/FknQrN.png-d863bfb46a2582401441e6a2316eb680.ctex"]
+source_file="res://scenes/Games/body_straight.png"
+dest_files=["res://.godot/imported/body_straight.png-8bb046260b9bb6e9b34fef67dafa26d9.ctex"]
 
 [params]
 

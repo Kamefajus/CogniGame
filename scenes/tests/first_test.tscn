@@ -1,6 +1,5 @@
 [gd_scene load_steps=24 format=3 uid="uid://dngi38n3t70v3"]
 
-[ext_resource type="Texture2D" uid="uid://bitq2cfqnvl1n" path="res://assets/Untitled.png" id="1_dofn2"]
 [ext_resource type="Texture2D" uid="uid://bg0gcw1mak0bc" path="res://assets/Ishihara_01.jpg" id="2_pqcvs"]
 [ext_resource type="Texture2D" uid="uid://dxlnjp5hdwn6d" path="res://assets/Ishihara_02.jpg" id="3_lapre"]
 [ext_resource type="Texture2D" uid="uid://cf1qlq1d8tnww" path="res://assets/Ishihara_03.jpg" id="4_alb4l"]
@@ -18,8 +17,10 @@ bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2qkbs"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8eu4o"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0rxug"]
-texture = ExtResource("1_dofn2")
+texture = SubResource("CompressedTexture2D_8eu4o")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ay6y"]
 bg_color = Color(0.522223, 0.569276, 0.391464, 1)

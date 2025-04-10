@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uxq7ruma2fy5"
-path="res://.godot/imported/FknQrN.png-d863bfb46a2582401441e6a2316eb680.ctex"
+uid="uid://b0p15y14tynpl"
+path="res://.godot/imported/body_turn.png-007c1898e50ad5237075bee9df9cefda.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://FknQrN.png"
-dest_files=["res://.godot/imported/FknQrN.png-d863bfb46a2582401441e6a2316eb680.ctex"]
+source_file="res://scenes/Games/body_turn.png"
+dest_files=["res://.godot/imported/body_turn.png-007c1898e50ad5237075bee9df9cefda.ctex"]
 
 [params]
 

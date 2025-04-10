@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c644kowwnvb7x"]
+[gd_scene load_steps=4 format=3 uid="uid://w4uufjso7q8l"]
 
-[ext_resource type="Script" uid="uid://dsamapk717lim" path="res://scripts/temp_avatar_change_scene.gd" id="1_d67f5"]
-[ext_resource type="Texture2D" uid="uid://0sfy2gs22wmh" path="res://FknQrN.png" id="1_lfl8j"]
+[ext_resource type="Script" path="res://scripts/temp_avatar_change_scene.gd" id="1_d67f5"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="1_lfl8j"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d67f5"]
 texture = ExtResource("1_lfl8j")
@@ -45,6 +45,7 @@ offset_right = 292.0
 offset_bottom = 307.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel2/Panel"]
+layout_mode = 0
 offset_right = 291.0
 offset_bottom = 224.0
 
