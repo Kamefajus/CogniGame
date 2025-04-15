@@ -24,12 +24,12 @@ var rotate_speed = 8.0
 var font: Font
 var head_texture: Texture2D
 var body_straight_texture: Texture2D
-var body_turn_texture: Texture2D
-var body_straight_fat_texture: Texture2D
-var body_turn_fat_texture: Texture2D
+var body_turn_left_texture: Texture2D
+var body_turn_right_texture: Texture2D
 var tail_texture: Texture2D
+var apple_texture: Texture2D
 
-var eat_sound: AudioStreamPlayer
+var eat_sound: AudioStreamRandomizer
 var head_scale = 1.0
 
 var apples_in_tail: Array = []  # Kad sekam obuolį kūnu
@@ -37,20 +37,24 @@ var apples_in_tail: Array = []  # Kad sekam obuolį kūnu
 func _ready():
 	randomize()
 	
-	head_texture = preload("res://scenes/Games/head.png")
-	body_straight_texture = preload("res://scenes/Games/body_straight.png")
-	body_turn_texture = preload("res://scenes/Games/body_turn.png")
-	body_straight_fat_texture = preload("res://scenes/Games/body_turn.png")#preload("res://scenes/Games/body_straight_fat.png")
-	body_turn_fat_texture = preload("res://scenes/Games/body_turn.png")#preload("res://scenes/Games/body_turn_fat.png")
-	tail_texture = preload("res://scenes/Games/tail.png")
+	head_texture = preload("res://assets/snake/head.png")
+	body_straight_texture = preload("res://assets/snake/body2.png")
+	body_turn_left_texture = preload("res://assets/snake/body_turn2.png")
+	body_turn_right_texture = preload("res://assets/snake/body_turn_right 2.png")
+	tail_texture = preload("res://assets/snake/tail2.png")
 	font = load("res://Game Bubble.ttf")
+	apple_texture = load("res://assets/snake/apple.png")
 
 	generate_board()
 	place_snake()
 	place_apple()
-	eat_sound = AudioStreamPlayer.new()
-	eat_sound.stream = preload("res://scenes/Games/EatSound.wav")
-	add_child(eat_sound)
+	eat_sound = AudioStreamRandomizer.new()
+	eat_sound.add_stream(-1, preload("res://sounds/snakeSounds/eatSound1.mp3"))
+	eat_sound.add_stream(-1, preload("res://sounds/snakeSounds/eatSound2.mp3"))
+	eat_sound.add_stream(-1, preload("res://sounds/snakeSounds/eatSound3.mp3"))
+	eat_sound.add_stream(-1, preload("res://sounds/snakeSounds/eatSound4.mp3"))
+
+
 
 func _process(delta: float) -> void:
 	if not game_over:
@@ -96,9 +100,11 @@ func _draw():
 	# Obuolys
 	if apple_index > 0 and apple_index <= board.size():
 		var a = board[apple_index - 1]
-		draw_circle(Vector2(a.x + tile_size * 0.5, a.y + tile_size * 0.5), tile_size * 0.5, Color.RED)
+		var center = Vector2(a.x + tile_size * 0.5, a.y + tile_size * 0.5)
+		draw_set_transform(center)
+		draw_texture_rect(apple_texture, Rect2(Vector2(-tile_size * 0.5, -tile_size * 0.5), Vector2(tile_size, tile_size)), false)
+		draw_set_transform(Vector2(), 0.0)
 
-	# Kūnas
 	# Kūnas
 	for n in range(1, tail_length + 1):
 		if n >= tails.size():
@@ -108,30 +114,45 @@ func _draw():
 		var center = Vector2(tile.x + tile_size * 0.5, tile.y + tile_size * 0.5)
 
 		var from_idx = tails[n + 1] if (n < tail_length and n + 1 < tails.size()) else head_index
-		var to_idx = tails[n - 1] if (n > 1 and n - 1 < tails.size()) else tails[n]
+		
+		var to_idx = tails[n]
+		if ((n > 1 and n - 1 < tails.size())):
+			to_idx = tails[n - 1]
+		elif n== 1:
+			to_idx = head_index
 
 		var from_dir = get_direction(from_idx, tails[n])
 		var to_dir = get_direction(tails[n], to_idx)
 
 		var is_straight = (from_dir.x == to_dir.x || from_dir.y == to_dir.y)
-		var use_fat = apples_in_tail.has(tails[n])
-
+		var angle = 0.0
 		var texture = null
-		if is_straight:
-			if use_fat:
-				texture = body_straight_fat_texture
-			else:
-				texture = body_straight_texture
+		if n == tail_length:
+			texture = tail_texture
+			var tail_dir = get_direction(tails[n], tails[n - 1]) if n > 1 else get_direction(tails[n], head_index)
+			if tail_dir == Vector2(0, -1):      # Up
+				angle = deg_to_rad(0)
+			elif tail_dir == Vector2(1, 0):     # Right
+				angle = deg_to_rad(90)
+			elif tail_dir == Vector2(0, 1):     # Down
+				angle = deg_to_rad(180)
+			elif tail_dir == Vector2(-1, 0):    # Left
+				angle = deg_to_rad(270)
+		elif is_straight:
+			texture = body_straight_texture
+			angle = get_texture_angle(from_dir, to_dir)
 		else:
-			if use_fat:
-				texture = body_turn_fat_texture
+			var turn_dir = get_turn_direction(from_dir, to_dir)
+			if turn_dir == "left":
+				texture = body_turn_left_texture
 			else:
-				texture = body_turn_texture
+				texture = body_turn_right_texture
+			angle = get_turn_angle(from_dir, to_dir)
 
-		var angle = get_texture_angle(from_dir, to_dir)
-
-		draw_set_transform(center, angle)
-		draw_texture_rect(texture, Rect2(Vector2(-tile_size / 2, -tile_size / 2), Vector2(tile_size, tile_size)), false)
+		var texture_size = texture.get_size()
+		var scale = tile_size / texture_size.x  # assuming square textures
+		draw_set_transform(center, angle, Vector2(scale, scale))
+		draw_texture(texture, -texture_size / 2)
 		draw_set_transform(Vector2(), 0.0)
 
 
@@ -173,12 +194,14 @@ func generate_board():
 			}
 			board.append(tile_data)
 
+func get_turn_direction(from_dir: Vector2, to_dir: Vector2) -> String:
+	var cross = from_dir.x * to_dir.y - from_dir.y * to_dir.x
+	return "left" if cross < 0 else "right"
+	
 func place_snake():
 	head_index = random_int(1, board.size())
 	tail_length = 0
 	tails.clear()
-	movement = 2
-	next_movement = 2
 	target_rotation_radians = deg_to_rad(90)
 	head_rotation_radians = target_rotation_radians
 
@@ -247,8 +270,8 @@ func move_snake():
 		score += 1
 		place_apple()
 		head_scale = 1.3
-		eat_sound.play()
 		apples_in_tail.append(old_head)
+
 
 	head_index = new_head_index
 
@@ -270,24 +293,44 @@ func get_direction(from_idx, to_idx):
 	var to_tile = board[to_idx - 1]
 	return Vector2(to_tile.j - from_tile.j, to_tile.i - from_tile.i)
 
-func get_texture_angle(from_dir, to_dir):
-	var sum_dir = from_dir + to_dir
-	if sum_dir == Vector2(0, -2):
-		return deg_to_rad(0)
-	elif sum_dir == Vector2(2, 0):
+func get_texture_angle(from_dir: Vector2, to_dir: Vector2) -> float:
+	var angle = 0.0
+	# Horizontal (left-right)
+	if from_dir.x == -1:
+		angle = deg_to_rad(270)
+	elif from_dir.x == 1:
+		angle = deg_to_rad(90)
+	# Vertical (up-down)
+	elif from_dir.y == -1:
+		angle = deg_to_rad(0)
+	elif from_dir.y == 1:
+		angle = deg_to_rad(180)
+	return angle
+	
+func get_turn_angle(from_dir: Vector2, to_dir: Vector2) -> float:
+	# All 4 possible corners
+	if from_dir == Vector2(1, 0) and to_dir == Vector2(0, -1):  # Right to Up
 		return deg_to_rad(90)
-	elif sum_dir == Vector2(0, 2):
-		return deg_to_rad(180)
-	elif sum_dir == Vector2(-2, 0):
-		return deg_to_rad(270)
-	elif (from_dir.x == to_dir.y and from_dir.y == -to_dir.x):
-		return deg_to_rad(90)
-	elif (from_dir.x == -to_dir.y and from_dir.y == to_dir.x):
-		return deg_to_rad(270)
-	elif (from_dir.x == from_dir.y and to_dir.x == to_dir.y):
+	elif from_dir == Vector2(0, -1) and to_dir == Vector2(1, 0):  # Up to Right
 		return deg_to_rad(0)
-	else:
+
+	elif from_dir == Vector2(0, -1) and to_dir == Vector2(-1, 0):  # Up to Left
+		return deg_to_rad(0)
+	elif from_dir == Vector2(-1, 0) and to_dir == Vector2(0, -1):  # Left to Up
+		return deg_to_rad(270)
+
+	elif from_dir == Vector2(-1, 0) and to_dir == Vector2(0, 1):  # Left to Down
+		return deg_to_rad(270)
+	elif from_dir == Vector2(0, 1) and to_dir == Vector2(-1, 0):  # Down to Left
 		return deg_to_rad(180)
+
+	elif from_dir == Vector2(0, 1) and to_dir == Vector2(1, 0):  # Down to Right
+		return deg_to_rad(180)
+	elif from_dir == Vector2(1, 0) and to_dir == Vector2(0, 1):  # Right to Down
+		return deg_to_rad(90)
+
+	return 0.0  # Default fallback
+
 
 func random_int(min_val: int, max_val: int) -> int:
 	return randi() % (max_val - min_val + 1) + min_val

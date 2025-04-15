@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://gwg11ccig62o"
-path="res://.godot/imported/EatSound.wav-542b5f859bead80cab129bfc5de10fd4.sample"
+path="res://.godot/imported/EatSound.wav-c52e1c013bea1f76bd77b8246fd3f469.sample"
 
 [deps]
 
-source_file="res://scenes/Games/EatSound.wav"
-dest_files=["res://.godot/imported/EatSound.wav-542b5f859bead80cab129bfc5de10fd4.sample"]
+source_file="res://sounds/EatSound.wav"
+dest_files=["res://.godot/imported/EatSound.wav-c52e1c013bea1f76bd77b8246fd3f469.sample"]
 
 [params]
 

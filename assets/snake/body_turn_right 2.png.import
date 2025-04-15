@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dorsd8645f6y3"
-path="res://.godot/imported/tail.png-691f34a96cd4724abfa871da8c703151.ctex"
+uid="uid://dsrxme2svk52n"
+path="res://.godot/imported/body_turn_right 2.png-e85f44553730b90a7d75c206e228dbc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Games/tail.png"
-dest_files=["res://.godot/imported/tail.png-691f34a96cd4724abfa871da8c703151.ctex"]
+source_file="res://assets/snake/body_turn_right 2.png"
+dest_files=["res://.godot/imported/body_turn_right 2.png-e85f44553730b90a7d75c206e228dbc9.ctex"]
 
 [params]
 
