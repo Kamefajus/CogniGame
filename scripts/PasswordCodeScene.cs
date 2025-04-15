@@ -19,6 +19,13 @@ public partial class PasswordCodeScene : Control
 	{
 		ErrorLabel = GetNode<Label>("VBoxContainer/ErrorLabel");
 		CodeInput = GetNode<LineEdit>("VBoxContainer/CodeInput");
+		Node audioManager = GetNode("/root/AudioManager");
+		Button button = GetNode<Button>("VBoxContainer/vefify button");
+		button.Connect("pressed", new Callable(audioManager, "play_click"));
+		button = GetNode<Button>("VBoxContainer/exit button");
+		button.Connect("pressed", new Callable(audioManager, "play_click"));
+		button = GetNode<Button>("VBoxContainer/send button");
+		button.Connect("pressed", new Callable(audioManager, "play_click"));
 	}
 	
 	private static string GeneratePassword(int length = 12)
@@ -47,6 +54,7 @@ public partial class PasswordCodeScene : Control
 	
 	private static void SendEmail(string recipientEmail, string password)
 	{
+		return;
 		try
 		{
 			var message = new MimeMessage();
@@ -109,11 +117,9 @@ public partial class PasswordCodeScene : Control
 			return;
 		}
 		
-		var nextscene = GD.Load<PackedScene>("res://scenes/password_reset_scenes/new_password_scene.tscn").Instantiate();
-		//var nextscene = (PackedScene)ResourceLoader.Load("res://scenes/password_reset_scenes/new_password_scene.tscn").Instantiate();
-		nextscene.Call("set_email", email);
-		GetTree().Root.AddChild(nextscene);
-		QueueFree();
+		Node sceneTransition = GetNode("/root/SceneTransition");
+		sceneTransition.Call("new_node_with_call", 
+					"res://scenes/password_reset_scenes/new_password_scene.tscn", "set_email", email);
 	}
 	
 	private void OnSendButtonPressed()
@@ -125,6 +131,8 @@ public partial class PasswordCodeScene : Control
 	
 	private void OnExitButtonPressed()
 	{
-		GetTree().ChangeSceneToFile("res://scenes/password_reset_scenes/enter_email_scene.tscn");
+		Node sceneTransition = GetNode("/root/SceneTransition");
+		sceneTransition.Call("change_scene", 
+									"res://scenes/password_reset_scenes/enter_email_scene.tscn");
 	}
 }

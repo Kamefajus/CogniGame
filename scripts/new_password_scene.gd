@@ -32,13 +32,13 @@ func _on_change_password_button_pressed() -> void:
 	if Database.update_user_password(password, email):
 		error_label.text = "Registracija sėkminga! Perkeliama..."
 		await get_tree().create_timer(1.0).timeout
-		get_tree().change_scene_to_file("res://scenes/login_menu.tscn")
+		SceneTransition.change_scene("res://scenes/login_menu.tscn")
 	else:
 		error_label.text = "Įvyko klaida įrašant pokyčius."
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/password_reset_scenes/enter_email_scene.tscn")
+	SceneTransition.change_scene("res://scenes/password_reset_scenes/enter_email_scene.tscn")
 
 
 func set_email(new_email: String) -> void:

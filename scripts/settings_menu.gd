@@ -3,7 +3,7 @@ extends Control
 signal settings_closed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$MarginContainer/VBoxContainer/Button.connect("pressed", Callable(AudioManager, "play_click"))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_exit_pressed() -> void:
 	emit_signal("settings_closed")
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	
 func _input(ev):

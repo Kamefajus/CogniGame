@@ -17,6 +17,7 @@ func spawn_items(panel: Node, scene: String) -> void:
 	button.position = Vector2(panel.size.x - 170, panel.size.y - 70)
 	button.size = Vector2(150, 50)
 	button.pressed.connect(func(): _on_button_back_pressed(scene, panel))
+	button.pressed.connect(Callable(AudioManager, "play_click"))
 	panel.add_child(button)
 
 
@@ -113,4 +114,4 @@ func generate_star(indx: int, root: Node) -> Polygon2D:
 
 
 func _on_button_back_pressed(scene: String, root: Node) -> void :
-	root.get_tree().change_scene_to_file(scene)
+	SceneTransition.change_scene(scene)

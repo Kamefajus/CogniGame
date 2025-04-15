@@ -29,13 +29,13 @@ func _on_login_button_pressed() -> void:
 	if Database.verify_login(nickname, password):
 		error_label.text = "Prisijungimas sėkmingas"
 		await get_tree().create_timer(1.5).timeout
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	else:
 		error_label.text = "Neteisingas prisijungimo vardas arba slaptažodis."
 
 
 func _on_register_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/register_menu.tscn")
+	SceneTransition.change_scene("res://scenes/register_menu.tscn")
 
 
 func _on_exit_button_pressed() -> void:
@@ -43,4 +43,4 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_password_reset_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/password_reset_scenes/enter_email_scene.tscn")
+	SceneTransition.change_scene("res://scenes/password_reset_scenes/enter_email_scene.tscn")

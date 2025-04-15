@@ -1,14 +1,13 @@
 extends TabBar
 
-var node
 var u_id = 1
-var market_tab = load("res://scripts/market_scripts/market_tab.gd").new(self)
 var is_clear = true
+var market_tab = load("res://scripts/market_scripts/market_tab.gd").new(self)
 
 signal update_money(id: int)
 
 func _ready() -> void:
-	market_tab.update(u_id, "avatar")
+	market_tab.update(u_id, "accessory")
 
 
 func _process(delta: float) -> void:
@@ -24,16 +23,16 @@ func _input(event: InputEvent) -> void:
 				$VScrollBar.value = $VScrollBar.value - 10
 
 
+func _on_market_update(change: bool) -> void:
+	if change:
+		market_tab.update(u_id, "accessory")
+		is_clear = true
+	else:
+		is_clear = true 
+
+
 func _on_button_pressed(button: Button) -> void:
 	print(button.name + " was clicked!")
 	if is_clear:
 		is_clear = false
 		emit_signal("update_money", int(button.name.split("_")[1]))
-
-
-func _on_market_update(change: bool) -> void:
-	if change:
-		market_tab.update(u_id, "avatar")
-		is_clear = true
-	else:
-		is_clear = true

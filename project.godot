@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Database="*res://scripts/database.gd"
 AudioManager="*res://scripts/AudioManager.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 
 [dotnet]
 

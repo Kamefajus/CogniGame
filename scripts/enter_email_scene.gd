@@ -27,9 +27,8 @@ func _on_send_code_button_pressed() -> void:
 	
 	var nextscene = load("res://scenes/password_reset_scenes/password_code_scene.tscn").instantiate()
 	nextscene.set_email(email)
-	get_tree().current_scene.get_parent().add_child(nextscene)
-	get_tree().current_scene.queue_free()
+	SceneTransition.change_scene_with_scene_instance(nextscene)
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/login_menu.tscn")
+	SceneTransition.change_scene("res://scenes/login_menu.tscn")

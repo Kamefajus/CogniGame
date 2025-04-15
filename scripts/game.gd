@@ -10,6 +10,7 @@ var pause = null
 
 func _ready():
 	set_process_input(true)
+	$Button.connect("pressed", Callable(AudioManager, "play_click"))
 
 func _process(delta: float) -> void:
 	if pause == null:
@@ -34,4 +35,4 @@ func _input(ev):
 		
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	SceneTransition.change_scene_slide_animation("res://scenes/main_menu.tscn", true)
