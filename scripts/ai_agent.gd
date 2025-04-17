@@ -34,15 +34,18 @@ var _type_index := 0
 # ────────────────────────────
 #   TEST ON READY
 # ────────────────────────────
-func _ready():
-	# Setup timer
+func _ready() -> void:
+	# Connect the HTTPRequest
+	http_request.connect("request_completed", Callable(self, "_on_http_request_request_completed"))
+	# typewriter timer
 	type_timer.wait_time = 0.03
 	type_timer.one_shot = false
-	# Godot 4 connect: signal_name, Callable
-	type_timer.connect("timeout", Callable(self, "_on_TypeTimer_timeout"))
+	type_timer.connect("timeout",Callable(self, "_on_TypeTimer_timeout"))
+	# Hide input/next at start
+	#input_line.editable = false
+	#send_button.disabled = true
+	#next_button.visible = false
 
-	# Test immediately with a positive message:
-	show_failure_screen("Tu nuostabus žaidėjas!")
 
 # ────────────────────────────
 #   PUBLIC API
@@ -160,3 +163,7 @@ func _on_initial_done() -> void:
 func _on_followup_done() -> void:
 	phase = Phase.DONE
 	next_button.visible = true
+
+
+func _on_back_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/Game.tscn")

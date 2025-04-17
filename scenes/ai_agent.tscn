@@ -163,7 +163,31 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_5g80s")
 text = "Varom toliau!
 "
 
+[node name="BackButton" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 561.0
+offset_right = 323.0
+offset_bottom = 613.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5dr0y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_7e471")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbtod")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_66pta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ps4ei")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mk7ss")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5g80s")
+text = "Grįžti (test only)
+"
+
 [node name="TypeTimer" type="Timer" parent="."]
 
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
 [connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
