@@ -101,11 +101,10 @@ expand_mode = 3
 
 [node name="EncouragementLabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 649.0
+offset_left = 715.0
 offset_top = 75.0
 offset_right = 975.0
-offset_bottom = 178.0
-text = "Labas, tau pavyks"
+offset_bottom = 198.0
 label_settings = SubResource("LabelSettings_l24tg")
 vertical_alignment = 1
 autowrap_mode = 3
