@@ -1,0 +1,170 @@
+[gd_scene load_steps=13 format=3 uid="uid://ctwha6ngu1y2q"]
+
+[ext_resource type="Script" path="res://scripts/ai_agent.gd" id="1_lmq05"]
+[ext_resource type="Texture2D" uid="uid://n722wfypsn4l" path="res://assets/ai/Happy_Mart_Encourage_BG.png" id="2_b8dno"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_l24tg"]
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r7t1r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2tov"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dr0y"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7e471"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sbtod"]
+bg_color = Color(0.65834, 0.65834, 0.65834, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_66pta"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ps4ei"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mk7ss"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5g80s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="AiAgent" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmq05")
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 649.0
+texture = ExtResource("2_b8dno")
+expand_mode = 3
+
+[node name="EncouragementLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 75.0
+offset_right = 975.0
+offset_bottom = 178.0
+text = "Labas, tau pavyks"
+label_settings = SubResource("LabelSettings_l24tg")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InputLine" type="LineEdit" parent="."]
+layout_mode = 0
+offset_left = 726.0
+offset_top = 408.0
+offset_right = 1090.0
+offset_bottom = 458.0
+placeholder_text = "Kažkas neramina? Raštelk!"
+
+[node name="SendButton" type="Button" parent="."]
+offset_left = 725.0
+offset_top = 472.0
+offset_right = 905.0
+offset_bottom = 523.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5dr0y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_7e471")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbtod")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_66pta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ps4ei")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mk7ss")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5g80s")
+text = "Siųsti
+"
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 728.0
+offset_top = 557.0
+offset_right = 995.0
+offset_bottom = 609.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5dr0y")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_7e471")
+theme_override_styles/hover = SubResource("StyleBoxFlat_sbtod")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_66pta")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ps4ei")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_mk7ss")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5g80s")
+text = "Varom toliau!
+"
+
+[node name="TypeTimer" type="Timer" parent="."]
+
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
+[connection signal="pressed" from="SendButton" to="." method="_on_send_button_pressed"]
