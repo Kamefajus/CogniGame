@@ -12,7 +12,7 @@ extends Node
 # ────────────────────────────
 #   CONFIG
 # ────────────────────────────
-var API_KEY  := "AIzaSyDL2Y-eAg5OkxaU1K1gErgm5UraijO6KLU"
+var API_KEY  := "API"
 var ENDPOINT := "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=%s" % API_KEY
 
 const MARTAS_INSTRUCTIONS := """
