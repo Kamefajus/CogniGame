@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceahp5eua2xfs"]
 
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="1_lit5x"]
-[ext_resource type="Script" uid="uid://bu41ynlsc0qsa" path="res://scripts/game.gd" id="1_ni8nd"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ni8nd"]
 [ext_resource type="Texture2D" uid="uid://babwrq4y5iqrw" path="res://Under_Construction_Warning_Sign_PNG_Clipart-839.png" id="2_n8vej"]
 [ext_resource type="AudioStream" uid="uid://djm7vsb42x1ey" path="res://sounds/768284__lolamoore__reflective-melancholic-piano.mp3" id="4_78awf"]
 

@@ -9,6 +9,7 @@ var tails: Array = []
 var tail_length = 0
 var apple_index = 0
 var game_over = false
+var button_created := false
 var movement = 0  # 1=left, 2=right, 3=up, 4=down
 var next_movement = 0
 
@@ -33,8 +34,11 @@ var eat_sound: AudioStreamPlayer
 var head_scale = 1.0
 
 var apples_in_tail: Array = []  # Kad sekam obuolį kūnu
+@onready var pause_scene = preload("res://scenes/Pause.tscn")
+var pause = null
 
 func _ready():
+	set_process_input(true)
 	randomize()
 	
 	head_texture = preload("res://scenes/Games/head.png")
@@ -44,6 +48,8 @@ func _ready():
 	body_turn_fat_texture = preload("res://scenes/Games/body_turn.png")#preload("res://scenes/Games/body_turn_fat.png")
 	tail_texture = preload("res://scenes/Games/tail.png")
 	font = load("res://Game Bubble.ttf")
+	
+	
 
 	generate_board()
 	place_snake()
@@ -51,7 +57,17 @@ func _ready():
 	eat_sound = AudioStreamPlayer.new()
 	eat_sound.stream = preload("res://scenes/Games/EatSound.wav")
 	add_child(eat_sound)
-
+func _input(ev):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if pause == null:
+			pause = pause_scene.instantiate()
+			get_tree().get_root().add_child(pause)
+			get_tree().paused = true 
+			pause.process_mode = Node.PROCESS_MODE_ALWAYS
+		elif pause != null and pause.visible == true:
+			get_tree().get_root().remove_child(pause)
+			pause = null
+			get_tree().paused = false
 func _process(delta: float) -> void:
 	if not game_over:
 		timer += delta
@@ -72,6 +88,7 @@ func _process(delta: float) -> void:
 		head_scale = lerp(head_scale, 1.0, delta * 5.0)
 
 	queue_redraw()
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if game_over:
@@ -153,6 +170,28 @@ func _draw():
 		var text_size = font.get_string_size(text)
 		var center_pos = Vector2(vp_size.x / 2, vp_size.y / 2) - text_size / 2
 		draw_string(font, center_pos, text)
+		if not button_created:
+			create_restart_button(center_pos + Vector2(0, text_size.y + 20))
+
+func create_restart_button(position: Vector2):
+	var button = Button.new()
+	button.text = "Restart"
+	button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	button.anchor_left = 0.5
+	button.anchor_top = 0
+	button.anchor_right = 0.5
+	button.anchor_bottom = 0
+	button.pivot_offset = Vector2(button.size.x / 2, 0)
+
+	add_child(button)
+	button.position = position
+	button_created = true
+
+	button.connect("pressed", Callable(self, "_on_restart_pressed"))
+
+
+func _on_restart_pressed():
+	get_tree().reload_current_scene()
 
 func generate_board():
 	board.clear()
@@ -291,3 +330,7 @@ func get_texture_angle(from_dir, to_dir):
 
 func random_int(min_val: int, max_val: int) -> int:
 	return randi() % (max_val - min_val + 1) + min_val
+
+
+func _on_move_speed_slider_value_changed(value: float) -> void:
+	move_interval = value
