@@ -118,6 +118,7 @@ offset_bottom = 458.0
 placeholder_text = "Kažkas neramina? Raštelk!"
 
 [node name="SendButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 725.0
 offset_top = 472.0
 offset_right = 905.0
@@ -141,6 +142,7 @@ text = "Siųsti
 "
 
 [node name="NextButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 728.0
 offset_top = 557.0
 offset_right = 995.0
@@ -164,6 +166,7 @@ text = "Varom toliau!
 "
 
 [node name="BackButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 561.0
 offset_right = 323.0
