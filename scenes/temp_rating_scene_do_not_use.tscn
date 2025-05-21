@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwc72m7g875k"]
 
-[ext_resource type="Script" uid="uid://gcdnajjr3qxs" path="res://scripts/temp_rating_scene_do_not_use.gd" id="1_05hiv"]
+[ext_resource type="Script" path="res://scripts/temp_rating_scene_do_not_use.gd" id="1_05hiv"]
 [ext_resource type="Texture2D" uid="uid://drf1r46gnxfao" path="res://assets/U1f.jpg" id="2_05hiv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4f2xd"]

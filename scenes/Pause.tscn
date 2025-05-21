@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://1gft2x8y73sr"]
 
-[ext_resource type="Script" uid="uid://cwm017fqqr0xj" path="res://scripts/pause.gd" id="1_8v81o"]
+[ext_resource type="Script" path="res://scripts/pause.gd" id="1_8v81o"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="1_wcpj6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ep5p"]
@@ -128,8 +128,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ep5p")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wcpj6")
@@ -147,8 +147,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ep5p")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wcpj6")
@@ -166,8 +166,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ep5p")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_wcpj6")

@@ -255,6 +255,7 @@ flip_h = true
 [node name="HTTPRequest" type="HTTPRequest" parent="Control"]
 
 [node name="EncouragementLabel" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 633.0
 offset_top = 452.0
 offset_right = 984.0
@@ -264,6 +265,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="InputLine" type="LineEdit" parent="Control"]
+layout_mode = 0
 offset_left = 771.0
 offset_top = 303.0
 offset_right = 1135.0
@@ -271,6 +273,7 @@ offset_bottom = 353.0
 placeholder_text = "Reikia pagalbos? Kreipkis drąsiai!"
 
 [node name="HelpButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 770.0
 offset_top = 374.0
 offset_right = 950.0
@@ -296,6 +299,7 @@ text = "Padėk
 [node name="TypeTimer" type="Timer" parent="Control"]
 
 [node name="NextButton" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 564.0
 offset_right = 376.0
