@@ -3,7 +3,8 @@ extends Control
 signal settings_closed
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -18,3 +19,7 @@ func _on_exit_pressed() -> void:
 func _input(ev):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_on_exit_pressed()
+
+func _on_settings_closed():
+	print("Settings menu closed")
+	show()

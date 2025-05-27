@@ -12,6 +12,7 @@ var can_click = false
 
 func _ready():
 	result_label.text = ""
+	result_label.add_theme_color_override("font_color", Color.BLACK)
 	_show_next_number()
 
 func _show_next_number():
@@ -26,6 +27,7 @@ func _show_next_number():
 		btn.text = str(num)
 		btn.name = str(num)
 		btn.connect("pressed", Callable(self, "_on_button_pressed").bind(btn))
+		btn.add_theme_color_override("font_color", Color.BLACK)
 		buttons_container.add_child(btn)
 	# Pradėsim skaičių rodymą
 	_start_showing_sequence()
@@ -39,6 +41,7 @@ func _show_number_once():
 	if current_index < 4:
 		last_number = numbers[randi() % numbers.size()]
 		number_label.text = str(last_number)
+		number_label.add_theme_color_override("font_color", Color.BLACK)
 		shown_numbers.append(last_number)
 		current_index += 1
 		can_click = false
@@ -53,6 +56,7 @@ func _show_number_once():
 		# Po keturių rodymų leidžiam spausti mygtukus
 		can_click = true
 		number_label.text = "Paspausk paskutinį skaičių!"
+		number_label.add_theme_color_override("font_color", Color.BLACK)
 
 func _hide_number():
 	number_label.text = ""

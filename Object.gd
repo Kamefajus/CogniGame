@@ -10,16 +10,14 @@ func _ready():
 	input_pickable = true
 	shape.disabled = false
 
-	# Atsitiktinai parenkam ar raketa, ar apskritimas
-	if randf() < 0.5:
+func set_as_rocket(is_rocket_value: bool) -> void:
+	is_rocket = is_rocket_value
+	if is_rocket:
 		sprite.texture = preload("res://May 20, 2025, 05_29_39 PM.png")
-		is_rocket = true
 	else:
 		sprite.texture = preload("res://Red-Circle-Transparent.png")
-		is_rocket = false
 
 func _input_event(viewport, event, shape_idx):
-	print("PASPAUSTA!")
 	if event is InputEventMouseButton and event.pressed:
 		if main_node:
 			if is_rocket:

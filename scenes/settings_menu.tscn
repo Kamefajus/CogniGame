@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/settings_menu.gd" id="1_cdykr"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="2_qvap1"]
-[ext_resource type="PackedScene" uid="uid://c01jp6v3rb024" path="res://scenes/settings_tab_container.tscn" id="3_xauxx"]
+[ext_resource type="PackedScene" uid="uid://dgi1b7b1th8rb" path="res://scenes/settings_tab_container.tscn" id="3_xauxx"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -45,6 +45,7 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
 text = "Išeiti"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_exit_pressed"]

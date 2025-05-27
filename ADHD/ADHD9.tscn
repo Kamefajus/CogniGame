@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://fyacuroaevjt"]
 
-[ext_resource type="Script" path="res://ADHD9.gd" id="1_wsy0k"]
+[ext_resource type="Script" path="res://ADHD/ADHD9.gd" id="1_wsy0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe345"]
 bg_color = Color(0.857412, 0.0419497, 0.0700221, 1)
@@ -19,6 +19,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = 310.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wsy0k")

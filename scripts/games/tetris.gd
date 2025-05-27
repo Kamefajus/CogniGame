@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var pause_scene = preload("res://scenes/Pause.tscn")
+var pause = null
+
 const GRID_WIDTH := 10
 const GRID_HEIGHT := 20
 const TILE_SIZE := 24
@@ -8,6 +11,7 @@ const TILE_SIZE := 24
 @onready var GameOver_Sound = $GameOver_Sound
 @onready var Falling_Sound = $falling_Sound
 @onready var rotate_Sound = $rotate_Sound
+
 
 const SHAPES = {
 	"I": [[Vector2(-1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(2, 0)]],
@@ -62,6 +66,8 @@ func spawn_piece():
 		game_over = true
 
 func _process(delta):
+	if get_tree().paused:
+		return
 	if game_over:
 		return
 	drop_timer += delta
@@ -74,6 +80,16 @@ func _process(delta):
 	queue_redraw()
 
 func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if pause == null:
+			pause = pause_scene.instantiate()
+			get_tree().get_root().add_child(pause)
+			get_tree().paused = true
+			pause.process_mode = Node.PROCESS_MODE_ALWAYS
+		elif pause != null and pause.visible == true:
+			get_tree().get_root().remove_child(pause)
+			pause = null
+			get_tree().paused = false
 	if game_over:
 		return
 	if event.is_action_pressed("ui_left"):

@@ -11,10 +11,11 @@ var timer := 0.0
 func _ready():
 	color_box.color = colors[current_color_index]
 	result_popup.confirmed.connect(_on_result_popup_confirmed)
+	
+	# Jei nenaudoji pauzės, šios eilutės galima pašalinti:
+	# result_popup.pause_mode = 2
 
 func _process(delta):
-	if get_tree().paused:
-		return
 	timer += delta
 	if timer >= change_interval:
 		timer = 0.0
@@ -33,9 +34,9 @@ func _input(event):
 				_show_result(false)
 
 func _show_result(is_correct: bool):
-	get_tree().paused = true
 	result_popup.dialog_text = "✅ Teisingai! Spalva mėlyna!" if is_correct else "❌ Neteisingai. Tai ne mėlyna spalva."
 	result_popup.popup_centered()
 
 func _on_result_popup_confirmed():
-	get_tree().paused = false
+	# Jei nenaudojam pauzės, šios eilutės taip pat nereikia
+	pass
