@@ -7,6 +7,8 @@ extends Node
 var email = "";
 
 func _ready() -> void:
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_in(0.4)
 	Database._ready()
 	_add_click_sounds_to_buttons(self)
 
@@ -38,9 +40,17 @@ func _on_change_password_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/password_reset_scenes/enter_email_scene.tscn")
+	change_scene("res://scenes/password_reset_scenes/enter_email_scene.tscn")
 
 
 func set_email(new_email: String) -> void:
 	email = new_email
 	print("Email received: ", email)
+
+func change_scene(scene_path):
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_out()
+	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
+	
+func _on_fade_done(scene_path):
+	get_tree().change_scene_to_file(scene_path)

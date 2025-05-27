@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://i4aubypnxhke"]
 
-[ext_resource type="Script" path="res://scripts/login_menu.gd" id="1_bmxdy"]
+[ext_resource type="Script" uid="uid://crrxyg17t2at7" path="res://scripts/login_menu.gd" id="1_bmxdy"]
 [ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_7i4bj"]
 [ext_resource type="Theme" uid="uid://cg805hpb7bv8k" path="res://label.tres" id="3_hhelq"]
 
@@ -129,8 +129,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -149,8 +149,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -169,8 +169,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")
@@ -189,8 +189,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6hiwu")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_3gyab")

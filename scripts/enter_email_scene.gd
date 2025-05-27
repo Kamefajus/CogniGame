@@ -34,4 +34,12 @@ func _on_send_code_button_pressed() -> void:
 
 
 func _on_exit_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/login_menu.tscn")
+	change_scene("res://scenes/login_menu.tscn")
+	
+func change_scene(scene_path):
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_out()
+	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
+	
+func _on_fade_done(scene_path):
+	get_tree().change_scene_to_file(scene_path)

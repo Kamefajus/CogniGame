@@ -4,6 +4,8 @@ extends Control
 var settings = null
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_in()
 	_add_click_sounds_to_buttons(self)
 
 func _add_click_sounds_to_buttons(node):
@@ -20,7 +22,7 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game.tscn") 
+	change_scene("res://scenes/Game.tscn") 
 
 
 func _on_button_2_pressed():
@@ -36,3 +38,11 @@ func _on_exit_pressed():
 func _on_settings_closed():
 	settings = null
 	show()  # Show pause menu again
+	
+func change_scene(scene_path):
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_out()
+	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
+	
+func _on_fade_done(scene_path):
+	get_tree().change_scene_to_file(scene_path)

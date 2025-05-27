@@ -11,6 +11,8 @@ var notif = null
 var pause = null
 
 func _ready():
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_in()
 	set_process_input(true)
 
 func _process(delta):
@@ -51,3 +53,4 @@ func _on_lose_ai_button_pressed():
 	get_tree().set_current_scene(ai)
 	old.queue_free()
 	ai.show_failure_screen("Žaidėjas pralaimėjo, paskatink jį neprarasti pasitikėjimo savimi.")
+	

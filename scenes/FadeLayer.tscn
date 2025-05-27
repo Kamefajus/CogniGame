@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cy054l2jrvgj8"]
 
-[ext_resource type="Script" path="res://scripts/fade_layer.gd" id="1_ijvxy"]
+[ext_resource type="Script" uid="uid://x6os4k2abtnr" path="res://scripts/fade_layer.gd" id="1_ijvxy"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
