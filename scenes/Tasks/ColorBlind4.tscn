@@ -1,0 +1,64 @@
+[gd_scene load_steps=11 format=3 uid="uid://cgyytf3wit306"]
+
+[ext_resource type="Script" path="res://scenes/Tasks/color_blind_4.gd" id="1_voit0"]
+[ext_resource type="Texture2D" uid="uid://dhauf8lsn1jk1" path="res://minecraft_render___tree_by_danixoldier_d6t90oe-fullview.png" id="1_wvybm"]
+[ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_8mfwq"]
+[ext_resource type="Texture2D" uid="uid://bd6cvki3arv1e" path="res://image55.png" id="2_lcu2h"]
+[ext_resource type="Texture2D" uid="uid://djxffo7ug4iso" path="res://150px-Leather_JE2_BE2.png" id="3_am4at"]
+[ext_resource type="Script" path="res://scenes/Tasks/area_2d.gd" id="4_h1drq"]
+[ext_resource type="Texture2D" uid="uid://babwrq4y5iqrw" path="res://Under_Construction_Warning_Sign_PNG_Clipart-839.png" id="7_5dlum"]
+[ext_resource type="Script" path="res://scenes/Tasks/area_2d_2.gd" id="7_uhup6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3eh"]
+size = Vector2(180, 217)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj11v"]
+size = Vector2(227, 246)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_voit0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(229, 99)
+scale = Vector2(0.335, 0.314167)
+texture = ExtResource("2_lcu2h")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(585, 433)
+scale = Vector2(0.306641, 0.324219)
+texture = ExtResource("2_8mfwq")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(547.189, 109.847)
+script = ExtResource("4_h1drq")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Area2D"]
+position = Vector2(-0.188721, -4.84722)
+scale = Vector2(0.219116, 0.23584)
+texture = ExtResource("1_wvybm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.81134, 1.15277)
+shape = SubResource("RectangleShape2D_xa3eh")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(940, 118)
+scale = Vector2(0.0342, 0.0338)
+texture = ExtResource("7_5dlum")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(217, 400)
+script = ExtResource("7_uhup6")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Area2D2"]
+scale = Vector2(0.268555, 0.268555)
+texture = ExtResource("1_wvybm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_gj11v")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(920, 426)
+scale = Vector2(1.28667, 1.29333)
+texture = ExtResource("3_am4at")

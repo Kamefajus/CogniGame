@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://b02gjnp1ks7jh"]
+
+[ext_resource type="Script" path="res://PuzzleScene.gd" id="1_q3rse"]
+[ext_resource type="Texture2D" uid="uid://bhit84gxs5e11" path="res://ChatGPT Image May 15, 2025, 05_19_03 PM.png" id="2_gpkic"]
+[ext_resource type="Texture2D" uid="uid://bwni0myclqpx0" path="res://ChatGPT Image May 15, 2025, 05_21_29 PM.png" id="3_7uteb"]
+[ext_resource type="Texture2D" uid="uid://b1ct1y13dv8pi" path="res://black-question-mark-icon-clip-art-10.png" id="4_g0sfb"]
+[ext_resource type="Texture2D" uid="uid://bs35mlsy3rch0" path="res://BCO.7d087e88-32ab-460f-b4a2-fd0c8d6ecddf.png" id="5_6ul8g"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q3rse")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lbl_question" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Kokia turi būti kita figūrą?"
+
+[node name="hbox_sequence" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="fig1" type="TextureRect" parent="VBoxContainer/hbox_sequence"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_gpkic")
+expand_mode = 1
+
+[node name="fig2" type="TextureRect" parent="VBoxContainer/hbox_sequence"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("3_7uteb")
+expand_mode = 1
+
+[node name="fig3" type="TextureRect" parent="VBoxContainer/hbox_sequence"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("4_g0sfb")
+expand_mode = 1
+
+[node name="fig4" type="TextureRect" parent="VBoxContainer/hbox_sequence"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("5_6ul8g")
+expand_mode = 1
+
+[node name="hbox_choices" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+
+[node name="btn_choice_1" type="Button" parent="VBoxContainer/hbox_choices"]
+layout_mode = 2
+text = "Trikampis su zigzagais
+"
+
+[node name="btn_choice_2" type="Button" parent="VBoxContainer/hbox_choices"]
+layout_mode = 2
+text = "Kvadratas su taškais"
+
+[node name="btn_choice_3" type="Button" parent="VBoxContainer/hbox_choices"]
+layout_mode = 2
+text = "Penkiakampis us zigzagais"
+
+[node name="lbl_result" type="Label" parent="VBoxContainer"]
+layout_mode = 2
