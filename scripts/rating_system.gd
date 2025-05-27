@@ -1,15 +1,16 @@
 extends Node
 
 
-func spawn_items(panel: Node, scene: String) -> void:
+func spawn_items(panel: Node, scene: String, color: Color) -> void:
 	var label = Label.new()
 	
 	label.text = "Kaip vertinate užduotį?"
+	label.add_theme_color_override("font_color", color)
 	label.position = Vector2(panel.size.x/2 - 80, panel.size.y/2 - 30) 
 	panel.add_child(label)
 	
 	for i in range(1, 6):
-		var star = generate_star(i, panel)
+		var star = generate_star(i, panel, color)
 		panel.add_child(star)
 	
 	var button = Button.new()
@@ -17,10 +18,11 @@ func spawn_items(panel: Node, scene: String) -> void:
 	button.position = Vector2(panel.size.x - 170, panel.size.y - 70)
 	button.size = Vector2(150, 50)
 	button.pressed.connect(func(): _on_button_back_pressed(scene, panel))
+	button.pressed.connect(Callable(AudioManager, "play_click"))
 	panel.add_child(button)
 
 
-func update(number: int, root: Node) -> void:
+func update(number: int, root: Node, color: Color) -> void:
 	var is_already_selected = false
 	for i in range(number):
 		var star = root.get_node("Star_"+str(i+1))
@@ -34,49 +36,49 @@ func update(number: int, root: Node) -> void:
 	while is_already_selected and indx <= 5:
 		var star = root.get_node("Star_"+str(indx))
 		if(star.color == Color.ORANGE):
-			star.color = Color.WHITE
+			star.color = color
 			indx = indx + 1
 		else:
 			is_already_selected = false
 
 
-func indicate(number: int, root: Node) -> void:
+func indicate(number: int, root: Node, color: Color) -> void:
 	var indx = number
 	
 	while indx > 0:
 		var star = root.get_node("Star_"+str(indx))
-		if(star.color == Color.WHITE):
+		if(star.color == color):
 			star.color = Color.YELLOW
 			indx = indx - 1
 		else:
 			indx = 0
 
 
-func deindicate(number: int, root: Node) -> void:
+func deindicate(number: int, root: Node, color: Color) -> void:
 	var indx = number
 	
 	while indx > 0:
 		var star = root.get_node("Star_"+str(indx))
 		if(star.color == Color.YELLOW):
-			star.color = Color.WHITE
+			star.color = color
 			indx = indx - 1
 		else:
 			indx = 0
 
 
-func _on_texture_button_pressed(button: TextureButton, root: Node) -> void:
+func _on_texture_button_pressed(button: TextureButton, root: Node, color: Color) -> void:
 	var number = int(button.name.split("_")[1])
-	update(number, root)
+	update(number, root, color)
 
 
-func _on_texture_button_mouse_entered(button: TextureButton, root: Node) -> void:
+func _on_texture_button_mouse_entered(button: TextureButton, root: Node, color: Color) -> void:
 	var number = int(button.name.split("_")[1])
-	indicate(number, root)
+	indicate(number, root, color)
 
 
-func _on_texture_button_mouse_exited(button: TextureButton, root: Node) -> void:
+func _on_texture_button_mouse_exited(button: TextureButton, root: Node, color: Color) -> void:
 	var number = int(button.name.split("_")[1])
-	deindicate(number, root)
+	deindicate(number, root, color)
 
 
 func generate_star_points(points: int, outer_radius: float, inner_radius: float) -> PackedVector2Array:
@@ -93,24 +95,24 @@ func generate_star_points(points: int, outer_radius: float, inner_radius: float)
 	return polygon
 
 
-func generate_star(indx: int, root: Node) -> Polygon2D:
+func generate_star(indx: int, root: Node, color: Color) -> Polygon2D:
 	var star = Polygon2D.new()
 	star.name = "Star_" + str(indx)
 	star.position = Vector2(root.size.x/2 + 50*(indx-3), root.size.y*0.6 - 20)
 	star.polygon = generate_star_points(5, 20, 11)
-	star.color = Color.WHITE
+	star.color = color
 	
 	var button = TextureButton.new()
 	button.name = "Button_" + str(indx)
 	button.size = Vector2(40, 40)
 	button.position = Vector2(-20, -20)
-	button.pressed.connect(func(): _on_texture_button_pressed(button, root))
-	button.mouse_entered.connect(func(): _on_texture_button_mouse_entered(button, root))
-	button.mouse_exited.connect(func(): _on_texture_button_mouse_exited(button, root))
+	button.pressed.connect(func(): _on_texture_button_pressed(button, root, color))
+	button.mouse_entered.connect(func(): _on_texture_button_mouse_entered(button, root, color))
+	button.mouse_exited.connect(func(): _on_texture_button_mouse_exited(button, root, color))
 	star.add_child(button)
 	
 	return star
 
 
 func _on_button_back_pressed(scene: String, root: Node) -> void :
-	root.get_tree().change_scene_to_file(scene)
+	SceneTransition.change_scene(scene)

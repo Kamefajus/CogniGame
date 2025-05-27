@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=3 uid="uid://i85ix1ci3gg3"]
+
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="1_7mviy"]
+[ext_resource type="Script" uid="uid://dqw5prj3xtm2o" path="res://adhd_tests.gd" id="1_tve25"]
+[ext_resource type="PackedScene" uid="uid://dy0y2o4i6ex5g" path="res://ADHD/ADHD1.tscn" id="2_n4fec"]
+[ext_resource type="PackedScene" uid="uid://cnunrvvgoa4qc" path="res://ADHD/ADHD2.tscn" id="3_0p77d"]
+[ext_resource type="PackedScene" uid="uid://dvocxdp5lj8k0" path="res://ADHD/ADHD3.tscn" id="4_6ewbu"]
+[ext_resource type="PackedScene" uid="uid://dg4g5bsphr5sl" path="res://ADHD/ADHD4.tscn" id="6_lmr0g"]
+[ext_resource type="PackedScene" uid="uid://6072hfgiss3g" path="res://ADHD/ADHD5.tscn" id="7_7ljh6"]
+[ext_resource type="PackedScene" uid="uid://dtntpxsceci7b" path="res://ADHD/ADHD6.tscn" id="8_t4pfg"]
+[ext_resource type="PackedScene" uid="uid://bruqkx54qq24u" path="res://ADHD/ADHD7.tscn" id="9_ml8rv"]
+[ext_resource type="PackedScene" uid="uid://c4782d0st8k1s" path="res://ADHD/ADHD8.tscn" id="10_7darq"]
+[ext_resource type="PackedScene" uid="uid://fyacuroaevjt" path="res://ADHD/ADHD9.tscn" id="11_axjer"]
+[ext_resource type="PackedScene" uid="uid://cvqn7wecap17p" path="res://ADHD/ADHD10.tscn" id="12_uvpis"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tve25")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_7mviy")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 40.0
+current_tab = 9
+
+[node name="1" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Main" parent="TabContainer/1" instance=ExtResource("2_n4fec")]
+position = Vector2(452, 240)
+
+[node name="2" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Node2D" parent="TabContainer/2" instance=ExtResource("3_0p77d")]
+visible = false
+
+[node name="3" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Node2D" parent="TabContainer/3" instance=ExtResource("4_6ewbu")]
+visible = false
+
+[node name="4" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Node2D" parent="TabContainer/4" instance=ExtResource("6_lmr0g")]
+
+[node name="5" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Node2D" parent="TabContainer/5" instance=ExtResource("7_7ljh6")]
+
+[node name="6" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Node2D" parent="TabContainer/6" instance=ExtResource("8_t4pfg")]
+
+[node name="7" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="Node2D" parent="TabContainer/7" instance=ExtResource("9_ml8rv")]
+
+[node name="8" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="Node2D" parent="TabContainer/8" instance=ExtResource("10_7darq")]
+
+[node name="9" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 8
+
+[node name="Control" parent="TabContainer/9" instance=ExtResource("11_axjer")]
+layout_mode = 1
+offset_left = 536.0
+offset_top = 347.0
+offset_right = 216.0
+offset_bottom = 338.0
+
+[node name="10" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 9
+
+[node name="Node2D" parent="TabContainer/10" instance=ExtResource("12_uvpis")]

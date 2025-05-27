@@ -38,13 +38,14 @@ func _on_login_button_pressed() -> void:
 
 	if Database.verify_login(nickname, password):
 		error_label.text = "Prisijungimas sėkmingas"
-		change_scene("res://scenes/main_menu.tscn")
+		await get_tree().create_timer(1.5).timeout
+		SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	else:
 		error_label.text = "Neteisingas prisijungimo vardas arba slaptažodis."
 
 
 func _on_register_button_pressed() -> void:
-	change_scene("res://scenes/register_menu.tscn")
+	SceneTransition.change_scene("res://scenes/register_menu.tscn")
 
 
 func _on_exit_button_pressed() -> void:
@@ -52,12 +53,11 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_password_reset_button_pressed() -> void:
-	change_scene("res://scenes/password_reset_scenes/enter_email_scene.tscn")
+	SceneTransition.change_scene("res://scenes/password_reset_scenes/enter_email_scene.tscn")
+	#var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	#fade.hard_fade_out(0.8)
+	#fade.connect("faded_out", Callable(self, "_on_fade_done").bind("res://scenes/password_reset_scenes/enter_email_scene.tscn"), CONNECT_ONE_SHOT)
 
-func change_scene(scene_path):
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_out()
-	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
-	
+
 func _on_fade_done(scene_path):
 	get_tree().change_scene_to_file(scene_path)

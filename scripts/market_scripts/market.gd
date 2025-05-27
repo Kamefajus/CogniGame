@@ -8,12 +8,14 @@ var u_id = 1
 signal update(change: bool)
 
 func _ready() -> void:
-	Database._ready()
 	money_label.text = str(money)
+	$Button.pressed.connect(Callable(AudioManager, "play_click"))
+	$Panel2/NoButton.pressed.connect(Callable(AudioManager, "play_click"))
+	$Panel2/YesButton.pressed.connect(Callable(AudioManager, "play_click"))
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	SceneTransition.change_scene("res://scenes/main_menu.tscn")
 
 
 func _on_avatarai_update_money(id: int) -> void:

@@ -18,7 +18,12 @@ config/icon="res://icon.svg"
 [autoload]
 
 Database="*res://scripts/database.gd"
+SceneTransition="*res://scenes/scene_transition.tscn"
 AudioManager="*res://scripts/AudioManager.gd"
+AudioControl="*res://scenes/audio_control.tscn"
+Global1="*res://global_1.gd"
+ColorProfile="*res://singletons/ColorProfile.gd"
+ColorBlindness="*res://addons/paulloz.colorblindness/ColorBlindness.tscn"
 
 [dotnet]
 
@@ -26,8 +31,16 @@ project/assembly_name="CogniGame"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg", "res://addons/paulloz.colorblindness/plugin.cfg")
 
 [gui]
 
 theme/custom="uid://b4phs07fuotj4"
+
+[input]
+
+Click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}

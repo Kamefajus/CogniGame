@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://depe2g5i5gvfb"]
+
+[ext_resource type="PackedScene" uid="uid://dxqcr7t1g3nvf" path="res://scenes/Tasks/Object.tscn" id="1_offv4"]
+[ext_resource type="PackedScene" uid="uid://dgp483beu1a46" path="res://scenes/Tasks/Drop.tscn" id="2_a3cl3"]
+[ext_resource type="PackedScene" uid="uid://dlwvfsu3ogby4" path="res://scenes/Tasks/Object1.tscn" id="3_aox6w"]
+[ext_resource type="PackedScene" uid="uid://bkbnwi4sjkdbp" path="res://scenes/Tasks/Object2.tscn" id="4_viv7k"]
+[ext_resource type="PackedScene" uid="uid://56gp3a0tllj3" path="res://scenes/Tasks/Drop2.tscn" id="5_phgwa"]
+[ext_resource type="PackedScene" uid="uid://dfij7mbydsr6t" path="res://scenes/Tasks/Drop1.tscn" id="6_oguxm"]
+
+[node name="ColorBlind3" type="Node2D"]
+
+[node name="Node2D" parent="." instance=ExtResource("1_offv4")]
+position = Vector2(110, 383)
+
+[node name="platform" parent="." instance=ExtResource("2_a3cl3")]
+position = Vector2(135, 86)
+
+[node name="Node2D2" parent="." instance=ExtResource("3_aox6w")]
+position = Vector2(453, 351)
+
+[node name="Node2D3" parent="." instance=ExtResource("4_viv7k")]
+position = Vector2(826, 359)
+
+[node name="platform3" parent="." instance=ExtResource("5_phgwa")]
+position = Vector2(799, 78)
+
+[node name="platform2" parent="." instance=ExtResource("6_oguxm")]
+position = Vector2(444, 79)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://bwkdr8bjogdub"]
+[gd_scene load_steps=29 format=3 uid="uid://bwkdr8bjogdub"]
 
 [ext_resource type="Script" uid="uid://bw0g8x2ten05y" path="res://scripts/market_scripts/market.gd" id="1_k70a0"]
 [ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_7bpo7"]
 [ext_resource type="Texture2D" uid="uid://cnr40r3xcjlw6" path="res://assets/pngimg.com - coin_PNG36871.png" id="3_7bpo7"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_d6tgm"]
 [ext_resource type="Script" uid="uid://boilin5o2upr4" path="res://scripts/market_scripts/tab_bar.gd" id="4_d6tgm"]
+[ext_resource type="Script" path="res://scripts/market_scripts/clothes_tab.gd" id="5_co8of"]
+[ext_resource type="Script" path="res://scripts/market_scripts/accessories_tab.gd" id="6_ennqm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygeob"]
 texture = ExtResource("2_7bpo7")
@@ -240,6 +242,54 @@ grow_horizontal = 0
 grow_vertical = 2
 page = 10.0
 
+[node name="Aprangos" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_co8of")
+metadata/_tab_index = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Aprangos"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 476.0
+
+[node name="Node2D" type="Node2D" parent="TabContainer/Aprangos/RichTextLabel"]
+
+[node name="VScrollBar" type="VScrollBar" parent="TabContainer/Aprangos"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+grow_horizontal = 0
+grow_vertical = 2
+page = 10.0
+
+[node name="Aksesuarai" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("6_ennqm")
+metadata/_tab_index = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Aksesuarai"]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 476.0
+
+[node name="Node2D" type="Node2D" parent="TabContainer/Aksesuarai/RichTextLabel"]
+
+[node name="VScrollBar" type="VScrollBar" parent="TabContainer/Aksesuarai"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -19.0
+grow_horizontal = 0
+grow_vertical = 2
+page = 10.0
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -253,6 +303,7 @@ offset_right = 242.0
 offset_bottom = -231.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_d6tgm")
 theme_override_font_sizes/font_size = 60
 text = "Parduotuvė"
@@ -355,7 +406,11 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_23wqn")
 text = "Taip"
 
 [connection signal="update" from="." to="TabContainer/Avatarai" method="_on_market_update"]
+[connection signal="update" from="." to="TabContainer/Aprangos" method="_on_market_update"]
+[connection signal="update" from="." to="TabContainer/Aksesuarai" method="_on_market_update"]
 [connection signal="update_money" from="TabContainer/Avatarai" to="." method="_on_avatarai_update_money"]
+[connection signal="update_money" from="TabContainer/Aprangos" to="." method="_on_avatarai_update_money"]
+[connection signal="update_money" from="TabContainer/Aksesuarai" to="." method="_on_avatarai_update_money"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel2/NoButton" to="." method="_on_no_button_pressed"]
 [connection signal="pressed" from="Panel2/YesButton" to="." method="_on_yes_button_pressed"]

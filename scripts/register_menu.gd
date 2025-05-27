@@ -9,8 +9,6 @@ extends Node
 #@onready var db = preload("res://scripts/database.gd").new()
 
 func _ready() -> void:
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_in()
 	Database._ready()
 	_add_click_sounds_to_buttons(self)
 
@@ -40,18 +38,11 @@ func _on_register_button_pressed() -> void:
 
 	if Database.register_user(name, nickname, email, password):
 		error_label.text = "Registracija sėkminga! Perkeliama..."
-		change_scene("res://scenes/login_menu.tscn")
+		await get_tree().create_timer(1.5).timeout
+		SceneTransition.change_scene("res://scenes/login_menu.tscn")
 	else:
 		error_label.text = "Prisijungimo vardas ar el. paštas jau naudojamas"
 
 
 func _on_back_button_pressed() -> void:
-	change_scene("res://scenes/login_menu.tscn")
-
-func change_scene(scene_path):
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_out()
-	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
-	
-func _on_fade_done(scene_path):
-	get_tree().change_scene_to_file(scene_path)
+	SceneTransition.change_scene("res://scenes/login_menu.tscn")

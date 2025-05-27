@@ -14,6 +14,7 @@ func _ready():
 	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
 	fade.hard_fade_in()
 	set_process_input(true)
+	$Button.connect("pressed", Callable(AudioManager, "play_click"))
 
 func _process(delta):
 	if pause == null:
@@ -36,7 +37,7 @@ func _input(ev):
 			pause = null
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	SceneTransition.change_scene_slide_animation("res://scenes/main_menu.tscn", true)
 
 func _on_win_ai_button_pressed():
 	var old = get_tree().current_scene

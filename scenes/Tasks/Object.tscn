@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxqcr7t1g3nvf"]
+
+[ext_resource type="Script" uid="uid://daw0vxu3rw4j1" path="res://node_2d.gd" id="1_e1j2w"]
+[ext_resource type="Texture2D" uid="uid://dhauf8lsn1jk1" path="res://minecraft_render___tree_by_danixoldier_d6t90oe-fullview.png" id="2_e3otc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12dma"]
+size = Vector2(829.666, 887.417)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_e1j2w")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(0.348333, 0.3775)
+texture = ExtResource("2_e3otc")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(7.17702, 9.27152)
+shape = SubResource("RectangleShape2D_12dma")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]

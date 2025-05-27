@@ -1,9 +1,17 @@
 extends Node2D
 
-# --- Grid and Shape Constants ---
+@onready var pause_scene = preload("res://scenes/Pause.tscn")
+var pause = null
+
 const GRID_WIDTH := 10
 const GRID_HEIGHT := 20
 const TILE_SIZE := 24
+
+@onready var move_Sound = $move_Sound
+@onready var GameOver_Sound = $GameOver_Sound
+@onready var Falling_Sound = $falling_Sound
+@onready var rotate_Sound = $rotate_Sound
+
 
 const SHAPES = {
 	"I": [[Vector2(-1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(2, 0)]],
@@ -92,6 +100,8 @@ func generate_next_piece():
 # --- Game Loop ---
 
 func _process(delta):
+	if get_tree().paused:
+		return
 	if game_over:
 		queue_redraw()
 		return
@@ -109,6 +119,16 @@ func _process(delta):
 # --- Player Input ---
 
 func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if pause == null:
+			pause = pause_scene.instantiate()
+			get_tree().get_root().add_child(pause)
+			get_tree().paused = true
+			pause.process_mode = Node.PROCESS_MODE_ALWAYS
+		elif pause != null and pause.visible == true:
+			get_tree().get_root().remove_child(pause)
+			pause = null
+			get_tree().paused = false
 	if game_over:
 		if event.is_action_pressed("ui_accept"):
 			get_tree().reload_current_scene()
@@ -116,14 +136,19 @@ func _input(event):
 		
 	if event.is_action_pressed("ui_left"):
 		move(Vector2(-1, 0))
+		move_Sound.play()
 	elif event.is_action_pressed("ui_right"):
 		move(Vector2(1, 0))
+		move_Sound.play()
 	elif event.is_action_pressed("ui_down"):
 		soft_drop = true
+		Falling_Sound.play()
 	elif event.is_action_released("ui_down"):
 		soft_drop = false
+		Falling_Sound.stop() 
 	elif event.is_action_pressed("ui_up"):
 		rotate_piece()
+		rotate_Sound.play()
 	elif event.is_action_pressed("ui_select"):
 		hard_drop()
 

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dffnf1jwa853i"]
+
+[ext_resource type="Texture2D" uid="uid://k3x1usp3sbrn" path="res://assets/non_mute.png" id="1_k7ejn"]
+[ext_resource type="Texture2D" uid="uid://bqly45hdinkjh" path="res://assets/mute.png" id="2_x05y4"]
+[ext_resource type="Script" uid="uid://bx0scrd84vh42" path="res://scenes/texture_button.gd" id="3_x05y4"]
+
+[node name="AudioControl" type="CanvasLayer"]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -55.0
+offset_right = -31.0
+offset_bottom = -5.0
+grow_horizontal = 0
+grow_vertical = 0
+toggle_mode = true
+texture_normal = ExtResource("1_k7ejn")
+texture_pressed = ExtResource("2_x05y4")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("3_x05y4")
+
+[connection signal="toggled" from="TextureButton" to="TextureButton" method="_on_toggled"]

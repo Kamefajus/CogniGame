@@ -4,8 +4,8 @@ extends Node
 @onready var email_input = $VBoxContainer/EmailInput
 
 func _ready() -> void:
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_in(0.4)
+	#var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	#fade.hard_fade_in(0.4)
 	Database._ready()
 	_add_click_sounds_to_buttons(self)
 
@@ -29,17 +29,8 @@ func _on_send_code_button_pressed() -> void:
 	
 	var nextscene = load("res://scenes/password_reset_scenes/password_code_scene.tscn").instantiate()
 	nextscene.set_email(email)
-	get_tree().current_scene.get_parent().add_child(nextscene)
-	get_tree().current_scene.queue_free()
+	SceneTransition.change_scene_with_scene_instance(nextscene)
 
 
 func _on_exit_button_pressed() -> void:
-	change_scene("res://scenes/login_menu.tscn")
-	
-func change_scene(scene_path):
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_out()
-	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
-	
-func _on_fade_done(scene_path):
-	get_tree().change_scene_to_file(scene_path)
+	SceneTransition.change_scene("res://scenes/login_menu.tscn")

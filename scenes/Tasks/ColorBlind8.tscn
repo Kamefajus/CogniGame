@@ -1,0 +1,84 @@
+[gd_scene load_steps=6 format=3 uid="uid://mhb7oohg12rx"]
+
+[ext_resource type="Texture2D" uid="uid://c4xvrxhd1uweo" path="res://tulip_PNG8994.png" id="1_mh8pf"]
+[ext_resource type="Script" uid="uid://ceoe2r5jsm1bt" path="res://scenes/Tasks/color_blind_8.gd" id="1_pvqd1"]
+[ext_resource type="Texture2D" uid="uid://d3o7ntxyy5yx0" path="res://Red_Tulip_PNG_Transparent_Clip_Art_Image.png" id="2_yci6v"]
+[ext_resource type="Texture2D" uid="uid://dad7rmm7dbvfa" path="res://fd5c6d38-6a0b-4dd2-a0f4-e7040a09fb9c.png" id="3_xi0s3"]
+[ext_resource type="Texture2D" uid="uid://chlvxvh8j6ekk" path="res://pngimg.com - tulip_PNG9004.png" id="4_1q4u6"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pvqd1")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -508.0
+offset_top = -500.0
+offset_right = 508.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 5
+
+[node name="TextureButton" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture_normal = ExtResource("1_mh8pf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture_normal = ExtResource("2_yci6v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton3" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture_normal = ExtResource("2_yci6v")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture_normal = ExtResource("3_xi0s3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(200, 400)
+layout_mode = 2
+texture_normal = ExtResource("4_1q4u6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_right = 67.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Kurios gelės spalva skiriasi?"
+
+[connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]

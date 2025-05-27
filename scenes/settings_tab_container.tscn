@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c01jp6v3rb024"]
+[gd_scene load_steps=7 format=3 uid="uid://dgi1b7b1th8rb"]
 
 [ext_resource type="Script" uid="uid://dtvbauws8pcgt" path="res://scenes/settings_tab_container.gd" id="1_0njai"]
 [ext_resource type="PackedScene" uid="uid://vq2qn38o21xg" path="res://scenes/audio_slider_settings.tscn" id="1_fx2h6"]
 [ext_resource type="PackedScene" uid="uid://ex10i4xoris7" path="res://scenes/window_mode.tscn" id="2_r3sq7"]
 [ext_resource type="PackedScene" uid="uid://blug8kcfvb2ct" path="res://scenes/resolution_mode.tscn" id="3_61cl2"]
-[ext_resource type="PackedScene" uid="uid://dv06y2r4ax52a" path="res://scenes/hotkey_rebind.tscn" id="5_iv2lg"]
+[ext_resource type="PackedScene" uid="uid://x7sypmx5df0c" path="res://input_settings.tscn" id="5_csgdr"]
+[ext_resource type="PackedScene" uid="uid://dno7jrcxmys5p" path="res://subtitles_toggle_button.tscn" id="6_m2kta"]
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3
@@ -27,7 +28,7 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 2
+current_tab = 3
 
 [node name="Garsas" type="TabBar" parent="TabContainer"]
 visible = false
@@ -86,6 +87,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Kontrolės" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -108,66 +110,17 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="HSeparator" type="HSeparator" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 12
-
-[node name="Hotkey_Rebind" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer/HSeparator" instance=ExtResource("5_iv2lg")]
+[node name="input_settings" parent="TabContainer/Kontrolės" instance=ExtResource("5_csgdr")]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-offset_left = 3.0
-offset_top = -33.0
-offset_right = 503.0
-offset_bottom = 65.0
-
-[node name="Hotkey_Rebind2" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer/HSeparator" instance=ExtResource("5_iv2lg")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-offset_left = 3.0
-offset_top = 121.0
-offset_right = 503.0
-offset_bottom = 219.0
-action_name = "move_right"
-
-[node name="Hotkey_Rebind3" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer/HSeparator" instance=ExtResource("5_iv2lg")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-offset_left = 3.0
-offset_top = 207.0
-offset_right = 503.0
-offset_bottom = 305.0
-action_name = "move_up"
-
-[node name="Hotkey_Rebind4" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer/HSeparator" instance=ExtResource("5_iv2lg")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-offset_left = 5.0
-offset_top = 43.0
-offset_right = 505.0
-offset_bottom = 141.0
-action_name = "move_down"
-
-[node name="HSeparator2" type="HSeparator" parent="TabContainer/Kontrolės/MarginContainer/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 155
 
 [node name="Prieinamumas" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Prieinamumas"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 950.0
+offset_bottom = 467.0
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
@@ -177,35 +130,5 @@ theme_override_constants/margin_bottom = 24
 layout_mode = 2
 theme_override_constants/separation = 64
 
-[node name="Label" type="Label" parent="TabContainer/Prieinamumas/MarginContainer/VBoxContainer"]
+[node name="Subtitles_Toggle_Button" parent="TabContainer/Prieinamumas/MarginContainer/VBoxContainer" instance=ExtResource("6_m2kta")]
 layout_mode = 2
-text = "1"
-
-[node name="Label2" type="Label" parent="TabContainer/Prieinamumas/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "2"
-
-[node name="Label3" type="Label" parent="TabContainer/Prieinamumas/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "3"
-
-[node name="Label4" type="Label" parent="TabContainer/Prieinamumas/MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "4"
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -43.5
-offset_top = -53.0
-offset_right = 43.5
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_font_sizes/font_size = 32
-text = "Atgal"
-
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

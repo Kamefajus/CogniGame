@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://63uqawyakk8h"]
+[gd_scene load_steps=6 format=3 uid="uid://63uqawyakk8h"]
 
 [ext_resource type="Script" uid="uid://6jrcu77i6fu8" path="res://scripts/games/tetris.gd" id="1_07on1"]
+[ext_resource type="AudioStream" uid="uid://vcnw7o0333i5" path="res://sounds/tetrisSounds/Tetris_move.wav" id="2_dligb"]
+[ext_resource type="AudioStream" uid="uid://ce2i510ki4cro" path="res://sounds/tetrisSounds/Tetris_Falling_fast.wav" id="3_fidem"]
+[ext_resource type="AudioStream" uid="uid://d1rq7yiuuoqm5" path="res://sounds/tetrisSounds/Tetris_Rotate.wav" id="4_6osi5"]
+[ext_resource type="AudioStream" uid="uid://jjv84sa8dn4m" path="res://sounds/tetrisSounds/Tetris game_over.wav" id="5_53dgk"]
 
 [node name="Tetris" type="Node2D"]
 script = ExtResource("1_07on1")
+
+[node name="move_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_dligb")
+
+[node name="falling_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fidem")
+
+[node name="rotate_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_6osi5")
+
+[node name="GameOver_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_53dgk")

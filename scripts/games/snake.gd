@@ -11,7 +11,7 @@ var apple_index = 0
 var game_over = false
 var movement = 0  # 1=left, 2=right, 3=up, 4=down
 var next_movement = 0
-
+var button_created := false 
 var timer = 0.0
 var move_interval = 0.15
 var score = 0
@@ -35,6 +35,8 @@ var eat_sound: AudioStreamRandomizer
 var head_scale = 1.0
 
 var apples_in_tail: Array = []  # Kad sekam obuolį kūnu
+@onready var pause_scene = preload("res://scenes/Pause.tscn")
+var pause = null
 
 # --- NEW: Variable to hold the programmatically created AudioStreamPlayer node ---
 var eat_sound_player_node: AudioStreamPlayer
@@ -68,6 +70,17 @@ func _ready():
 	eat_sound_player_node.stream = eat_sound
 	eat_sound_player_node.volume_db = -16
 
+func _input(ev):
+	if Input.is_action_just_pressed("ui_cancel"):
+		if pause == null:
+			pause = pause_scene.instantiate()
+			get_tree().get_root().add_child(pause)
+			get_tree().paused = true 
+			pause.process_mode = Node.PROCESS_MODE_ALWAYS
+		elif pause != null and pause.visible == true:
+			get_tree().get_root().remove_child(pause)
+			pause = null
+			get_tree().paused = false
 
 func _process(delta: float) -> void:
 	if not game_over:
@@ -221,15 +234,30 @@ func _draw():
 		var text = "GAME OVER"
 		var text_size = font.get_string_size(text)
 		var center_pos = Vector2(vp_size.x / 2, vp_size.y / 2) - text_size / 2
-		draw_string(font, center_pos, text, HORIZONTAL_ALIGNMENT_LEFT, -1, -1, Color.RED)
-		
-		var restart_text = "Press Enter to Restart"
-		var restart_font_size_val = 16
-		var restart_text_actual_size = font.get_string_size(restart_text, HORIZONTAL_ALIGNMENT_LEFT, -1, restart_font_size_val)
-		var restart_pos = Vector2(vp_size.x / 2 - restart_text_actual_size.x / 2, center_pos.y + text_size.y + 10)
-		draw_string(font, restart_pos, restart_text, HORIZONTAL_ALIGNMENT_LEFT, -1, restart_font_size_val, Color.DARK_GRAY)
+		draw_string(font, center_pos, text)
+		if not button_created:
+			create_restart_button(center_pos + Vector2(0, text_size.y + 20))
+
+func create_restart_button(position: Vector2):
+	var button = Button.new()
+	button.text = "Restart"
+	button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	button.anchor_left = 0.5
+	button.anchor_top = 0
+	button.anchor_right = 0.5
+	button.anchor_bottom = 0
+	button.pivot_offset = Vector2(button.size.x / 2, 0)
+
+	add_child(button)
+	button.position = position
+	button_created = true
+
+	button.connect("pressed", Callable(self, "_on_restart_pressed"))
 
 
+func _on_restart_pressed():
+	get_tree().reload_current_scene()
+	
 func generate_board():
 	board.clear()
 	var vp_size = get_viewport_rect().size
@@ -387,3 +415,9 @@ func random_int(min_val: int, max_val: int) -> int:
 		max_val = temp
 	if min_val == max_val: return min_val 
 	return randi() % (max_val - min_val + 1) + min_val
+
+
+func _on_move_speed_slider_value_changed(value: float) -> void:
+		move_interval = value
+		get_viewport().set_input_as_handled() # optional, if you need to stop event propagation
+		$MoveSpeedSlider.release_focus()

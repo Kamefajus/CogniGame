@@ -1,0 +1,91 @@
+[gd_scene load_steps=6 format=3 uid="uid://fyacuroaevjt"]
+
+[ext_resource type="Script" uid="uid://dyt5yayhl1l0g" path="res://ADHD/ADHD9.gd" id="1_wsy0k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe345"]
+bg_color = Color(0.857412, 0.0419497, 0.0700221, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jffq1"]
+bg_color = Color(0, 0.384461, 0.787477, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mabha"]
+bg_color = Color(0.264858, 0.660054, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bklq"]
+bg_color = Color(0.807843, 0.945098, 0, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 349.0
+offset_top = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wsy0k")
+
+[node name="ColorButtonRed" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 37.0
+offset_top = -158.0
+offset_right = 181.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_pe345")
+
+[node name="ColorButtonBlue" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -154.0
+offset_top = -160.0
+offset_right = -12.0
+offset_bottom = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_jffq1")
+
+[node name="ColorButtonGreen" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 42.0
+offset_top = -52.0
+offset_right = 181.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_mabha")
+
+[node name="ColorButtonYellow" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = -54.0
+offset_right = -15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_7bklq")
+
+[node name="InfoLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
