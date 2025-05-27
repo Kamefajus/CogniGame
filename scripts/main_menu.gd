@@ -43,16 +43,6 @@ func _on_settings_closed():
 	show()
 	settings = null
 	show() 
-	
-func change_scene(scene_path):
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_out()
-	fade.connect("faded_out", Callable(self, "_on_fade_done").bind(scene_path), CONNECT_ONE_SHOT)
-	
-func _on_fade_done(scene_path):
-	get_tree().change_scene_to_file(scene_path)
-	SceneTransition.slide_animation_in_parts(2, true)
-
 
 func _on_button_4_pressed() -> void:
 	SceneTransition.change_scene("res://scenes/market.tscn")

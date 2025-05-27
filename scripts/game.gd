@@ -11,8 +11,6 @@ var notif = null
 var pause = null
 
 func _ready():
-	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
-	fade.hard_fade_in()
 	set_process_input(true)
 	$Button.connect("pressed", Callable(AudioManager, "play_click"))
 

@@ -7,16 +7,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var fade_scene
-	if 	get_tree().root.get_node_or_null("/root/Control/FadeLayer") == null:
-		fade_scene = preload("res://scenes/FadeLayer.tscn").instantiate()
-		get_tree().root.add_child.call_deferred(fade_scene)
-		await get_tree().create_timer(0.5).timeout
-	else:
-		fade_scene = get_tree().root.get_node("/root/Control")
-	# Paleidžiam testą:
-	var fade = fade_scene.get_node("FadeLayer")
-	fade.hard_fade_in()
 	Database._ready()
 	_add_click_sounds_to_buttons(self)
 
@@ -38,7 +28,6 @@ func _on_login_button_pressed() -> void:
 
 	if Database.verify_login(nickname, password):
 		error_label.text = "Prisijungimas sėkmingas"
-		await get_tree().create_timer(1.5).timeout
 		SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	else:
 		error_label.text = "Neteisingas prisijungimo vardas arba slaptažodis."

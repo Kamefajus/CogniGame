@@ -25,11 +25,24 @@ func _ready() -> void:
 	get_tree().connect("node_added", Callable(self, "_on_node_added"))
 
 func _on_tree_changed() -> void:
-	# Scene tree changed, check if we need to recreate
-	await get_tree().process_frame
-	var current_scene = get_tree().current_scene
+	var tree = get_tree()
+	
+	# Check if the tree is valid
+	if tree == null:
+		print("Scene tree is not valid.")
+		return
+	
+	await tree.process_frame
+	
+	var current_scene = tree.current_scene
+	
+	# Check if the current scene is valid and if _current_cb is valid
 	if current_scene and (!_current_cb or !is_instance_valid(_current_cb) or !_current_cb.is_inside_tree()):
+		print("Recreating in scene")
 		_recreate_in_scene(current_scene)
+	else:
+		print("Conditions not met for recreation")
+
 
 func _on_node_added(node: Node) -> void:
 	# If the added node is a scene root, ensure we have our filter
