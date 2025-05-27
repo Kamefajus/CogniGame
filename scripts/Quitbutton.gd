@@ -4,6 +4,7 @@ extends Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	self.pressed.connect(Callable(AudioManager, "play_click"))
 
 
 func _pressed() -> void:

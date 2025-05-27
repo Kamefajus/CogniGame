@@ -20,19 +20,29 @@ func _process(delta: float) -> void:
 
 
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/Game.tscn") 
+	SceneTransition.change_scene_slide_animation("res://scenes/Game.tscn", false)
 
 
 func _on_button_2_pressed():
 	if settings == null:
+		SceneTransition.slide_animation_in_parts(1, false)
+		await get_tree().create_timer(0.5).timeout
 		settings = settings_scene.instantiate()
 		settings.connect("settings_closed", Callable(self, "_on_settings_closed"))
 		get_tree().get_root().add_child(settings)
 		hide()
+		SceneTransition.slide_animation_in_parts(2, false)
 
 func _on_exit_pressed():
-	get_tree().quit()  # Exits the game
+	get_tree().quit()
 
 func _on_settings_closed():
+	SceneTransition.slide_animation_in_parts(1, true)
+	await get_tree().create_timer(0.5).timeout
+	show()
 	settings = null
-	show()  # Show pause menu again
+	SceneTransition.slide_animation_in_parts(2, true)
+
+
+func _on_button_4_pressed() -> void:
+	SceneTransition.change_scene("res://scenes/market.tscn")

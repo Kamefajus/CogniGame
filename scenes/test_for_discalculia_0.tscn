@@ -1,0 +1,2097 @@
+[gd_scene load_steps=10 format=3 uid="uid://ve2kyangiqdi"]
+
+[ext_resource type="Script" uid="uid://de0bh88du7p74" path="res://scripts/test_for_discalculia_0.gd" id="1_vn2dy"]
+[ext_resource type="Texture2D" uid="uid://drf1r46gnxfao" path="res://assets/U1f.jpg" id="2_yqjod"]
+[ext_resource type="Script" uid="uid://ck7icbvwrcr3q" path="res://scripts/slot.gd" id="3_vn2dy"]
+[ext_resource type="Texture2D" uid="uid://xn3x87cqfeci" path="res://assets/red-apple-generative-ai-png.webp" id="4_yqjod"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqnmk"]
+texture = ExtResource("2_yqjod")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph42x"]
+bg_color = Color(0.980392, 0.937255, 0.819608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.0313726, 0.164706, 0.211765, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_80m4v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryg1s"]
+bg_color = Color(0.522223, 0.569276, 0.391464, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vn2dy"]
+bg_color = Color(0.837722, 0.895231, 0.948114, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="TestForDiscalculia0" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vn2dy")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_cqnmk")
+
+[node name="Panel2" type="Panel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -411.0
+offset_top = -235.0
+offset_right = 389.0
+offset_bottom = 215.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ph42x")
+
+[node name="TabContainer" type="TabContainer" parent="Panel/Panel2"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 799.0
+offset_bottom = 450.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_80m4v")
+current_tab = 0
+
+[node name="1" type="TabBar" parent="Panel/Panel2/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kiek obuolių yra iš viso?"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel2/TabContainer/1"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 352.0
+offset_right = 452.0
+offset_bottom = 383.0
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/1"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="2" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Surikiuokite skaičius nuo mažiausio iki didžiausio?"
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="Slot01" type="Panel" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 165.0
+offset_right = 166.0
+offset_bottom = 265.0
+script = ExtResource("3_vn2dy")
+
+[node name="Icon" type="TextureRect" parent="Panel/Panel2/TabContainer/2/Slot01"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Slot02" type="Panel" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 206.0
+offset_top = 165.0
+offset_right = 306.0
+offset_bottom = 265.0
+script = ExtResource("3_vn2dy")
+
+[node name="Icon" type="TextureRect" parent="Panel/Panel2/TabContainer/2/Slot02"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Slot03" type="Panel" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 346.0
+offset_top = 165.0
+offset_right = 446.0
+offset_bottom = 265.0
+script = ExtResource("3_vn2dy")
+
+[node name="Icon" type="TextureRect" parent="Panel/Panel2/TabContainer/2/Slot03"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Slot04" type="Panel" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 486.0
+offset_top = 165.0
+offset_right = 586.0
+offset_bottom = 265.0
+script = ExtResource("3_vn2dy")
+
+[node name="Icon" type="TextureRect" parent="Panel/Panel2/TabContainer/2/Slot04"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="Slot05" type="Panel" parent="Panel/Panel2/TabContainer/2"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 165.0
+offset_right = 726.0
+offset_bottom = 265.0
+script = ExtResource("3_vn2dy")
+
+[node name="Icon" type="TextureRect" parent="Panel/Panel2/TabContainer/2/Slot05"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+
+[node name="3" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Koks skaičius turėtų būti toliau?"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel2/TabContainer/3"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 352.0
+offset_right = 452.0
+offset_bottom = 383.0
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/3"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="Label2" type="Label" parent="Panel/Panel2/TabContainer/3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.5
+offset_top = 142.0
+offset_right = 136.5
+offset_bottom = 211.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "1   3   6   10   15    21"
+
+[node name="4" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Iš kokių skaičių susideda skaičius?"
+
+[node name="Number" type="Label" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 95.5
+offset_top = 182.0
+offset_right = 209.5
+offset_bottom = 226.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 31
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="VBoxContainer1" type="VBoxContainer" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 97.0
+offset_right = 76.0
+offset_bottom = 302.0
+theme_override_constants/separation = 6
+
+[node name="ButNum1" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.252015, 0.672359, 0.890272, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum1/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+
+[node name="ButNum2" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum2/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "2"
+
+[node name="ButNum3" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum3/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "3"
+
+[node name="ButNum4" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum4/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "4"
+
+[node name="ButNum5" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum5/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "5"
+
+[node name="ButNum6" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum6"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum6/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "6"
+
+[node name="ButNum7" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum7"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum7/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "7"
+
+[node name="ButNum8" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum8"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum8/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "8"
+
+[node name="ButNum9" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer1"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum9"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25098, 0.670588, 0.890196, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer1/ButNum9/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "9"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 0
+offset_left = 92.0
+offset_top = 97.0
+offset_right = 122.0
+offset_bottom = 302.0
+theme_override_constants/separation = 6
+
+[node name="ButNum10" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum10"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235588, 0.726161, 0.535725, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum10/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.25
+offset_top = -12.25
+offset_right = 9.75
+offset_bottom = 10.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "10"
+
+[node name="ButNum20" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum20"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum20/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "20"
+
+[node name="ButNum30" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum30"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum30/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "30"
+
+[node name="ButNum40" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum40"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum40/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "40"
+
+[node name="ButNum50" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum50"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum50/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "50"
+
+[node name="ButNum60" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum60"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum60/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "60"
+
+[node name="ButNum70" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum70"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum70/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "70"
+
+[node name="ButNum80" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum80"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum80/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "80"
+
+[node name="ButNum90" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum90"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.0
+offset_right = 15.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.235294, 0.72549, 0.537255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer2/ButNum90/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "90"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 97.0
+offset_right = 184.0
+offset_bottom = 302.0
+theme_override_constants/separation = 6
+
+[node name="ButNum100" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum100"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890928, 0.513681, 0.337649, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum100/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.25
+offset_top = -12.25
+offset_right = 9.75
+offset_bottom = 10.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "100"
+
+[node name="ButNum200" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum200"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum200/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "200"
+
+[node name="ButNum300" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum300"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum300/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "300"
+
+[node name="ButNum400" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum400"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum400/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "400"
+
+[node name="ButNum500" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum500"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum500/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "500"
+
+[node name="ButNum600" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum600"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum600/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "600"
+
+[node name="ButNum700" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum700"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum700/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "700"
+
+[node name="ButNum800" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum800"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum800/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "800"
+
+[node name="ButNum900" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer3"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum900"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -22.5
+offset_top = -10.0
+offset_right = 22.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.890196, 0.513726, 0.337255, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer3/ButNum900/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "900"
+
+[node name="VBoxContainer4" type="VBoxContainer" parent="Panel/Panel2/TabContainer/4"]
+layout_mode = 0
+offset_left = 204.0
+offset_top = 97.0
+offset_right = 259.0
+offset_bottom = 302.0
+theme_override_constants/separation = 6
+
+[node name="ButNum1000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum1000"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.5
+offset_top = -10.0
+offset_right = 27.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum1000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.25
+offset_top = -12.25
+offset_right = 9.75
+offset_bottom = 10.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "1000"
+
+[node name="ButNum2000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum2000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum2000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "2000"
+
+[node name="ButNum3000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum3000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum3000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "3000"
+
+[node name="ButNum4000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum4000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum4000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "4000"
+
+[node name="ButNum5000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum5000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum5000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "5000"
+
+[node name="ButNum6000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum6000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum6000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "6000"
+
+[node name="ButNum7000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum7000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum7000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "7000"
+
+[node name="ButNum8000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum8000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum8000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "8000"
+
+[node name="ButNum9000" type="Button" parent="Panel/Panel2/TabContainer/4/VBoxContainer4"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum9000"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.784314, 0.47451, 0.933333, 1)
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/4/VBoxContainer4/ButNum9000/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.75
+offset_top = -11.75
+offset_right = 7.25
+offset_bottom = 11.25
+grow_horizontal = 2
+grow_vertical = 2
+text = "9000"
+
+[node name="5" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 4
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/5"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.5
+offset_top = 28.0
+offset_right = 142.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Atlikite veiksmus?"
+
+[node name="Label2" type="Label" parent="Panel/Panel2/TabContainer/5"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.5
+offset_top = 83.0
+offset_right = 46.5
+offset_bottom = 136.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "15 - 7"
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/5"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="Red-apple-generative-ai-png" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(245, 191)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png2" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(245, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png3" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(380, 238)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png4" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(379, 191)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png5" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(338, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png6" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(336, 191)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png7" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(292, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png8" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(292, 191)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png9" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(421, 192)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png10" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(422, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png11" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(462, 192)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png12" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(463, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png13" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(502, 192)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png14" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(503, 239)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="Red-apple-generative-ai-png15" type="Sprite2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(542, 192)
+scale = Vector2(0.0775, 0.081)
+texture = ExtResource("4_yqjod")
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel2/TabContainer/5"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 352.0
+offset_right = 452.0
+offset_bottom = 383.0
+
+[node name="Line2D2" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-152, -85)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-189, -36)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D3" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-230, -35)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D4" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-191, -83)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D5" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-231, -84)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D6" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-272, -36)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="Line2D7" type="Line2D" parent="Panel/Panel2/TabContainer/5"]
+position = Vector2(-272, -85)
+points = PackedVector2Array(678, 291, 695, 276, 710, 261)
+width = 5.0
+default_color = Color(0.215686, 0.14902, 1, 1)
+
+[node name="6" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 5
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/6"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Koks skaičius yra praleistas?"
+
+[node name="Label2" type="Label" parent="Panel/Panel2/TabContainer/6"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.5
+offset_top = 142.0
+offset_right = 136.5
+offset_bottom = 211.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "15 + ? = 18"
+
+[node name="LineEdit" type="LineEdit" parent="Panel/Panel2/TabContainer/6"]
+layout_mode = 0
+offset_left = 368.0
+offset_top = 352.0
+offset_right = 452.0
+offset_bottom = 383.0
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/6"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="7" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 6
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kuri figūra yra simetriška?"
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="Polygon2D" type="Polygon2D" parent="Panel/Panel2/TabContainer/7"]
+position = Vector2(-240, -34)
+color = Color(0.0823529, 0.403922, 0.52549, 1)
+polygon = PackedVector2Array(306, 259, 349, 178, 395, 259)
+
+[node name="Line2D7" type="Line2D" parent="Panel/Panel2/TabContainer/7/Polygon2D"]
+position = Vector2(-328, -34)
+points = PackedVector2Array(677, 293, 678, 212)
+width = 4.0
+default_color = Color(0.682353, 0.0784314, 0.109804, 1)
+joint_mode = 2
+
+[node name="Polygon2D2" type="Polygon2D" parent="Panel/Panel2/TabContainer/7"]
+position = Vector2(14, -27)
+color = Color(0.0823529, 0.403922, 0.52549, 1)
+polygon = PackedVector2Array(345, 250, 310, 195, 345, 160, 380, 195)
+
+[node name="Line2D8" type="Line2D" parent="Panel/Panel2/TabContainer/7/Polygon2D2"]
+position = Vector2(-467, -7)
+points = PackedVector2Array(777, 202, 846, 202)
+width = 4.0
+default_color = Color(0.682353, 0.0784314, 0.109804, 1)
+joint_mode = 2
+
+[node name="Polygon2D3" type="Polygon2D" parent="Panel/Panel2/TabContainer/7"]
+position = Vector2(163, -32)
+color = Color(0.0823529, 0.403922, 0.52549, 1)
+polygon = PackedVector2Array(265, 250, 300, 175, 375, 175, 416, 250)
+
+[node name="Line2D9" type="Line2D" parent="Panel/Panel2/TabContainer/7/Polygon2D3"]
+position = Vector2(-342, -7)
+points = PackedVector2Array(624, 221, 740, 221)
+width = 4.0
+default_color = Color(0.682353, 0.0784314, 0.109804, 1)
+joint_mode = 2
+
+[node name="Polygon2D4" type="Polygon2D" parent="Panel/Panel2/TabContainer/7"]
+position = Vector2(666, 182)
+color = Color(0.0823529, 0.403922, 0.52549, 1)
+polygon = PackedVector2Array(0, -50, 14.695, -20.225, 47.553, -15.451, 23.776, 7.725, 29.389, 40.451, 0, 25, -29.389, 40.451, -23.776, 7.725, -47.553, -15.451, -14.695, -20.225)
+
+[node name="Line2D9" type="Line2D" parent="Panel/Panel2/TabContainer/7/Polygon2D4"]
+position = Vector2(-1044, -192)
+points = PackedVector2Array(1044, 218, 1044, 143)
+width = 4.0
+default_color = Color(0.682353, 0.0784314, 0.109804, 1)
+joint_mode = 2
+
+[node name="Polygon2D5" type="Polygon2D" parent="Panel/Panel2/TabContainer/7"]
+position = Vector2(-101, -28)
+color = Color(0.0823529, 0.403922, 0.52549, 1)
+polygon = PackedVector2Array(300, 250, 300, 175, 375, 175, 375, 250)
+
+[node name="Line2D9" type="Line2D" parent="Panel/Panel2/TabContainer/7/Polygon2D5"]
+position = Vector2(-342, -7)
+points = PackedVector2Array(641, 257, 717, 181)
+width = 4.0
+default_color = Color(0.682353, 0.0784314, 0.109804, 1)
+joint_mode = 2
+
+[node name="CheckBox1" type="CheckBox" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 245.0
+offset_right = 122.0
+offset_bottom = 269.0
+
+[node name="CheckBox2" type="CheckBox" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 245.0
+offset_right = 248.0
+offset_bottom = 269.0
+
+[node name="CheckBox3" type="CheckBox" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 347.0
+offset_top = 244.0
+offset_right = 371.0
+offset_bottom = 268.0
+
+[node name="CheckBox4" type="CheckBox" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 244.0
+offset_right = 519.0
+offset_bottom = 268.0
+
+[node name="CheckBox5" type="CheckBox" parent="Panel/Panel2/TabContainer/7"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 242.0
+offset_right = 677.0
+offset_bottom = 266.0
+
+[node name="8" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 7
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kuri lygybė yra teisinga?"
+
+[node name="Label2" type="Label" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 27.5
+offset_top = 223.0
+offset_right = 261.5
+offset_bottom = 265.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "1 + 6 = 3 + 2"
+
+[node name="Button2" type="Button" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 0
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[node name="Label3" type="Label" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.5
+offset_top = 216.0
+offset_right = -96.5
+offset_bottom = 258.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "4 + 3 = 5 + 1"
+
+[node name="Label4" type="Label" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -259.5
+offset_top = 119.0
+offset_right = -98.5
+offset_bottom = 159.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+text = "2 + 8 = 5 + 3"
+
+[node name="Label5" type="Label" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 25.5
+offset_top = 119.0
+offset_right = 259.5
+offset_bottom = 161.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "4 + 7 = 9 + 2"
+
+[node name="CheckBox4" type="CheckBox" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 0
+offset_left = 504.0
+offset_top = 177.0
+offset_right = 528.0
+offset_bottom = 201.0
+
+[node name="CheckBox1" type="CheckBox" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 178.0
+offset_right = 231.0
+offset_bottom = 202.0
+
+[node name="CheckBox3" type="CheckBox" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 0
+offset_left = 507.0
+offset_top = 282.0
+offset_right = 531.0
+offset_bottom = 306.0
+
+[node name="CheckBox2" type="CheckBox" parent="Panel/Panel2/TabContainer/8"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 281.0
+offset_right = 234.0
+offset_bottom = 305.0
+
+[node name="9" type="TabBar" parent="Panel/Panel2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 8
+
+[node name="Label" type="Label" parent="Panel/Panel2/TabContainer/9"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -113.5
+offset_top = 28.0
+offset_right = 116.5
+offset_bottom = 56.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Kuris laikrodis rodo"
+
+[node name="Button3" type="Button" parent="Panel/Panel2/TabContainer/9"]
+layout_mode = 2
+offset_left = 535.0
+offset_top = 349.0
+offset_right = 608.0
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
+text = "Kitas"
+
+[connection signal="pressed" from="Panel/Panel2/TabContainer/1/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/2/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/3/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/4/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/5/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/6/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/7/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/8/Button2" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/Panel2/TabContainer/9/Button3" to="." method="_on_button_last_pressed"]
