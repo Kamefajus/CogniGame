@@ -4,6 +4,11 @@ const GRID_WIDTH := 10
 const GRID_HEIGHT := 20
 const TILE_SIZE := 24
 
+@onready var move_Sound = $move_Sound
+@onready var GameOver_Sound = $GameOver_Sound
+@onready var Falling_Sound = $falling_Sound
+@onready var rotate_Sound = $rotate_Sound
+
 const SHAPES = {
 	"I": [[Vector2(-1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(2, 0)]],
 	"O": [[Vector2(0, 0), Vector2(1, 0), Vector2(0, 1), Vector2(1, 1)]],
@@ -73,14 +78,19 @@ func _input(event):
 		return
 	if event.is_action_pressed("ui_left"):
 		move(Vector2(-1, 0))
+		move_Sound.play()
 	elif event.is_action_pressed("ui_right"):
 		move(Vector2(1, 0))
+		move_Sound.play()
 	elif event.is_action_pressed("ui_down"):
 		soft_drop = true
+		Falling_Sound.play()
 	elif event.is_action_released("ui_down"):
 		soft_drop = false
+		Falling_Sound.stop() 
 	elif event.is_action_pressed("ui_up"):
 		rotate_piece()
+		rotate_Sound.play()
 	elif event.is_action_pressed("ui_select"):
 		hard_drop()
 

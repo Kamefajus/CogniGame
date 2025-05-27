@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bruqkx54qq24u"]
+
+[ext_resource type="Script" path="res://ADHD7.gd" id="1_pgbtr"]
+[ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_fphfc"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_pgbtr")
+
+[node name="TargetLine" type="ColorRect" parent="."]
+offset_left = 533.0
+offset_top = 233.0
+offset_right = 648.0
+offset_bottom = 336.0
+size_flags_horizontal = 4
+
+[node name="Ball" type="Sprite2D" parent="."]
+position = Vector2(131, 285)
+scale = Vector2(0.183594, 0.160156)
+texture = ExtResource("2_fphfc")
+
+[node name="StopButton" type="Button" parent="."]
+offset_left = 505.0
+offset_top = 491.0
+offset_right = 667.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 32
+text = "Sustabdyt"
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 32.0
+offset_right = 140.0
+offset_bottom = 55.0

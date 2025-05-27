@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpfk6e4as75ye"]
+
+[ext_resource type="Script" path="res://ColorBlind1.gd" id="1_82ufj"]
+[ext_resource type="Script" path="res://scenes/Tasks/triangle1.gd" id="2_nhuuh"]
+[ext_resource type="Script" path="res://scenes/Tasks/Triangle3.gd" id="2_r08b1"]
+[ext_resource type="Script" path="res://scenes/Tasks/Triangle2.gd" id="3_n1qd6"]
+
+[node name="Node2D" type="Area2D"]
+script = ExtResource("1_82ufj")
+
+[node name="Area2D3" type="Area2D" parent="."]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(385, 103)
+script = ExtResource("2_r08b1")
+
+[node name="Polygon2D8" type="Polygon2D" parent="Area2D3"]
+position = Vector2(168, 331)
+polygon = PackedVector2Array(22, -113, 61, 59, -19, 59)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D3"]
+position = Vector2(168, 331)
+polygon = PackedVector2Array(2, -17, -4, -19, 21, -113, 61, 58, -19, 59)
+
+[node name="Area2D2" type="Area2D" parent="."]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(572, 432)
+script = ExtResource("3_n1qd6")
+
+[node name="Polygon2D" type="Polygon2D" parent="Area2D2"]
+position = Vector2(-188, -368)
+polygon = PackedVector2Array(-14, -6, 61, 59, -19, 59)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D2"]
+position = Vector2(-188, -368)
+polygon = PackedVector2Array(-17, 2, -19, 58, 61, 59, 34, 35, -14, -8)
+
+[node name="Area2D" type="Area2D" parent="."]
+light_mask = 31
+visibility_layer = 31
+position = Vector2(156, 355)
+script = ExtResource("2_nhuuh")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-18, -36)
+polygon = PackedVector2Array(17, -15, 61, 58, -19, 58)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Area2D"]
+position = Vector2(-18, -36)
+polygon = PackedVector2Array(20, -13, 61, 59, -19, 59)
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(140, 102)
+polygon = PackedVector2Array(65, -12, 61, 59, -19, 59, -20, -14)
+
+[node name="Polygon2D7" type="Polygon2D" parent="."]
+position = Vector2(344, 400)
+polygon = PackedVector2Array(95, -23, 46, 65, -46, 62, 7, -27)
+
+[node name="Polygon2D6" type="Polygon2D" parent="."]
+position = Vector2(678, 79)
+polygon = PackedVector2Array(65, -12, 158, 57, -97, 56, -20, -14)
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+position = Vector2(662, 280)
+polygon = PackedVector2Array(64, -15, 218, -17, 220, 59, -19, 59, -20, -14)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(389, 214)
+polygon = PackedVector2Array(65, -12, 88, 13, 61, 59, 26, 75, -19, 59, -42, 19, -20, -14, 20, -36)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

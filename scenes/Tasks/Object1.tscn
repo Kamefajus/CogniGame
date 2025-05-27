@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlwvfsu3ogby4"]
+
+[ext_resource type="Script" path="res://node_2d.gd" id="1_q2ntm"]
+[ext_resource type="Texture2D" uid="uid://bd6cvki3arv1e" path="res://image55.png" id="2_ynqs1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_12dma"]
+size = Vector2(490.909, 487.417)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_q2ntm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 2)
+scale = Vector2(0.348333, 0.3775)
+texture = ExtResource("2_ynqs1")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(-4.30623, 39.7351)
+shape = SubResource("RectangleShape2D_12dma")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_mouse_exited"]
