@@ -18,8 +18,9 @@ config/icon="res://icon.svg"
 [autoload]
 
 Database="*res://scripts/database.gd"
-AudioManager="*res://scripts/AudioManager.gd"
 SceneTransition="*res://scenes/scene_transition.tscn"
+AudioManager="*res://scripts/AudioManager.gd"
+AudioControl="*res://scenes/audio_control.tscn"
 
 [dotnet]
 

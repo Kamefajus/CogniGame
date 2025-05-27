@@ -34,7 +34,7 @@ func _on_button_2_pressed():
 		SceneTransition.slide_animation_in_parts(2, false)
 
 func _on_exit_pressed():
-	get_tree().quit()  # Exits the game
+	get_tree().quit()
 
 func _on_settings_closed():
 	SceneTransition.slide_animation_in_parts(1, true)
@@ -42,3 +42,7 @@ func _on_settings_closed():
 	show()
 	settings = null
 	SceneTransition.slide_animation_in_parts(2, true)
+
+
+func _on_button_4_pressed() -> void:
+	SceneTransition.change_scene("res://scenes/market.tscn")
