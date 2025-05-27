@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://dno7jrcxmys5p"]
+[gd_scene load_steps=7 format=3 uid="uid://dno7jrcxmys5p"]
 
 [ext_resource type="Script" uid="uid://vqh4awynk85v" path="res://subtitles_toggle_button.gd" id="1_xmtnt"]
+[ext_resource type="Texture2D" uid="uid://b27xq5h58cgbn" path="res://assets/Ishihara_00.png" id="2_k30x5"]
+[ext_resource type="Texture2D" uid="uid://xmb1n5b36v85" path="res://assets/Ishihara_10.jpg" id="3_sg4xp"]
+[ext_resource type="Texture2D" uid="uid://dfonytrs7xibi" path="res://assets/Ishihara_08.jpg" id="4_54ueq"]
+[ext_resource type="Texture2D" uid="uid://dyqskomkvk6hw" path="res://assets/Ishihara_11.jpg" id="5_kdxqy"]
+
+[sub_resource type="GDScript" id="GDScript_tao1k"]
+script/source = "extends HBoxContainer
+"
 
 [node name="Subtitles_Toggle_Button" type="Control"]
 layout_mode = 3
@@ -37,3 +45,63 @@ theme_override_constants/separation = 124
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Išjungta"
+
+[node name="ColorContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_direction = 2
+layout_mode = 0
+offset_top = 53.0
+offset_right = 802.0
+offset_bottom = 105.0
+script = SubResource("GDScript_tao1k")
+
+[node name="NoneButton" type="Button" parent="ColorContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Nėra"
+
+[node name="ProtaButton" type="Button" parent="ColorContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Protanopija"
+
+[node name="DeuterButton" type="Button" parent="ColorContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Deuteranopija"
+
+[node name="TritaButton" type="Button" parent="ColorContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Tritanopija"
+
+[node name="AchromaButton" type="Button" parent="ColorContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Achromatopsija"
+
+[node name="Ishihara00" type="Sprite2D" parent="."]
+position = Vector2(85.875, 347.875)
+scale = Vector2(0.3045, 0.3045)
+texture = ExtResource("2_k30x5")
+
+[node name="Ishihara10" type="Sprite2D" parent="."]
+position = Vector2(253.25, 347.25)
+scale = Vector2(0.307, 0.307)
+texture = ExtResource("3_sg4xp")
+
+[node name="Ishihara08" type="Sprite2D" parent="."]
+position = Vector2(416, 347)
+scale = Vector2(0.304, 0.304)
+texture = ExtResource("4_54ueq")
+
+[node name="Ishihara11" type="Sprite2D" parent="."]
+position = Vector2(582.625, 346.625)
+scale = Vector2(0.3055, 0.3055)
+texture = ExtResource("5_kdxqy")
+
+[connection signal="pressed" from="ColorContainer/NoneButton" to="." method="_on_none_button_pressed"]
+[connection signal="pressed" from="ColorContainer/ProtaButton" to="." method="_on_prota_button_pressed"]
+[connection signal="pressed" from="ColorContainer/DeuterButton" to="." method="_on_deuter_button_pressed"]
+[connection signal="pressed" from="ColorContainer/TritaButton" to="." method="_on_trita_button_pressed"]
+[connection signal="pressed" from="ColorContainer/AchromaButton" to="." method="_on_achroma_button_pressed"]
