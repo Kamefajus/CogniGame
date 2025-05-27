@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckkk1lrexifpq"]
+
+[ext_resource type="Script" path="res://scenes/Tasks/color_blind_5.gd" id="1_ccokj"]
+[ext_resource type="Texture2D" uid="uid://bfipa547bb8ma" path="res://image77.png" id="2_tvt8l"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccokj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(544, 276)
+texture = ExtResource("2_tvt8l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -218.0
+offset_top = -75.0
+offset_right = 219.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Raudonos"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Geltonos"
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+text = "Mėlynos"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -214.5
+offset_right = 214.5
+offset_bottom = 45.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Kokios spalvos ši gelė?"
+
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/Button3" to="." method="_on_button_3_pressed"]

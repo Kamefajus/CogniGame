@@ -1,12 +1,166 @@
-[gd_scene load_steps=6 format=3 uid="uid://ceahp5eua2xfs"]
+[gd_scene load_steps=27 format=3 uid="uid://ceahp5eua2xfs"]
 
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="1_lit5x"]
-[ext_resource type="Script" uid="uid://bu41ynlsc0qsa" path="res://scripts/game.gd" id="1_ni8nd"]
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_ni8nd"]
 [ext_resource type="Texture2D" uid="uid://babwrq4y5iqrw" path="res://Under_Construction_Warning_Sign_PNG_Clipart-839.png" id="2_n8vej"]
 [ext_resource type="AudioStream" uid="uid://djm7vsb42x1ey" path="res://sounds/768284__lolamoore__reflective-melancholic-piano.mp3" id="4_78awf"]
+[ext_resource type="Script" path="res://scripts/ai_agent.gd" id="5_aiftj"]
+[ext_resource type="Texture2D" uid="uid://dnl4bllfjd4am" path="res://assets/Mart_png.png" id="6_7y41g"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2nrd5"]
 texture = ExtResource("2_n8vej")
+
+[sub_resource type="LabelSettings" id="LabelSettings_i0ftx"]
+font_size = 17
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d5lvl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnbny"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5nykj"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hogl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la3um"]
+bg_color = Color(0.65834, 0.65834, 0.65834, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6w1p0"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a8380"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u5nct"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yiel3"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_aaja4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7phl"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuqdm"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bob6d"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1j5gw"]
+bg_color = Color(0.65834, 0.65834, 0.65834, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_injks"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2lej"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ql4j"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cikw2"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ni8nd")
@@ -52,9 +206,122 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Grįžti atgal"
 
+[node name="WinAIButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 287.0
+offset_top = 487.0
+offset_right = 404.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Laimėtas lygis"
+
+[node name="LoseAIButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = 487.0
+offset_right = 595.0
+offset_bottom = 518.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pralaimėtas lygis"
+
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_78awf")
 autoplay = true
 parameters/looping = true
 
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("5_aiftj")
+
+[node name="MartPng" type="Sprite2D" parent="Control"]
+position = Vector2(1053, 547.5)
+scale = Vector2(0.201, 0.201)
+texture = ExtResource("6_7y41g")
+flip_h = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="Control"]
+
+[node name="EncouragementLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 633.0
+offset_top = 452.0
+offset_right = 984.0
+offset_bottom = 617.0
+label_settings = SubResource("LabelSettings_i0ftx")
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="InputLine" type="LineEdit" parent="Control"]
+layout_mode = 0
+offset_left = 771.0
+offset_top = 303.0
+offset_right = 1135.0
+offset_bottom = 353.0
+placeholder_text = "Reikia pagalbos? Kreipkis drąsiai!"
+
+[node name="HelpButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 374.0
+offset_right = 950.0
+offset_bottom = 425.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d5lvl")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_lnbny")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5nykj")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_7hogl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_la3um")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_6w1p0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a8380")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_u5nct")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yiel3")
+text = "Padėk
+"
+
+[node name="TypeTimer" type="Timer" parent="Control"]
+
+[node name="NextButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 564.0
+offset_right = 376.0
+offset_bottom = 616.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_aaja4")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_a7phl")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_cuqdm")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_bob6d")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1j5gw")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_injks")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x2lej")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_5ql4j")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cikw2")
+text = "Varom toliau!
+"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="WinAIButton" to="." method="_on_win_ai_button_pressed"]
+[connection signal="pressed" from="LoseAIButton" to="." method="_on_lose_ai_button_pressed"]

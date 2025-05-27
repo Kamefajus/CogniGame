@@ -7,6 +7,7 @@ func _ready():
 	_add_click_sounds_to_buttons(self)
 
 func _on_back_pressed():
+	get_tree().paused = false
 	queue_free()  # This safely removes the pause scene from the tree
 
 func _add_click_sounds_to_buttons(node):
@@ -29,3 +30,8 @@ func _on_exit_pressed():
 func _on_settings_closed():
 	settings = null
 	show()  # Show pause menu again
+
+func _on_back_2_pressed() -> void:
+	get_tree().paused = false
+	queue_free()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

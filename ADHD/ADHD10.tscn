@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvqn7wecap17p"]
+
+[ext_resource type="Script" path="res://ADHD/ADHD10.gd" id="1_ce2ok"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_ce2ok")
+
+[node name="NumberLabel" type="Label" parent="."]
+offset_left = 66.0
+offset_top = 127.0
+offset_right = 650.0
+offset_bottom = 196.0
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 300.0
+offset_top = 234.0
+offset_right = 876.0
+offset_bottom = 425.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Button" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+text = "4"
+
+[node name="ResultLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48

@@ -4,6 +4,8 @@ extends Node
 @onready var email_input = $VBoxContainer/EmailInput
 
 func _ready() -> void:
+	var fade = get_tree().root.get_node("/root/Control/FadeLayer")
+	fade.hard_fade_in(0.4)
 	Database._ready()
 	_add_click_sounds_to_buttons(self)
 

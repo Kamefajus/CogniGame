@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt717qs1k0y5w"]
+[gd_scene load_steps=3 format=3 uid="uid://duqwpdi5iq4n4"]
 
-[ext_resource type="Script" uid="uid://j5vsmemsq4cd" path="res://scenes/Games/snake.gd" id="1_ctobu"]
+[ext_resource type="Script" path="res://scripts/games/snake.gd" id="1_ctobu"]
+[ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="2_e112i"]
 
 [node name="Snake" type="Node2D"]
 script = ExtResource("1_ctobu")
+
+[node name="MoveSpeedSlider" type="HSlider" parent="."]
+offset_left = 9.0
+offset_top = 162.0
+offset_right = 141.0
+offset_bottom = 178.0
+min_value = 0.02
+max_value = 0.25
+step = 0.01
+value = 0.15
+
+[node name="Label" type="Label" parent="."]
+offset_left = 15.0
+offset_top = 110.0
+offset_right = 128.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("2_e112i")
+theme_override_font_sizes/font_size = 32
+text = "Greitis"
+
+[connection signal="value_changed" from="MoveSpeedSlider" to="." method="_on_move_speed_slider_value_changed"]

@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cnunrvvgoa4qc"]
+
+[ext_resource type="Script" path="res://ADHD/Adhd2.gd" id="1_uo5ga"]
+[ext_resource type="Texture2D" uid="uid://1gb7gsgmk2f8" path="res://purepng.com-golden-starstargeometricallydecagonconcavestardomgoldclipart-1421526502639qsgef.png" id="2_dyeli"]
+[ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="3_cmr2e"]
+[ext_resource type="Texture2D" uid="uid://cfyr62e4pp5dt" path="res://May 20, 2025, 05_29_39 PM.png" id="4_ixufk"]
+[ext_resource type="Texture2D" uid="uid://bd6cvki3arv1e" path="res://image55.png" id="5_jno4l"]
+[ext_resource type="Texture2D" uid="uid://dhauf8lsn1jk1" path="res://minecraft_render___tree_by_danixoldier_d6t90oe-fullview.png" id="6_y62h7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eieq2"]
+radius = 26.6833
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_uo5ga")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Star" type="Sprite2D" parent="Area2D"]
+position = Vector2(119.875, 150.625)
+scale = Vector2(0.0503125, 0.0434073)
+texture = ExtResource("2_dyeli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(120, 150)
+shape = SubResource("CircleShape2D_eieq2")
+
+[node name="Object1" type="Sprite2D" parent="."]
+position = Vector2(966, 508)
+scale = Vector2(0.3125, 0.283203)
+texture = ExtResource("3_cmr2e")
+
+[node name="Object2" type="Sprite2D" parent="."]
+position = Vector2(525.5, 374.5)
+scale = Vector2(0.250977, 0.211914)
+texture = ExtResource("4_ixufk")
+
+[node name="Object3" type="Sprite2D" parent="."]
+position = Vector2(906, 150)
+scale = Vector2(0.360488, 0.275957)
+texture = ExtResource("5_jno4l")
+
+[node name="Object4" type="Sprite2D" parent="."]
+position = Vector2(178, 477)
+scale = Vector2(0.200752, 0.15165)
+texture = ExtResource("6_y62h7")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="."]
