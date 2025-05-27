@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://fyacuroaevjt"]
 
-[ext_resource type="Script" path="res://ADHD/ADHD9.gd" id="1_wsy0k"]
+[ext_resource type="Script" uid="uid://dyt5yayhl1l0g" path="res://ADHD/ADHD9.gd" id="1_wsy0k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe345"]
 bg_color = Color(0.857412, 0.0419497, 0.0700221, 1)

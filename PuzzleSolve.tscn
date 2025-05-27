@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b02gjnp1ks7jh"]
 
-[ext_resource type="Script" path="res://PuzzleScene.gd" id="1_q3rse"]
+[ext_resource type="Script" uid="uid://1djpkwo4pwjo" path="res://PuzzleScene.gd" id="1_q3rse"]
 [ext_resource type="Texture2D" uid="uid://bhit84gxs5e11" path="res://ChatGPT Image May 15, 2025, 05_19_03 PM.png" id="2_gpkic"]
 [ext_resource type="Texture2D" uid="uid://bwni0myclqpx0" path="res://ChatGPT Image May 15, 2025, 05_21_29 PM.png" id="3_7uteb"]
 [ext_resource type="Texture2D" uid="uid://b1ct1y13dv8pi" path="res://black-question-mark-icon-clip-art-10.png" id="4_g0sfb"]

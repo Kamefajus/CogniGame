@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dtntpxsceci7b"]
 
-[ext_resource type="Script" path="res://ADHD/ADHD6.gd" id="1_ubejy"]
+[ext_resource type="Script" uid="uid://bm64pr0iuuscd" path="res://ADHD/ADHD6.gd" id="1_ubejy"]
 [ext_resource type="Texture2D" uid="uid://cmo61184bib7y" path="res://Black-Triangle-No-Background-Clip-Art.png" id="2_kkvqi"]
 [ext_resource type="Texture2D" uid="uid://bjs3f8gav5cgf" path="res://Black-Square-PNG-Photos.png" id="3_h4mi6"]
 [ext_resource type="Texture2D" uid="uid://b1ct1y13dv8pi" path="res://black-question-mark-icon-clip-art-10.png" id="4_7rot2"]

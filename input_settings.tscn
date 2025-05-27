@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://x7sypmx5df0c"]
 
-[ext_resource type="Script" path="res://input_settings.gd" id="1_d1ph6"]
+[ext_resource type="Script" uid="uid://bf6t4elc75mv3" path="res://input_settings.gd" id="1_d1ph6"]
 [ext_resource type="PackedScene" uid="uid://bly5w8fw2l0re" path="res://input_button.tscn" id="2_f0igk"]
 
 [node name="input_settings" type="Control"]

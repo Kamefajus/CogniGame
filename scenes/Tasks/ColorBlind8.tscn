@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://mhb7oohg12rx"]
 
 [ext_resource type="Texture2D" uid="uid://c4xvrxhd1uweo" path="res://tulip_PNG8994.png" id="1_mh8pf"]
-[ext_resource type="Script" path="res://scenes/Tasks/color_blind_8.gd" id="1_pvqd1"]
+[ext_resource type="Script" uid="uid://ceoe2r5jsm1bt" path="res://scenes/Tasks/color_blind_8.gd" id="1_pvqd1"]
 [ext_resource type="Texture2D" uid="uid://d3o7ntxyy5yx0" path="res://Red_Tulip_PNG_Transparent_Clip_Art_Image.png" id="2_yci6v"]
 [ext_resource type="Texture2D" uid="uid://dad7rmm7dbvfa" path="res://fd5c6d38-6a0b-4dd2-a0f4-e7040a09fb9c.png" id="3_xi0s3"]
 [ext_resource type="Texture2D" uid="uid://chlvxvh8j6ekk" path="res://pngimg.com - tulip_PNG9004.png" id="4_1q4u6"]

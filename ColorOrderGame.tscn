@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://025ytlhwtrap"]
 
-[ext_resource type="Script" path="res://ColorOrderGame.gd" id="1_4rnp7"]
+[ext_resource type="Script" uid="uid://bmi24iaru8p3n" path="res://ColorOrderGame.gd" id="1_4rnp7"]
 
 [node name="ColorOrderGame" type="Control"]
 layout_mode = 3

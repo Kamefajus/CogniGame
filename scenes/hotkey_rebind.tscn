@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv06y2r4ax52a"]
 
-[ext_resource type="Script" path="res://scenes/hotkey_rebind.gd" id="1_3t4kn"]
+[ext_resource type="Script" uid="uid://btvdx5p037rg3" path="res://scenes/hotkey_rebind.gd" id="1_3t4kn"]
 
 [node name="Hotkey_Rebind" type="Control"]
 layout_mode = 3

@@ -1,6 +1,5 @@
 [gd_scene load_steps=24 format=3 uid="uid://d4kyyr1vmfuf6"]
 
-
 [ext_resource type="Script" uid="uid://kfmfk05i2iob" path="res://scripts/initial_test.gd" id="1_0al8a"]
 [ext_resource type="Texture2D" uid="uid://bg0gcw1mak0bc" path="res://assets/Ishihara_01.jpg" id="3_p6pp8"]
 [ext_resource type="Texture2D" uid="uid://dxlnjp5hdwn6d" path="res://assets/Ishihara_02.jpg" id="4_4yueo"]

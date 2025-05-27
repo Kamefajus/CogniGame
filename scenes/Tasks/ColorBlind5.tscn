@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ckkk1lrexifpq"]
 
-[ext_resource type="Script" path="res://scenes/Tasks/color_blind_5.gd" id="1_ccokj"]
+[ext_resource type="Script" uid="uid://b0lc6kaxapk72" path="res://scenes/Tasks/color_blind_5.gd" id="1_ccokj"]
 [ext_resource type="Texture2D" uid="uid://bfipa547bb8ma" path="res://image77.png" id="2_tvt8l"]
 
 [node name="Control" type="Control"]
