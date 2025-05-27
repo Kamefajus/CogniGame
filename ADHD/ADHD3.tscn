@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvocxdp5lj8k0"]
 
-[ext_resource type="Script" path="res://ADHD/ADHD3.gd" id="1_t511m"]
+[ext_resource type="Script" uid="uid://cvmmcudv6pe8n" path="res://ADHD/ADHD3.gd" id="1_t511m"]
 
 [node name="Node2D" type="CanvasLayer"]
 script = ExtResource("1_t511m")

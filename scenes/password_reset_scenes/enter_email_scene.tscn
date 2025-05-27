@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cxh212xi8v0oi"]
 
-[ext_resource type="Script" path="res://scripts/enter_email_scene.gd" id="1_7lw5k"]
+[ext_resource type="Script" uid="uid://dj4wpl4lclgo" path="res://scripts/enter_email_scene.gd" id="1_7lw5k"]
 [ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="1_u13by"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="2_7lw5k"]
 [ext_resource type="Theme" uid="uid://cg805hpb7bv8k" path="res://label.tres" id="3_e4cgm"]

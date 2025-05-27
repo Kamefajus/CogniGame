@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dno7jrcxmys5p"]
 
-[ext_resource type="Script" path="res://subtitles_toggle_button.gd" id="1_xmtnt"]
+[ext_resource type="Script" uid="uid://vqh4awynk85v" path="res://subtitles_toggle_button.gd" id="1_xmtnt"]
 
 [node name="Subtitles_Toggle_Button" type="Control"]
 layout_mode = 3

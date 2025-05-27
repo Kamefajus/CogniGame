@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy0y2o4i6ex5g"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_jvtkq"]
+[ext_resource type="Script" uid="uid://cdjvk0rfb2txs" path="res://main.gd" id="1_jvtkq"]
 [ext_resource type="PackedScene" uid="uid://byr5lpp7wsyxc" path="res://ADHD/ObjectADHD.tscn" id="2_ka8iy"]
 
 [node name="Main" type="Node2D"]

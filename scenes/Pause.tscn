@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://1gft2x8y73sr"]
 
-[ext_resource type="Script" path="res://scripts/pause.gd" id="1_8v81o"]
+[ext_resource type="Script" uid="uid://cwm017fqqr0xj" path="res://scripts/pause.gd" id="1_8v81o"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="1_wcpj6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ep5p"]

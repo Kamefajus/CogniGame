@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dg4g5bsphr5sl"]
 
-[ext_resource type="Script" path="res://ADHD/ADHD4.gd" id="1_bg6e7"]
+[ext_resource type="Script" uid="uid://cfix6pq2nccxf" path="res://ADHD/ADHD4.gd" id="1_bg6e7"]
 [ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_fouo2"]
 [ext_resource type="Texture2D" uid="uid://bjs3f8gav5cgf" path="res://Black-Square-PNG-Photos.png" id="3_db74s"]
 [ext_resource type="Texture2D" uid="uid://bqaiqik40y4hd" path="res://GrayCircle.png" id="4_6b083"]

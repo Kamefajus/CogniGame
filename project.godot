@@ -12,7 +12,7 @@ config_version=5
 
 config/name="CogniGame"
 run/main_scene="res://scenes/login_menu.tscn"
-config/features=PackedStringArray("4.3", "C#", "Forward Plus")
+config/features=PackedStringArray("4.4", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -22,6 +22,8 @@ SceneTransition="*res://scenes/scene_transition.tscn"
 AudioManager="*res://scripts/AudioManager.gd"
 AudioControl="*res://scenes/audio_control.tscn"
 Global1="*res://global_1.gd"
+ColorProfile="*res://singletons/ColorProfile.gd"
+ColorBlindness="*res://addons/paulloz.colorblindness/ColorBlindness.tscn"
 
 [dotnet]
 
@@ -29,7 +31,7 @@ project/assembly_name="CogniGame"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot-sqlite/plugin.cfg", "res://addons/paulloz.colorblindness/plugin.cfg")
 
 [gui]
 

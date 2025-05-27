@@ -2,10 +2,15 @@ extends Control
 
 @onready var tab_container = $TabContainer
 
+# Constants - Ishihara key values
+const NORMAL_ANSWERS: Array[String] = ["12", "74", "6", "16", "2", "29", "7", "45", "42"]
+const COLOURBLIND_ANSWERS: Array[String] = ["12", "21", "5", "15", "3", "70", "1", "17"] # plates 1-8
+const PROTAN_ANSWER: String = "2"   # plate 9
+const DEUTERANOPIA_ANSWER: String = "4"   # plate 9
+
+# State variables
 var my_array: Array[String] = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
-var normal_array = ["12", "74", "6", "16", "2", "29", "7", "45"]
-var colourblind_array = ["12", "21", "5", "", "", "70", "", ""]
-var answer_array = ["", "", "", "", "", "", "", "", ""]
+var responses: Array[String] = ["", "", "", "", "", "", "", "", ""]  # user's input for plates 1-9
 var adhd_arr: Array[int] = [2, 2, 2, 3, 3, 3, 2, 2, 3, 2, 2, 3, 2, 2, 3, 2]
 
 func _ready() -> void:
@@ -19,33 +24,32 @@ func _add_click_sounds_to_buttons(node):
 		elif child.get_child_count() > 0:
 			_add_click_sounds_to_buttons(child)
 
-
 func _on_button_pressed() -> void:
 	var current_tab = tab_container.current_tab
-	var line_edit = get_node("TabContainer/"+str(current_tab+1)+"/LineEdit").text
-	if(tab_container.current_tab < 8):
-		
-		if(line_edit == normal_array[current_tab]):
-			answer_array[current_tab] = "normal"
-		elif(line_edit == colourblind_array[current_tab]):
-			answer_array[current_tab] = "colourblind"
-		else:
-			answer_array[current_tab] = "wrong"
-		
-	else:
-		
-		if(line_edit == "42"):
-			answer_array[current_tab] = "normal"
-		elif(line_edit == "4"):
-			answer_array[current_tab] = "Deuteranopia"
-		elif(line_edit == "2"):
-			answer_array[current_tab] = "Protan"
-		else:
-			answer_array[current_tab] = "wrong"
+	var line_edit = get_node("TabContainer/"+str(current_tab+1)+"/LineEdit").text.strip_edges()
 	
-	print(answer_array[current_tab])
+	# Plates 1-8: compare to normal & colour-blind alternatives
+	if current_tab < 8:
+		if line_edit == NORMAL_ANSWERS[current_tab]:
+			responses[current_tab] = "normal"
+		elif line_edit == COLOURBLIND_ANSWERS[current_tab]:
+			responses[current_tab] = "colourblind"
+		else:
+			responses[current_tab] = "wrong"
+	# Plate 9 differentiates sub-types
+	else:
+		match line_edit:
+			NORMAL_ANSWERS[8]:
+				responses[current_tab] = "normal"
+			PROTAN_ANSWER:
+				responses[current_tab] = "Protan"
+			DEUTERANOPIA_ANSWER:
+				responses[current_tab] = "Deuteranopia"
+			_:
+				responses[current_tab] = "wrong"
+	
+	print("Plate %d → %s" % [current_tab + 1, responses[current_tab]])
 	tab_container.current_tab = current_tab + 1
-
 
 func _on_done_button_pressed() -> void:
 	get_values_from_buttons()
@@ -66,12 +70,10 @@ func _on_done_button_pressed() -> void:
 	else:
 		evaluate_vision_test()
 		evaluate_questioner_values()
-		SceneTransition.change_scene("res://scenes/main_menu.tscn")
-
+		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
 func _on_button_1_pressed() -> void:
 	tab_container.current_tab = tab_container.current_tab + 1
-
 
 func get_score(answ: String) -> int:
 	match answ:
@@ -88,10 +90,9 @@ func get_score(answ: String) -> int:
 		_:
 			return -1
 
-
 func get_values_from_buttons() -> void:
 	my_array.fill("")
-	print(my_array)
+	
 	var option_text = get_node("TabContainer/10/OptionButton").text
 	my_array[0] = option_text
 	
@@ -113,78 +114,83 @@ func get_values_from_buttons() -> void:
 		option_text = get_node("TabContainer/12/OptionButton"+str(n)).text
 		my_array[n+11] = option_text
 
-
 func evaluate_questioner_values() -> void:
-	var cou = 0
+	var below_cutoff := 0
 	for n in 16:
-		if(get_score(my_array[n]) < adhd_arr[n]):
-			cou = cou + 1
+		if get_score(my_array[n]) < adhd_arr[n]:
+			below_cutoff += 1
 	
-	print(cou)
-	
-	if(cou > 9):
-		print("Normal")
-		return
-	
-	print("Adhd")
-
+	if below_cutoff > 9:
+		print("Normal attention span")
+	else:
+		print("Potential ADHD")
 
 func are_there_missing_answers() -> Array[int]:
 	var miss_arr: Array[int] = []
 	
+	# Check Ishihara plates
 	for n in 9:
-		if(answer_array[n] == ""):
+		if responses[n] == "":
 			miss_arr.append(n+1)
-		
+	
+	# Check questionnaire pages
 	for n in 6:
-		if(my_array[n] == ""):
+		if my_array[n] == "":
 			miss_arr.append(10)
 			break
-		
+	
 	for n in range(6, 12):
-		if(my_array[n] == ""):
+		if my_array[n] == "":
 			miss_arr.append(11)
 			break
 			
 	for n in range(12, 16):
-		if(my_array[n] == ""):
+		if my_array[n] == "":
 			miss_arr.append(12)
 			break
-		
+	
 	return miss_arr
 
-
 func evaluate_vision_test() -> void:
-	if(answer_array[0] == "wrong"):
-		print("Bad vision")
+	# Plate 1 MUST be correct, or we can't rely on anything → assume normal vision
+	if responses[0] == "wrong":
+		ColorProfile.mode = "normal"
+		ColorProfile.apply()
 		return
 	
-	var wr_cou = 0
-	var cb_cou = 0
-	var n_cou = 0
+	var wrong := 0  # mis-reads (neither normal nor colour-blind)
+	var cb := 0     # red-green alternative seen
+	for i in range(1, 8):  # plates 2-8
+		match responses[i]:
+			"wrong":
+				wrong += 1
+			"colourblind":
+				cb += 1
 	
-	for n in range(1,9):
-		if(answer_array[n] == "wrong"):
-			wr_cou = wr_cou + 1
-		elif (answer_array[n] == "normal"):
-			n_cou = n_cou + 1
-		else:
-			cb_cou = cb_cou + 1
-	
-	if(wr_cou > 2):
-		print("Bad vision")
+	# Too many random errors → stop, don't apply a filter
+	if wrong > 2:
+		ColorProfile.mode = "normal"
+		ColorProfile.apply()
 		return
 	
-	if(cb_cou > 1):
-		if(answer_array[8] == "Protan"):
-			print("Protan")
-			return
-		
-		if(answer_array[8] == "Deuteranopia"):
-			print("Deuteranopia")
-			return
-		
-		print("ColorBlind")
-		return
+	# ≥2 colour-blind readings → decide subtype from plate 9
+	if cb > 1:
+		match responses[8]:
+			"Protan":
+				ColorProfile.mode = "protanopia"
+				ColorProfile.apply()
+				print("protan")
+			"Deuteranopia":
+				ColorProfile.mode = "deuteranopia"
+				ColorProfile.apply()
+				print("deutan")
+			_:  # unhelpful or missing answer
+				ColorProfile.mode = "protanopia"
+				ColorProfile.apply()
+				print("protan fallback")
+	else:
+		ColorProfile.mode = "normal"
+		ColorProfile.apply()
+		print("normal")
 	
-	print("Normal")
+	ColorProfile.apply()

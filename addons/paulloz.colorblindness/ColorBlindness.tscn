@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx20l3oy2vsfj"]
+
+[ext_resource type="Script" uid="uid://bexluqwlc4l02" path="res://addons/paulloz.colorblindness/colorblindness.gd" id="1_k3iu5"]
+
+[node name="ColorBlindness" type="CanvasLayer"]
+follow_viewport_enabled = true
+script = ExtResource("1_k3iu5")
+metadata/_custom_type_script = "uid://bexluqwlc4l02"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkbnwi4sjkdbp"]
 
-[ext_resource type="Script" path="res://node_2d.gd" id="1_vuy6d"]
+[ext_resource type="Script" uid="uid://daw0vxu3rw4j1" path="res://node_2d.gd" id="1_vuy6d"]
 [ext_resource type="Texture2D" uid="uid://djxffo7ug4iso" path="res://150px-Leather_JE2_BE2.png" id="2_8ic5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12dma"]

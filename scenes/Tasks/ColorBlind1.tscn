@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpfk6e4as75ye"]
 
-[ext_resource type="Script" path="res://ColorBlind1.gd" id="1_82ufj"]
-[ext_resource type="Script" path="res://scenes/Tasks/triangle1.gd" id="2_nhuuh"]
-[ext_resource type="Script" path="res://scenes/Tasks/Triangle3.gd" id="2_r08b1"]
-[ext_resource type="Script" path="res://scenes/Tasks/Triangle2.gd" id="3_n1qd6"]
+[ext_resource type="Script" uid="uid://cgh74xpmlh4jv" path="res://ColorBlind1.gd" id="1_82ufj"]
+[ext_resource type="Script" uid="uid://ce6m6gq1l5ubw" path="res://scenes/Tasks/triangle1.gd" id="2_nhuuh"]
+[ext_resource type="Script" uid="uid://culx6284m87i0" path="res://scenes/Tasks/Triangle3.gd" id="2_r08b1"]
+[ext_resource type="Script" uid="uid://cod6q0j14l4fl" path="res://scenes/Tasks/Triangle2.gd" id="3_n1qd6"]
 
 [node name="Node2D" type="Area2D"]
 script = ExtResource("1_82ufj")
