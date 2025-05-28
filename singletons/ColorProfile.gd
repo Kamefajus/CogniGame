@@ -38,10 +38,7 @@ func _on_tree_changed() -> void:
 	
 	# Check if the current scene is valid and if _current_cb is valid
 	if current_scene and (!_current_cb or !is_instance_valid(_current_cb) or !_current_cb.is_inside_tree()):
-		print("Recreating in scene")
 		_recreate_in_scene(current_scene)
-	else:
-		print("Conditions not met for recreation")
 
 
 func _on_node_added(node: Node) -> void:
