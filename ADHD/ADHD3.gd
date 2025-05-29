@@ -64,3 +64,21 @@ func _on_button_pressed(number):
 func _show_result_popup(message: String) -> void:
 	result_label.text = message
 	result_popup.popup_centered()
+func on_tab_entered():
+	set_process(true)
+	set_physics_process(true)
+	visible = true
+	# Resume timers, animations, etc.
+
+func on_tab_exited():
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+
+
+func _on_button1_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD2.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD4.tscn")

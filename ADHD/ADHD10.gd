@@ -28,6 +28,7 @@ func _show_next_number():
 		btn.name = str(num)
 		btn.connect("pressed", Callable(self, "_on_button_pressed").bind(btn))
 		btn.add_theme_color_override("font_color", Color.BLACK)
+		btn.custom_minimum_size = Vector2(120, 120)  # <- Set minimum size
 		buttons_container.add_child(btn)
 	# Pradėsim skaičių rodymą
 	_start_showing_sequence()
@@ -84,3 +85,22 @@ func _on_button_pressed(pressed_button):
 	t_restart.connect("timeout", Callable(self, "_show_next_number"))
 	add_child(t_restart)
 	t_restart.start()
+func on_tab_entered():
+	set_process(true)
+	set_physics_process(true)
+	visible = true
+	# Resume timers, animations, etc.
+
+func on_tab_exited():
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+	# Pause timers, animations, etc.
+
+
+func _on_button1_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD9.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

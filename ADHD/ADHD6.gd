@@ -93,15 +93,34 @@ func _assign_object_signals():
 			print("⚠️", obj.name, "neturi input_event signalo")
 
 func _on_object_clicked(viewport, event, shape_idx, clicked_obj):
-	if clicked or not (event is InputEventMouseButton and event.pressed):
+	if clicked:
 		return
 
-	clicked = true
-	print("🖱️ Paspaustas objektas:", clicked_obj.name)
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+		clicked = true
+		print("🖱️ Paspaustas objektas:", clicked_obj.name)
 
-	if clicked_obj in swapped_nodes:
-		result_label.text = "✅ Teisingai!"
-		print("🎯 Teisingas pasirinkimas!")
-	else:
-		result_label.text = "❌ Neteisingai. Bandyk dar kartą!"
-		print("❌ Neteisingas pasirinkimas.")
+		if clicked_obj in swapped_nodes:
+			result_label.text = "✅ Teisingai!"
+			print("🎯 Teisingas pasirinkimas!")
+		else:
+			result_label.text = "❌ Neteisingai. Bandyk dar kartą!"
+			print("❌ Neteisingas pasirinkimas.")
+func on_tab_entered():
+	set_process(true)
+	set_physics_process(true)
+	visible = true
+	# Resume timers, animations, etc.
+
+func on_tab_exited():
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+
+
+func _on_button1_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD5.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD7.tscn")

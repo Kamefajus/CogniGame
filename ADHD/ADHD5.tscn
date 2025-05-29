@@ -1,9 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://6072hfgiss3g"]
+[gd_scene load_steps=3 format=3 uid="uid://6072hfgiss3g"]
 
 [ext_resource type="Script" path="res://ADHD/ADHD5.gd" id="1_qkafi"]
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="2_gtk4l"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_qkafi")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1158.0
+offset_bottom = 650.0
+texture = ExtResource("2_gtk4l")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 347.0
+offset_top = 5.0
+offset_right = 762.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 32
+text = "Paspausk mėlyną kvadratą"
 
 [node name="ColorBox" type="ColorRect" parent="."]
 offset_left = 461.0
@@ -14,3 +28,22 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 
 [node name="ResultPopup" type="AcceptDialog" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 36.0
+offset_top = 584.0
+offset_right = 123.0
+offset_bottom = 637.0
+theme_override_font_sizes/font_size = 32
+text = "Atgal"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 969.0
+offset_top = 579.0
+offset_right = 1130.0
+offset_bottom = 632.0
+theme_override_font_sizes/font_size = 32
+text = "Kitas lygis"
+
+[connection signal="pressed" from="Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

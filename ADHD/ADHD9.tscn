@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://fyacuroaevjt"]
+[gd_scene load_steps=7 format=3 uid="uid://fyacuroaevjt"]
 
 [ext_resource type="Script" path="res://ADHD/ADHD9.gd" id="1_wsy0k"]
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="2_u7h1k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pe345"]
 bg_color = Color(0.857412, 0.0419497, 0.0700221, 1)
@@ -16,14 +17,23 @@ bg_color = Color(0.807843, 0.945098, 0, 1)
 
 [node name="Control" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 349.0
-offset_top = 310.0
+anchor_left = 0.004
+anchor_right = 0.004
+offset_left = -0.136687
+offset_top = -0.688751
+offset_right = -0.136687
+offset_bottom = -0.688751
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_wsy0k")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -21.0
+offset_top = 2.0
+offset_right = 1164.0
+offset_bottom = 649.0
+texture = ExtResource("2_u7h1k")
 
 [node name="ColorButtonRed" type="Button" parent="."]
 layout_mode = 1
@@ -32,10 +42,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 37.0
-offset_top = -158.0
-offset_right = 181.0
-offset_bottom = -91.0
+offset_left = 578.529
+offset_top = 196.689
+offset_right = 722.529
+offset_bottom = 263.689
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_pe345")
@@ -47,10 +57,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -154.0
-offset_top = -160.0
-offset_right = -12.0
-offset_bottom = -93.0
+offset_left = 387.529
+offset_top = 194.689
+offset_right = 529.529
+offset_bottom = 261.689
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_jffq1")
@@ -62,10 +72,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 42.0
-offset_top = -52.0
-offset_right = 181.0
-offset_bottom = 15.0
+offset_left = 583.529
+offset_top = 302.689
+offset_right = 722.529
+offset_bottom = 369.689
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_mabha")
@@ -77,15 +87,38 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.0
-offset_top = -54.0
-offset_right = -15.0
-offset_bottom = 10.0
+offset_left = 389.529
+offset_top = 300.689
+offset_right = 526.529
+offset_bottom = 364.689
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_7bklq")
 
 [node name="InfoLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 416.0
+offset_top = 19.0
+offset_right = 688.0
+offset_bottom = 72.0
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 68.5287
+offset_top = 548.689
+offset_right = 155.529
+offset_bottom = 601.689
+theme_override_font_sizes/font_size = 32
+text = "Atgal"
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+offset_left = 928.529
+offset_top = 559.689
+offset_right = 1089.53
+offset_bottom = 612.689
+theme_override_font_sizes/font_size = 32
+text = "Kitas lygis"
+
+[connection signal="pressed" from="Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -60,3 +60,21 @@ func _on_stop_button_pressed():
 
 func reset_ball():
 	ball.position = Vector2(0, 285)  # Y turi sutapti su kamuolio centru
+func on_tab_entered():
+	set_process(true)
+	set_physics_process(true)
+	visible = true
+	# Resume timers, animations, etc.
+
+func on_tab_exited():
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+
+
+func _on_button1_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD6.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD8.tscn")

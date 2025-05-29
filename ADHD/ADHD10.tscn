@@ -1,24 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvqn7wecap17p"]
+[gd_scene load_steps=3 format=3 uid="uid://cvqn7wecap17p"]
 
 [ext_resource type="Script" path="res://ADHD/ADHD10.gd" id="1_ce2ok"]
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="2_4hfxi"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_ce2ok")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1157.0
+offset_bottom = 649.0
+texture = ExtResource("2_4hfxi")
+
 [node name="NumberLabel" type="Label" parent="."]
-offset_left = 66.0
-offset_top = 127.0
-offset_right = 650.0
-offset_bottom = 196.0
+offset_left = 256.0
+offset_top = 129.0
+offset_right = 840.0
+offset_bottom = 198.0
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 28
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 300.0
+offset_left = 302.0
 offset_top = 234.0
-offset_right = 876.0
+offset_right = 878.0
 offset_bottom = 425.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -50,3 +56,22 @@ text = "4"
 [node name="ResultLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
+
+[node name="Button" type="Button" parent="."]
+offset_left = 49.0
+offset_top = 547.0
+offset_right = 136.0
+offset_bottom = 600.0
+theme_override_font_sizes/font_size = 32
+text = "Atgal"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 834.0
+offset_top = 559.0
+offset_right = 1124.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 32
+text = "Į pagrindinį meniu"
+
+[connection signal="pressed" from="Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bruqkx54qq24u"]
+[gd_scene load_steps=4 format=3 uid="uid://bruqkx54qq24u"]
 
 [ext_resource type="Script" path="res://ADHD/ADHD7.gd" id="1_pgbtr"]
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="2_dnbwh"]
 [ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_fphfc"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_pgbtr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1163.0
+offset_bottom = 649.0
+texture = ExtResource("2_dnbwh")
 
 [node name="TargetLine" type="ColorRect" parent="."]
 offset_left = 533.0
@@ -31,3 +37,30 @@ offset_left = 100.0
 offset_top = 32.0
 offset_right = 140.0
 offset_bottom = 55.0
+
+[node name="Label" type="Label" parent="."]
+offset_left = 369.0
+offset_top = 20.0
+offset_right = 755.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 32
+text = "Sutsabdyk kamuolį lauke"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 49.0
+offset_top = 564.0
+offset_right = 136.0
+offset_bottom = 617.0
+theme_override_font_sizes/font_size = 32
+text = "Atgal"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 958.0
+offset_top = 558.0
+offset_right = 1119.0
+offset_bottom = 611.0
+theme_override_font_sizes/font_size = 32
+text = "Kitas lygis"
+
+[connection signal="pressed" from="Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

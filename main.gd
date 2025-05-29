@@ -52,3 +52,17 @@ func spawn_objects() -> void:
 func clear_objects():
 	for obj in spawner.get_children():
 		obj.queue_free()
+func on_tab_entered():
+	set_process(true)
+	set_physics_process(true)
+	visible = true
+	# Resume timers, animations, etc.
+
+func on_tab_exited():
+	set_process(false)
+	set_physics_process(false)
+	visible = false
+
+
+func _on_next_pressed() -> void:
+	get_tree().change_scene_to_file("res://ADHD/ADHD2.tscn")

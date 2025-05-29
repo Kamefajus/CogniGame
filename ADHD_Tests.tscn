@@ -35,15 +35,13 @@ texture = ExtResource("1_7mviy")
 layout_mode = 0
 offset_right = 320.0
 offset_bottom = 40.0
-current_tab = 9
+current_tab = 0
 
 [node name="1" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Main" parent="TabContainer/1" instance=ExtResource("2_n4fec")]
-position = Vector2(452, 240)
+[node name="Main2" parent="TabContainer/1" instance=ExtResource("2_n4fec")]
 
 [node name="2" type="TabBar" parent="TabContainer"]
 visible = false
@@ -67,13 +65,15 @@ layout_mode = 2
 metadata/_tab_index = 3
 
 [node name="Node2D" parent="TabContainer/4" instance=ExtResource("6_lmr0g")]
+visible = false
 
 [node name="5" type="TabBar" parent="TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="Node2D" parent="TabContainer/5" instance=ExtResource("7_7ljh6")]
+[node name="Node2D2" parent="TabContainer/5" instance=ExtResource("7_7ljh6")]
+visible = false
 
 [node name="6" type="TabBar" parent="TabContainer"]
 visible = false
@@ -81,6 +81,7 @@ layout_mode = 2
 metadata/_tab_index = 5
 
 [node name="Node2D" parent="TabContainer/6" instance=ExtResource("8_t4pfg")]
+visible = false
 
 [node name="7" type="TabBar" parent="TabContainer"]
 visible = false
@@ -88,6 +89,7 @@ layout_mode = 2
 metadata/_tab_index = 6
 
 [node name="Node2D" parent="TabContainer/7" instance=ExtResource("9_ml8rv")]
+visible = false
 
 [node name="8" type="TabBar" parent="TabContainer"]
 visible = false
@@ -95,6 +97,7 @@ layout_mode = 2
 metadata/_tab_index = 7
 
 [node name="Node2D" parent="TabContainer/8" instance=ExtResource("10_7darq")]
+visible = false
 
 [node name="9" type="TabBar" parent="TabContainer"]
 visible = false
@@ -102,14 +105,22 @@ layout_mode = 2
 metadata/_tab_index = 8
 
 [node name="Control" parent="TabContainer/9" instance=ExtResource("11_axjer")]
+visible = false
 layout_mode = 1
-offset_left = 536.0
-offset_top = 347.0
-offset_right = 216.0
-offset_bottom = 338.0
+anchors_preset = -1
+anchor_left = 1.685
+anchor_top = 34.511
+anchor_right = 1.685
+anchor_bottom = 34.511
+offset_left = -0.0654297
+offset_top = -0.00286865
+offset_right = -0.0654297
+offset_bottom = -0.00286865
 
 [node name="10" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 9
 
 [node name="Node2D" parent="TabContainer/10" instance=ExtResource("12_uvpis")]
+visible = false
