@@ -2,7 +2,8 @@ extends Node2D
 
 @onready var number_label = $NumberLabel
 @onready var buttons_container = $VBoxContainer/ButtonsContainer
-@onready var result_label = $VBoxContainer/ResultLabel
+@onready var result_label = $ResultLabel
+# Your instruction label is already set up in your scene, so not declared here
 
 var numbers = [1, 2, 3, 4]
 var shown_numbers = []
@@ -12,24 +13,25 @@ var can_click = false
 
 func _ready():
 	result_label.text = ""
-	result_label.add_theme_color_override("font_color", Color.BLACK)
+	result_label.add_theme_color_override("font_color", Color.WHITE)
 	_show_next_number()
 
 func _show_next_number():
 	result_label.text = ""
 	can_click = false
-	# Išvalom mygtukus
+	# Clear buttons
 	for child in buttons_container.get_children():
 		child.queue_free()
-	# Sukuriam mygtukus
+	# Create buttons
 	for num in numbers:
 		var btn = Button.new()
 		btn.text = str(num)
 		btn.name = str(num)
+		btn.custom_minimum_size = Vector2(120, 120)
 		btn.connect("pressed", Callable(self, "_on_button_pressed").bind(btn))
 		btn.add_theme_color_override("font_color", Color.BLACK)
 		buttons_container.add_child(btn)
-	# Pradėsim skaičių rodymą
+	# Start number sequence
 	_start_showing_sequence()
 
 func _start_showing_sequence():
@@ -45,7 +47,7 @@ func _show_number_once():
 		shown_numbers.append(last_number)
 		current_index += 1
 		can_click = false
-		# Parodome skaičių 0.8 sek, tada slepiam 0.3 sek
+		# Show number 0.8s, then hide 0.3s
 		var t1 = Timer.new()
 		t1.wait_time = 0.8
 		t1.one_shot = true
@@ -53,10 +55,10 @@ func _show_number_once():
 		add_child(t1)
 		t1.start()
 	else:
-		# Po keturių rodymų leidžiam spausti mygtukus
 		can_click = true
-		number_label.text = "Paspausk paskutinį skaičių!"
-		number_label.add_theme_color_override("font_color", Color.BLACK)
+		number_label.text = ""  # number_label only shows numbers
+		# Instructions should be handled by your instruction label elsewhere
+		# So no code here for instructions
 
 func _hide_number():
 	number_label.text = ""
@@ -72,15 +74,22 @@ func _on_button_pressed(pressed_button):
 		return
 	var pressed_num = int(pressed_button.text)
 	if pressed_num == last_number:
-		result_label.text = "Laimejai!"
+		result_label.text = "✅ Teisingai!"
+		emit_signal("task_completed", true)
 	else:
-		result_label.text = "Pralaimejai!"
+		result_label.text = "❌ Neteisingai!"
+		emit_signal("task_completed", false)
 	can_click = false
 	number_label.text = ""
-	# Po 2 sekundžių pradėti žaidimą iš naujo
+	# Restart after 2 seconds
 	var t_restart = Timer.new()
 	t_restart.wait_time = 2.0
 	t_restart.one_shot = true
 	t_restart.connect("timeout", Callable(self, "_show_next_number"))
 	add_child(t_restart)
 	t_restart.start()
+
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return result_label.text == "✅ Teisingai!"  # or use a variable like `completed_correctly`

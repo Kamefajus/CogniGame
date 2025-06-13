@@ -1,64 +1,97 @@
-[gd_scene load_steps=11 format=3 uid="uid://cgyytf3wit306"]
+[gd_scene load_steps=7 format=3 uid="uid://cgyytf3wit306"]
 
 [ext_resource type="Script" uid="uid://cwi1otuk4kj5u" path="res://scenes/Tasks/color_blind_4.gd" id="1_voit0"]
 [ext_resource type="Texture2D" uid="uid://dhauf8lsn1jk1" path="res://minecraft_render___tree_by_danixoldier_d6t90oe-fullview.png" id="1_wvybm"]
-[ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_8mfwq"]
 [ext_resource type="Texture2D" uid="uid://bd6cvki3arv1e" path="res://image55.png" id="2_lcu2h"]
-[ext_resource type="Texture2D" uid="uid://djxffo7ug4iso" path="res://150px-Leather_JE2_BE2.png" id="3_am4at"]
-[ext_resource type="Script" uid="uid://cbkk681modhwf" path="res://scenes/Tasks/area_2d.gd" id="4_h1drq"]
-[ext_resource type="Texture2D" uid="uid://babwrq4y5iqrw" path="res://Under_Construction_Warning_Sign_PNG_Clipart-839.png" id="7_5dlum"]
-[ext_resource type="Script" uid="uid://3b85tcdimpmt" path="res://scenes/Tasks/area_2d_2.gd" id="7_uhup6"]
+[ext_resource type="Texture2D" uid="uid://1gb7gsgmk2f8" path="res://purepng.com-golden-starstargeometricallydecagonconcavestardomgoldclipart-1421526502639qsgef.png" id="3_jms4k"]
+[ext_resource type="Texture2D" uid="uid://cs4g0b5ge6drq" path="res://image99.png" id="5_k1gnr"]
+[ext_resource type="Texture2D" uid="uid://cfyr62e4pp5dt" path="res://May 20, 2025, 05_29_39 PM.png" id="6_lrtuf"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xa3eh"]
-size = Vector2(180, 217)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gj11v"]
-size = Vector2(227, 246)
-
-[node name="Node2D" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_voit0")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(229, 99)
-scale = Vector2(0.335, 0.314167)
-texture = ExtResource("2_lcu2h")
+[node name="TextureButton1" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 654.0
+offset_top = 319.0
+offset_right = 782.0
+offset_bottom = 447.0
+texture_normal = ExtResource("1_wvybm")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(585, 433)
-scale = Vector2(0.306641, 0.324219)
-texture = ExtResource("2_8mfwq")
+[node name="TextureButton2" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 468.0
+offset_top = 186.0
+offset_right = 596.0
+offset_bottom = 314.0
+texture_normal = ExtResource("1_wvybm")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(547.189, 109.847)
-script = ExtResource("4_h1drq")
+[node name="TextureButton3" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 275.0
+offset_top = 312.0
+offset_right = 403.0
+offset_bottom = 440.0
+texture_normal = ExtResource("3_jms4k")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D3" type="Sprite2D" parent="Area2D"]
-position = Vector2(-0.188721, -4.84722)
-scale = Vector2(0.219116, 0.23584)
-texture = ExtResource("1_wvybm")
+[node name="TextureButton4" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 664.0
+offset_top = 172.0
+offset_right = 792.0
+offset_bottom = 300.0
+texture_normal = ExtResource("2_lcu2h")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.81134, 1.15277)
-shape = SubResource("RectangleShape2D_xa3eh")
+[node name="TextureButton5" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 270.0
+offset_top = 193.0
+offset_right = 398.0
+offset_bottom = 321.0
+texture_normal = ExtResource("5_k1gnr")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(940, 118)
-scale = Vector2(0.0342, 0.0338)
-texture = ExtResource("7_5dlum")
+[node name="TextureButton6" type="TextureButton" parent="."]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 464.0
+offset_top = 326.0
+offset_right = 592.0
+offset_bottom = 454.0
+texture_normal = ExtResource("6_lrtuf")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Area2D2" type="Area2D" parent="."]
-position = Vector2(217, 400)
-script = ExtResource("7_uhup6")
+[node name="ResultLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 413.0
+offset_top = 8.0
+offset_right = 677.0
+offset_bottom = 59.0
+theme_override_font_sizes/font_size = 32
 
-[node name="Sprite2D5" type="Sprite2D" parent="Area2D2"]
-scale = Vector2(0.268555, 0.268555)
-texture = ExtResource("1_wvybm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(3, 5)
-shape = SubResource("RectangleShape2D_gj11v")
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-position = Vector2(920, 426)
-scale = Vector2(1.28667, 1.29333)
-texture = ExtResource("3_am4at")
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 133.0
+offset_right = 727.0
+offset_bottom = 172.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Surask tuos pačius objektus"

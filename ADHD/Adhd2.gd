@@ -1,27 +1,47 @@
-extends Node2D
+extends Control
 
-@onready var star_area = $Area2D
-@onready var star = $Area2D/Star
-@onready var objects = [ $Object1, $Object2, $Object3, $Object4 ]
+@onready var star_button = $StarButton  # TextureButton for star
+@onready var object_buttons = [
+	$Object1,
+	$Object2,
+	$Object3,
+	$Object4
+]
+
 @onready var label = $Label
 
+# Fixed positions inside the Control node’s coordinate system
+var fixed_positions = [
+	Vector2(662, 498),  # StarButton
+	Vector2(474, 276),  # ObjectButton1
+	Vector2(174, 198),  # ObjectButton2
+	Vector2(663, 228),  # ObjectButton3
+	Vector2(325, 405)   # ObjectButton4
+]
+
 func _ready():
-	randomize()
-	label.text = "Surask žvaigždę!"
-	_place_star_and_objects()
-	star_area.connect("input_event", Callable(self, "_on_star_clicked"))
+	_place_buttons()
 
-func _place_star_and_objects():
-	var positions = []
-	for i in range(6):  # 1 žvaigždė + 5 objektai
-		positions.append(Vector2(randi() % 800, randi() % 600))
+	# Connect pressed signals
+	star_button.connect("pressed", Callable(self, "_on_star_pressed"))
+	for obj_btn in object_buttons:
+		obj_btn.connect("pressed", Callable(self, "_on_wrong_button_pressed"))
 
-	star_area.position = positions.pop_back()
+func _place_buttons():
+	star_button.position = fixed_positions[0]
 
-	for obj in objects:
-		obj.position = positions.pop_back()
+	for i in range(object_buttons.size()):
+		object_buttons[i].position = fixed_positions[i + 1]
 
-func _on_star_clicked(viewport, event, shape_idx):
-	if event is InputEventMouseButton and event.pressed:
-		label.text = "Radai žvaigždę!"
-		label.add_theme_color_override("font_color", Color.GREEN)
+func _on_star_pressed():
+	label.text = "✅ Teisingai!"
+	emit_signal("task_completed", true)
+
+func _on_wrong_button_pressed():
+	label.text = "❌ Neteisingai!"
+	emit_signal("task_completed", false)
+
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return label.text == "✅ Teisingai!"  # or use a variable like `completed_correctly`

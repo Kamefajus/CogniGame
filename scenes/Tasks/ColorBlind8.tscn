@@ -16,50 +16,52 @@ grow_vertical = 2
 script = ExtResource("1_pvqd1")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-custom_minimum_size = Vector2(500, 500)
+custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -508.0
-offset_top = -500.0
-offset_right = 508.0
+offset_left = -356.0
+offset_top = -428.0
+offset_right = 404.0
+offset_bottom = -78.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_constants/h_separation = 50
 columns = 5
 
 [node name="TextureButton" type="TextureButton" parent="GridContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(125, 150)
 layout_mode = 2
 texture_normal = ExtResource("1_mh8pf")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton2" type="TextureButton" parent="GridContainer"]
-custom_minimum_size = Vector2(200, 400)
-layout_mode = 2
-texture_normal = ExtResource("2_yci6v")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="TextureButton3" type="TextureButton" parent="GridContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(125, 150)
 layout_mode = 2
 texture_normal = ExtResource("2_yci6v")
 ignore_texture_size = true
 stretch_mode = 0
 
 [node name="TextureButton4" type="TextureButton" parent="GridContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(125, 150)
 layout_mode = 2
 texture_normal = ExtResource("3_xi0s3")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="TextureButton3" type="TextureButton" parent="GridContainer"]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 2
+texture_normal = ExtResource("2_yci6v")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="TextureButton5" type="TextureButton" parent="GridContainer"]
-custom_minimum_size = Vector2(200, 400)
+custom_minimum_size = Vector2(125, 150)
 layout_mode = 2
 texture_normal = ExtResource("4_1q4u6")
 ignore_texture_size = true
@@ -70,15 +72,25 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -67.0
-offset_right = 67.0
-offset_bottom = 23.0
+offset_left = -214.0
+offset_top = 141.0
+offset_right = 210.0
+offset_bottom = 186.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "Kurios gelės spalva skiriasi?"
+
+[node name="ResultLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 18.0
+offset_right = 667.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 32
 
 [connection signal="pressed" from="GridContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
-[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="GridContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
 [connection signal="pressed" from="GridContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]

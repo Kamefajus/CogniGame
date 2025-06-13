@@ -1,37 +1,57 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxpe3ar5vspe0"]
+[gd_scene load_steps=5 format=3 uid="uid://cxpe3ar5vspe0"]
 
 [ext_resource type="Texture2D" uid="uid://bqaiqik40y4hd" path="res://GrayCircle.png" id="1_6o0bd"]
+[ext_resource type="Script" uid="uid://crhdospfvun6u" path="res://scenes/Tasks/color_blind_2.gd" id="1_271k1"]
 [ext_resource type="Texture2D" uid="uid://b8k2r8yb26h1n" path="res://Red-Circle-Transparent.png" id="2_wi5lh"]
 [ext_resource type="Texture2D" uid="uid://c3act88dwe8ep" path="res://image.png" id="3_3agym"]
-[ext_resource type="Script" uid="uid://burnamd11ysrf" path="res://scenes/Tasks/clickable_sprite.gd" id="3_nbo54"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ji4f7"]
-radius = 132.015
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_271k1")
 
-[node name="Node2D" type="Node2D"]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 234.0
+offset_right = 897.0
+offset_bottom = 434.0
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("2_wi5lh")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-position = Vector2(178, 158.875)
-scale = Vector2(0.688889, 0.745139)
-texture = ExtResource("1_6o0bd")
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("1_6o0bd")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Area2D2" type="Area2D" parent="."]
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture_normal = ExtResource("3_3agym")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D3" type="Sprite2D" parent="Area2D2"]
-position = Vector2(503, 155)
-scale = Vector2(0.478516, 0.499023)
-texture = ExtResource("2_wi5lh")
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 6.0
+offset_right = 730.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 32
 
-[node name="ClickableSprite" type="Area2D" parent="."]
-script = ExtResource("3_nbo54")
-
-[node name="Sprite2D3" type="Sprite2D" parent="ClickableSprite"]
-position = Vector2(850, 152)
-scale = Vector2(0.354054, 0.363513)
-texture = ExtResource("3_3agym")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ClickableSprite"]
-position = Vector2(850, 154)
-shape = SubResource("CircleShape2D_ji4f7")
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 401.0
+offset_top = 150.0
+offset_right = 753.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Kuris rutulys tamsiausias?"

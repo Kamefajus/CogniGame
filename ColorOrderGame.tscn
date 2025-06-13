@@ -12,60 +12,67 @@ grow_vertical = 2
 script = ExtResource("1_4rnp7")
 metadata/_edit_use_anchors_ = true
 
-[node name="Vbox" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -325.0
-offset_top = -243.0
-offset_right = 337.0
-offset_bottom = 243.0
+offset_left = -311.0
+offset_top = -92.0
+offset_right = 329.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 80
 
-[node name="ColorGrid" type="GridContainer" parent="Vbox"]
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="Color0" type="ColorRect" parent="Vbox/ColorGrid"]
+[node name="Color0" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Color1" type="ColorRect" parent="Vbox/ColorGrid"]
+[node name="Color1" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Color2" type="ColorRect" parent="Vbox/ColorGrid"]
+[node name="Color2" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="Color3" type="ColorRect" parent="Vbox/ColorGrid"]
+[node name="Color3" type="ColorRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 mouse_filter = 1
 
-[node name="SubmitButton" type="Button" parent="Vbox"]
+[node name="SubmitButton" type="Button" parent="."]
 layout_mode = 2
+offset_left = 464.0
+offset_top = 429.0
+offset_right = 688.0
+offset_bottom = 491.0
 text = "Pasirinkti"
 
-[node name="ResultLabel" type="Label" parent="Vbox"]
+[node name="ResultLabel" type="Label" parent="."]
 layout_mode = 2
+offset_left = 480.0
+offset_top = 7.0
+offset_right = 785.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 32
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -355.0
+offset_top = 138.0
+offset_right = 364.0
+offset_bottom = 183.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Parink spalvas nuo tamsiausios iki šviesiausios"

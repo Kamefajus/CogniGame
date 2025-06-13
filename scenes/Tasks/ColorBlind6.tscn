@@ -1,57 +1,66 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3tfylhah7mxd"]
+[gd_scene load_steps=3 format=3 uid="uid://c3tfylhah7mxd"]
 
-[ext_resource type="Script" uid="uid://dh11tqp4hc1ay" path="res://area_2d.gd" id="1_fjaeh"]
+[ext_resource type="Script" uid="uid://dc0wn3mjegi6d" path="res://scenes/Tasks/color_blind_6.gd" id="1_572ug"]
 [ext_resource type="Texture2D" uid="uid://bqaiqik40y4hd" path="res://GrayCircle.png" id="2_g78pu"]
-[ext_resource type="Script" uid="uid://b60m540lx2jxv" path="res://area_2d_2.gd" id="3_yctqx"]
-[ext_resource type="Script" uid="uid://d0tcmwrytp3r8" path="res://area_2d_3.gd" id="4_w785d"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_fke1m"]
-radius = 123.406
-
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_572ug")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 379.0
-offset_right = 766.0
-offset_bottom = 45.0
-theme_override_font_sizes/font_size = 32
+layout_mode = 0
+offset_left = 375.0
+offset_top = 143.0
+offset_right = 762.0
+offset_bottom = 188.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "Pasirink ryškiausią figūrą"
 
-[node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("1_fjaeh")
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 243.0
+offset_right = 962.0
+offset_bottom = 371.0
+theme_override_constants/separation = 80
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(0.93845, 0.93845, 0.93845, 1)
-position = Vector2(242, 237)
-scale = Vector2(0.688889, 0.744444)
-texture = ExtResource("2_g78pu")
+[node name="TextureButton" type="TextureButton" parent="HBoxContainer"]
+modulate = Color(0.190762, 0.190762, 0.190762, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("2_g78pu")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(243, 236)
-shape = SubResource("CircleShape2D_fke1m")
+[node name="TextureButton2" type="TextureButton" parent="HBoxContainer"]
+modulate = Color(0.366595, 0.366595, 0.366595, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("2_g78pu")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Area2D2" type="Area2D" parent="."]
-script = ExtResource("3_yctqx")
+[node name="TextureButton3" type="TextureButton" parent="HBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("2_g78pu")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D2"]
-modulate = Color(0.266575, 0.266575, 0.266575, 1)
-position = Vector2(519, 238)
-scale = Vector2(0.686111, 0.760417)
-texture = ExtResource("2_g78pu")
+[node name="TextureButton4" type="TextureButton" parent="HBoxContainer"]
+modulate = Color(0.281187, 0.281187, 0.281187, 1)
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("2_g78pu")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
-position = Vector2(522, 237)
-shape = SubResource("CircleShape2D_fke1m")
-
-[node name="Area2D3" type="Area2D" parent="."]
-script = ExtResource("4_w785d")
-
-[node name="Sprite2D3" type="Sprite2D" parent="Area2D3"]
-modulate = Color(0.509286, 0.509286, 0.509286, 1)
-position = Vector2(810, 238)
-scale = Vector2(0.686111, 0.760417)
-texture = ExtResource("2_g78pu")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D3"]
-position = Vector2(814, 241)
-shape = SubResource("CircleShape2D_fke1m")
+[node name="ResultLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 8.0
+offset_right = 684.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 32

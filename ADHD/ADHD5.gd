@@ -6,14 +6,12 @@ var change_interval = 2.0
 var timer := 0.0
 
 @onready var color_box = $ColorBox
-@onready var result_popup = $ResultPopup
+@onready var result_label = $ResultLabel  # Make sure you have a Label node named ResultLabel
 
 func _ready():
 	color_box.color = colors[current_color_index]
-	result_popup.confirmed.connect(_on_result_popup_confirmed)
-	
-	# Jei nenaudoji pauzės, šios eilutės galima pašalinti:
-	# result_popup.pause_mode = 2
+	result_label.text = ""
+	result_label.visible = false
 
 func _process(delta):
 	timer += delta
@@ -34,9 +32,21 @@ func _input(event):
 				_show_result(false)
 
 func _show_result(is_correct: bool):
-	result_popup.dialog_text = "✅ Teisingai! Spalva mėlyna!" if is_correct else "❌ Neteisingai. Tai ne mėlyna spalva."
-	result_popup.popup_centered()
+	if is_correct:
+		result_label.text = "✅ Teisingai! Spalva mėlyna!" 
+		emit_signal("task_completed", true)
+	else:
+		"❌ Neteisingai. Tai ne mėlyna spalva."
+		emit_signal("task_completed", false)
+	result_label.visible = true
+	
 
-func _on_result_popup_confirmed():
-	# Jei nenaudojam pauzės, šios eilutės taip pat nereikia
-	pass
+	# Hide result after a short delay
+	await get_tree().create_timer(2.0).timeout
+	result_label.visible = false
+
+
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return result_label.text == "✅ Teisingai! Spalva mėlyna!" 

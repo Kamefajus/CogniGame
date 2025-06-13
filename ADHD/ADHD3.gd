@@ -5,16 +5,18 @@ var correct_order = []
 var user_order = []
 
 @onready var container = $ButtonsContainer
-@onready var result_popup = $ResultPopup
-@onready var result_label = $ResultPopup/Label
+@onready var result_label = $ResultLabel  # Make sure you have a Label node named ResultLabel
 
 func _ready():
+	result_label.text = ""
+	result_label.visible = false
 	await _start_new_round()
 
 func _start_new_round():
 	randomize()
 	correct_order = numbers.duplicate()
 	user_order.clear()
+	result_label.visible = false  # Hide result label at the start of each round
 
 	for child in container.get_children():
 		child.queue_free()
@@ -26,11 +28,9 @@ func _start_new_round():
 		var button = Button.new()
 		button.text = str(number)
 		button.name = "Button%d" % number
+		button.custom_minimum_size = Vector2(60, 60)  # Set minimum size here
 		button.pressed.connect(_on_button_pressed.bind(number))
 		container.add_child(button)
-
-	print("Teisinga seka:", correct_order)
-	print("Mygtukų tvarka:", shuffled_buttons)
 
 func _on_button_pressed(number):
 	if number in user_order:
@@ -52,15 +52,22 @@ func _on_button_pressed(number):
 		print("Teisinga:", correct_order)
 
 		if user_order == correct_order:
-			print("🎉 Teisinga seka!")
-			_show_result_popup("🎉 Teisinga seka!")
+			print("✅ Teisinga seka!")
+			_show_result_label("✅ Teisinga seka!")
+			emit_signal("task_completed", true)
 		else:
-			print("❌ Neteisinga seka.")
-			_show_result_popup("❌ Neteisinga seka.")
+			print("❌ Neteisinga seka!")
+			_show_result_label("❌ Neteisinga seka.")
+			emit_signal("task_completed", false)
 
 		await get_tree().create_timer(3).timeout
 		await _start_new_round()
 
-func _show_result_popup(message: String) -> void:
+func _show_result_label(message: String) -> void:
 	result_label.text = message
-	result_popup.popup_centered()
+	result_label.visible = true
+	
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return result_label.text == "✅ Teisinga seka!"

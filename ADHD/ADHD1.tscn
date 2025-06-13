@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cdjvk0rfb2txs" path="res://main.gd" id="1_jvtkq"]
 [ext_resource type="PackedScene" uid="uid://byr5lpp7wsyxc" path="res://ADHD/ObjectADHD.tscn" id="2_ka8iy"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_jvtkq")
 
 [node name="UI" type="CanvasLayer" parent="."]
@@ -22,7 +24,18 @@ offset_bottom = 42.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 
-[node name="Spawner" type="Node2D" parent="."]
+[node name="Spawner" type="Control" parent="."]
+anchors_preset = 0
 
 [node name="Node2D" parent="Spawner" instance=ExtResource("2_ka8iy")]
-position = Vector2(548, 286)
+layout_mode = 0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 137.0
+offset_right = 806.0
+offset_bottom = 176.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Paspausk raketą ir surink 5 taškus"

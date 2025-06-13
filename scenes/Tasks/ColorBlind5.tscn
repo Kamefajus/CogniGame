@@ -13,7 +13,8 @@ grow_vertical = 2
 script = ExtResource("1_ccokj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(544, 276)
+position = Vector2(565, 245)
+scale = Vector2(0.77, 0.713333)
 texture = ExtResource("2_tvt8l")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -23,25 +24,26 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -218.0
-offset_top = -75.0
-offset_right = 219.0
+offset_left = -275.0
+offset_top = -291.0
+offset_right = 300.0
+offset_bottom = -216.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 100
 
 [node name="Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Raudonos"
 
 [node name="Button2" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Geltonos"
 
 [node name="Button3" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 text = "Mėlynos"
 
@@ -50,12 +52,22 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -214.5
-offset_right = 214.5
-offset_bottom = 45.0
+offset_left = -159.0
+offset_top = 143.0
+offset_right = 161.0
+offset_bottom = 188.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "Kokios spalvos ši gelė?"
+
+[node name="ResultLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 447.0
+offset_top = 2.0
+offset_right = 675.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 32
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]

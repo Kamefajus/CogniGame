@@ -10,22 +10,22 @@
 script = ExtResource("1_uakad")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(491, 261)
+position = Vector2(475, 243)
 scale = Vector2(0.523611, 0.561111)
 texture = ExtResource("2_q6pab")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-position = Vector2(283, 361)
+position = Vector2(265, 299)
 scale = Vector2(0.167969, 0.176758)
 texture = ExtResource("3_224sk")
 
 [node name="Sprite2D3" type="Sprite2D" parent="."]
-position = Vector2(721, 288)
+position = Vector2(703, 226)
 scale = Vector2(0.161621, 0.182617)
 texture = ExtResource("4_wxlvo")
 
 [node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(926, 373)
+position = Vector2(908, 311)
 scale = Vector2(0.165527, 0.203369)
 texture = ExtResource("5_7or4t")
 
@@ -33,19 +33,20 @@ texture = ExtResource("5_7or4t")
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 439.0
-offset_top = 2.0
-offset_right = 759.0
-offset_bottom = 47.0
+offset_left = 417.0
+offset_top = 100.0
+offset_right = 737.0
+offset_bottom = 145.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Rask mėlyną objektą"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = 244.0
-offset_top = 600.0
-offset_right = 944.0
-offset_bottom = 644.0
+offset_left = 233.0
+offset_top = 414.0
+offset_right = 933.0
+offset_bottom = 458.0
 theme_override_constants/separation = 100
 
 [node name="Button" type="Button" parent="HBoxContainer"]
@@ -67,6 +68,13 @@ text = "C"
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "D"
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 423.0
+offset_top = 15.0
+offset_right = 710.0
+offset_bottom = 62.0
+theme_override_font_sizes/font_size = 32
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
