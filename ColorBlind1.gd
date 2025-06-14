@@ -72,7 +72,9 @@ func _check_selection():
 		
 		if all_triangles:
 			show_result("✅ Teisingai: visi trikampiai pasirinkti!", Color(1, 1, 1))
-			# Celebration effect!
+			var id = Database.curr_uid
+			var curr_money = Database.get_user_money_amount(id)
+			Database.update_user_money_amount(id, curr_money + 5)
 			for button in selected_buttons:
 				_celebrate_button(button)
 		else:

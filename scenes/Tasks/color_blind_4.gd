@@ -78,6 +78,9 @@ func _check_selection():
 				break
 		
 		if all_correct:
+			var id = Database.curr_uid
+			var curr_money = Database.get_user_money_amount(id)
+			Database.update_user_money_amount(id, curr_money + 5)
 			_show_success()
 		else:
 			_show_failure()

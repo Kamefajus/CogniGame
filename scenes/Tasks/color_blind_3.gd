@@ -30,6 +30,11 @@ func check_win_condition():
 			all_correct = false
 			break
 	
+	if all_correct:
+		var id = Database.curr_uid
+		var curr_money = Database.get_user_money_amount(id)
+		Database.update_user_money_amount(id, curr_money + 5)
+	
 	result_label.text = "✅ Teisingai! 🎉" if all_correct else "❌ Neteisingai!"
 	result_label.add_theme_color_override("font_color", Color(1, 1, 1) if all_correct else Color(1, 1, 1))
 	result_label.visible = true

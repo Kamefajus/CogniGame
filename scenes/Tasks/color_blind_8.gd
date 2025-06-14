@@ -19,6 +19,9 @@ func _on_texture_button_4_pressed() -> void:
 	show_result_bad()
 
 func _on_texture_button_5_pressed() -> void:
+	var id = Database.curr_uid
+	var curr_money = Database.get_user_money_amount(id)
+	Database.update_user_money_amount(id, curr_money + 5)
 	show_result_good()
 
 func show_result_good():

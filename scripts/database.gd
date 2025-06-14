@@ -20,7 +20,8 @@ func _ready():
 			name TEXT NOT NULL,
 			nickname TEXT UNIQUE NOT NULL,
 			email TEXT UNIQUE NOT NULL,
-			password TEXT NOT NULL
+			password TEXT NOT NULL,
+			cions INTEGER DEFAULT 0
 		);
 	"""
 	if db.query(create_table_query):

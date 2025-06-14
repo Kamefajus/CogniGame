@@ -264,5 +264,5 @@ func Show_how_correct(number: int, root: Node):
 	root.add_child(panel)
 	
 	var id = Database.curr_uid
-	var curr_money = Database.get_user_money_amount(1)
-	Database.update_user_money_amount(1, curr_money + number * 5)
+	var curr_money = Database.get_user_money_amount(id)
+	Database.update_user_money_amount(id, curr_money + number * 5)

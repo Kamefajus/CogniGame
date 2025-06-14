@@ -39,6 +39,9 @@ func _on_button_pressed(button: TextureButton):
 	tween.tween_property(button, "scale", Vector2(1.1, 1.1), 0.1)
 	
 	if button.name == brightest_button_name:
+		var id = Database.curr_uid
+		var curr_money = Database.get_user_money_amount(id)
+		Database.update_user_money_amount(id, curr_money + 5)
 		_show_result("✅ Teisingai!", Color(1, 1, 1))
 	else:
 		_show_result("❌ Neteisingai!", Color(1, 1, 1))

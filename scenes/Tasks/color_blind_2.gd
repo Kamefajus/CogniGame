@@ -11,6 +11,9 @@ func _ready():
 
 func _on_button_pressed(button: TextureButton):
 	if button.name == "TextureButton3":  # Directly check for TextureButton3
+		var id = Database.curr_uid
+		var curr_money = Database.get_user_money_amount(id)
+		Database.update_user_money_amount(id, curr_money + 5)
 		show_result("✅ Teisingai!", Color.WHITE)
 		animate_button(button, 1.2, Color.GREEN)
 	else:

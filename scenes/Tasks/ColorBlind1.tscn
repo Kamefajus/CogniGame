@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bpfk6e4as75ye"]
 
-[ext_resource type="Script" uid="uid://cgh74xpmlh4jv" path="res://ColorBlind1.gd" id="1_82ufj"]
+[ext_resource type="Script" uid="uid://c53un5gx2ohah" path="res://ColorBlind1.gd" id="1_82ufj"]
 [ext_resource type="Texture2D" uid="uid://bjs3f8gav5cgf" path="res://Black-Square-PNG-Photos.png" id="2_3lgo4"]
 [ext_resource type="Texture2D" uid="uid://cmo61184bib7y" path="res://Black-Triangle-No-Background-Clip-Art.png" id="3_1l8qq"]
 [ext_resource type="Texture2D" uid="uid://bpqb6arlyv5wg" path="res://black-and-white-triangle-png-16.png" id="4_e55tm"]
