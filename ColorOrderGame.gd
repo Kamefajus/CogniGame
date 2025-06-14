@@ -1,70 +1,76 @@
 extends Control
 
-@onready var grid = $Vbox/ColorGrid
-@onready var result_label = $Vbox/ResultLabel
-@onready var submit_button = $Vbox/SubmitButton
+@onready var hbox = $HBoxContainer
+@onready var result_label = $ResultLabel
+@onready var submit_button = $SubmitButton
 
 var selected = []
 var colors = [
-	Color("#f2f2f2"),
-	Color("#cccccc"),
+	Color("#333333"),  # Darkest
 	Color("#999999"),
-	Color("#333333"),
+	Color("#cccccc"),
+	Color("#f2f2f2")   # Lightest
 ]
 var brightness_order = []
+var color_rects = []
 
 func _ready():
+	# Store brightness order (darkest to lightest)
 	brightness_order = colors.duplicate()
-	brightness_order.sort_custom(Callable(self, "compare_brightness"))
-
-	# Priskiriame spalvas visiems ColorRect'ams NEIŠMAIŠYTA tvarka (vienoje vietoje)
-	for i in range(grid.get_child_count()):
-		var rect = grid.get_child(i) as ColorRect
-		rect.color = colors[i]
-		rect.mouse_filter = Control.MOUSE_FILTER_PASS
-		rect.modulate.a = 1.0
-		rect.connect("gui_input", Callable(self, "_on_color_pressed").bind(i))
-
+	brightness_order.sort_custom(Callable(self, "_compare_brightness"))
+	
+	# Clear any existing color rects
+	for child in hbox.get_children():
+		child.queue_free()
+	color_rects.clear()
+	selected.clear()
+	
+	# Shuffle colors
+	var shuffled_colors = colors.duplicate()
+	shuffled_colors.shuffle()
+	
+	# Create ColorRects in HBoxContainer
+	for i in range(shuffled_colors.size()):
+		var color_rect = ColorRect.new()
+		color_rect.color = shuffled_colors[i]
+		color_rect.custom_minimum_size = Vector2(100, 100)
+		color_rect.mouse_filter = Control.MOUSE_FILTER_PASS
+		color_rect.connect("gui_input", Callable(self, "_on_color_pressed").bind(i))
+		hbox.add_child(color_rect)
+		color_rects.append(color_rect)
+	
 	submit_button.connect("pressed", Callable(self, "_on_submit_pressed"))
 
-func compare_brightness(a, b):
-	if a.v < b.v:
-		return -1
-	elif a.v > b.v:
-		return 1
-	else:
-		return 0
+func _compare_brightness(a: Color, b: Color) -> bool:
+	return a.v < b.v  # Sort from darkest to lightest
 
 func _on_color_pressed(event: InputEvent, index: int):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		if selected.has(index):
-			# Jei jau pasirinkta, neleidžiam pasirinkti pakartotinai
-			return
+			return  # Already selected
+		
 		selected.append(index)
-		grid.get_child(index).modulate.a = 0.6  # pažymim pasirinkimą vizualiai
+		color_rects[index].modulate.a = 0.6  # Visual feedback
+		color_rects[index].size_flags_vertical = Control.SIZE_SHRINK_CENTER
 
 func _on_submit_pressed():
-	if selected.size() != grid.get_child_count():
+	if selected.size() != colors.size():
 		result_label.text = "Pasirink visas spalvas!"
 		return
-
-	var selected_colors = []
-	for i in selected:
-		selected_colors.append(grid.get_child(i).color)
-
-	# Patikrinam ar pasirinkta tvarka atitinka šviesumo tvarką
+	
+	# Check if selected order matches brightness order
 	var is_correct = true
-	for i in range(selected_colors.size()):
-		if selected_colors[i] != brightness_order[i]:
+	for i in range(selected.size()):
+		if color_rects[selected[i]].color != brightness_order[i]:
 			is_correct = false
 			break
-
-	if is_correct:
-		result_label.text = "Teisingai! 🎉"
-	else:
-		result_label.text = "Neteisinga tvarka. Bandyk dar kartą."
-
-	# Atstatom spalvų moduliaciją ir išvalom pasirinkimus
+	
+	result_label.text = "✅ Teisingai!" if is_correct else "❌ Neteisinga tvarka. Bandyk dar kartą."
+	
+	# Reset for next attempt
 	for i in selected:
-		grid.get_child(i).modulate.a = 1.0
+		color_rects[i].modulate.a = 1.0
 	selected.clear()
+	
+	# Optional: Auto-reshuffle colors
+	_ready()

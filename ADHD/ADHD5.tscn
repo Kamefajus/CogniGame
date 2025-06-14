@@ -6,11 +6,25 @@
 script = ExtResource("1_qkafi")
 
 [node name="ColorBox" type="ColorRect" parent="."]
-offset_left = 461.0
-offset_top = 194.0
-offset_right = 661.0
-offset_bottom = 394.0
+offset_left = 466.0
+offset_top = 239.0
+offset_right = 666.0
+offset_bottom = 439.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="ResultPopup" type="AcceptDialog" parent="."]
+[node name="Label" type="Label" parent="."]
+offset_left = 384.0
+offset_top = 151.0
+offset_right = 800.0
+offset_bottom = 190.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Paspausk ant mėlyno kvadrato"
+
+[node name="ResultLabel" type="Label" parent="."]
+offset_left = 379.0
+offset_top = 30.0
+offset_right = 805.0
+offset_bottom = 79.0
+theme_override_font_sizes/font_size = 32

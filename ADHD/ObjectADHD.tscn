@@ -1,19 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://byr5lpp7wsyxc"]
+[gd_scene load_steps=2 format=3 uid="uid://byr5lpp7wsyxc"]
 
 [ext_resource type="Script" uid="uid://dt8oxtmsoahku" path="res://Object.gd" id="1_usq00"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pl4kk"]
-radius = 191.042
-
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="TextureButton"]
+custom_minimum_size = Vector2(50, 50)
+ignore_texture_size = true
+stretch_mode = 0
 script = ExtResource("1_usq00")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, 2)
-scale = Vector2(0.351563, 0.382813)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("CircleShape2D_pl4kk")
-
-[connection signal="input_event" from="." to="." method="_on_input_event"]
+metadata/_edit_use_anchors_ = true

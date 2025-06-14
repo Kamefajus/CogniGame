@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12dma"]
 size = Vector2(490.909, 487.417)
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_q2ntm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

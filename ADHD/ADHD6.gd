@@ -1,107 +1,89 @@
-extends Node2D
+extends Control
 
-@onready var object_container = $ObjectContainer
 @onready var cover = $Cover
 @onready var result_label = $Label
 
-var original_positions = []
-var swapped_nodes = []
+var original_positions = {}
+var figures: Array[TextureButton] = []
+var dynamic_obj: TextureButton = null
 var clicked = false
 
+var highlight_positions = [
+	Vector2(269, 165),
+	Vector2(966, 286),
+	Vector2(334, 552)
+]
+
 func _ready():
-	randomize()
 	result_label.text = ""
-	cover.visible = false
 	clicked = false
-	
-	_init_positions()
-	
+	cover.visible = false  # Start invisible
+
+	_get_figures()
+	_store_original_positions()
+	_assign_button_signals()
+
 	print("🟢 Scena paleista")
+	print("Figures found: %d" % figures.size())
+	for f in figures:
+		print(" - ", f.name, "at", f.position)
 
-	_save_original_positions()
-	_assign_object_signals()
+	_pick_dynamic_object()
+	_start_movement_sequence()
 
-	await get_tree().create_timer(1.0).timeout
-	_cover_objects()
+func _get_figures():
+	figures.clear()
+	for child in get_children():
+		if child is TextureButton and child != cover and child != result_label:
+			figures.append(child)
 
-	await get_tree().create_timer(1.0).timeout
-	_swap_one_object()
-	_uncover_objects()
-
-func _save_original_positions():
+func _store_original_positions():
 	original_positions.clear()
-	for obj in object_container.get_children():
-		original_positions.append(obj.global_position)
-	print("💾 Išsaugotos pozicijos:")
-	for i in range(original_positions.size()):
-		print("- ", object_container.get_child(i).name, ":", original_positions[i])
+	for fig in figures:
+		original_positions[fig] = fig.position
 
-func _init_positions():
-	var padding = 250  # tarpas tarp objektų (pikseliais)
-	var current_x = -750  # pradinis x
+func _assign_button_signals():
+	for button in figures:
+		button.connect("pressed", Callable(self, "_on_button_pressed").bind(button))
 
-	for obj in object_container.get_children():
-		var sprite = obj.get_node("Sprite2D")  # pakeisk, jei kitas tavo sprite pavadinimas
-		var width = sprite.texture.get_width() * sprite.scale.x
-		
-		# Poziciją nustatome pagal dabartinę current_x + pusę objekto pločio
-		obj.global_position = Vector2(current_x + width / 2, 100)  # 100 - fiksuotas y koordinatės taškas
+func _pick_dynamic_object():
+	if figures.size() == 0:
+		return
+	dynamic_obj = figures[randi() % figures.size()]
+	print("Dinaminė figūra:", dynamic_obj.name)
 
-		# Atnaujinti current_x: padidinti apie objekto plotį ir tarpelį
-		current_x += width + padding
-
-func _cover_objects():
+func _start_movement_sequence() -> void:
+	await get_tree().create_timer(5.0).timeout
 	cover.visible = true
-	print("🔒 Objektai uždengti")
+	await get_tree().create_timer(0.3).timeout
 
-func _uncover_objects():
-	cover.visible = false
-	print("🔓 Objektai atidengti")
-
-func _swap_one_object():
-	var objs = object_container.get_children()
-	if objs.size() < 2:
+	if dynamic_obj == null:
+		cover.visible = false
 		return
 
-	var index1 = randi() % objs.size()
-	var index2 = (index1 + 1 + randi() % (objs.size() - 1)) % objs.size()
+	var target_pos = highlight_positions[randi() % highlight_positions.size()]
+	print("Moving dynamic figure", dynamic_obj.name, "to", target_pos)
 
-	var obj1 = objs[index1]
-	var obj2 = objs[index2]
-
-	print("🔄 Apsikeičia objektai:", obj1.name, "<->", obj2.name)
-
-	var pos1 = obj1.global_position
-	var pos2 = obj2.global_position
-
-	# Sukuriamas tween'as
 	var tween = create_tween()
+	tween.tween_property(dynamic_obj, "position", target_pos, 1.0).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
-	# Objektas 1 į objektą 2
-	tween.tween_property(obj1, "global_position", pos2, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	# Objektas 2 į objektą 1
-	tween.tween_property(obj2, "global_position", pos1, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	await tween.finished
+	cover.visible = false
 
-	swapped_nodes = [obj1, obj2]
-
-func _assign_object_signals():
-	for obj in object_container.get_children():
-		if obj.has_signal("input_event"):
-			print("✅ Signalas prijungtas prie:", obj.name)
-			obj.connect("input_event", Callable(self, "_on_object_clicked").bind(obj))
-		else:
-			print("⚠️", obj.name, "neturi input_event signalo")
-
-func _on_object_clicked(viewport, event, shape_idx, clicked_obj):
-	if clicked or not (event is InputEventMouseButton and event.pressed):
+func _on_button_pressed(button: TextureButton):
+	if clicked:
 		return
 
 	clicked = true
-	print("🖱️ Paspaustas objektas:", clicked_obj.name)
 
-	if clicked_obj in swapped_nodes:
+	if button == dynamic_obj:
 		result_label.text = "✅ Teisingai!"
-		print("🎯 Teisingas pasirinkimas!")
+		emit_signal("task_completed", true)
 	else:
 		result_label.text = "❌ Neteisingai. Bandyk dar kartą!"
-		print("❌ Neteisingas pasirinkimas.")
+		emit_signal("task_completed", false)
+		
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return result_label.text == "✅ Teisingai!"  # or use a variable like `completed_correctly`

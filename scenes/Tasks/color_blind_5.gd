@@ -1,34 +1,35 @@
 extends Control
 
+@onready var result_label: Label = $ResultLabel  # Make sure this Label node exists in your scene
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	result_label.visible = false
+	result_label.text = ""
 
 func _on_button_pressed() -> void:
-	show_popup()
-
+	show_result_good()
 
 func _on_button_2_pressed() -> void:
-	show_popup_bad()
-
+	show_result_bad()
 
 func _on_button_3_pressed() -> void:
-	show_popup_bad()
-func show_popup():
-	var popup := AcceptDialog.new()
-	popup.dialog_text = "Teisingai!"
-	add_child(popup)
-	popup.popup_centered()
-	
-func show_popup_bad():
-	var popup := AcceptDialog.new()
-	popup.dialog_text = "Neteisinga! Bandyk dar kartą"
-	add_child(popup)
-	popup.popup_centered()
+	show_result_bad()
+
+func show_result_good():
+	result_label.text = "✅ Teisingai!"
+	result_label.add_theme_color_override("font_color", Color.WHITE)
+	result_label.visible = true
+	animate_label()
+
+func show_result_bad():
+	result_label.text = "❌ Neteisinga! Bandyk dar kartą"
+	result_label.add_theme_color_override("font_color", Color.WHITE)
+	result_label.visible = true
+	animate_label()
+
+func animate_label():
+	# Optional animation for visual feedback
+	result_label.scale = Vector2(1, 1)
+	var tween = create_tween()
+	tween.tween_property(result_label, "scale", Vector2(1.2, 1.2), 0.2)
+	tween.tween_property(result_label, "scale", Vector2(1.0, 1.0), 0.2)

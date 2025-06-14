@@ -43,13 +43,18 @@ func create_face(mood: String) -> TextureButton:
 	place_face_randomly(face)
 	return face
 
+const TOP_MARGIN := 125
+const BOTTOM_MARGIN := 100
+const SPAWN_WIDTH := 900
+const SPAWN_HEIGHT := 500
+
 func place_face_randomly(face: TextureButton):
 	var rect = Rect2()
 	var attempt := 0
 	while attempt < MAX_ATTEMPTS:
 		var pos = Vector2(
-			randf_range(0, get_viewport_rect().size.x - FACE_SIZE.x),
-			randf_range(0, get_viewport_rect().size.y - FACE_SIZE.y)
+			randf_range(0, SPAWN_WIDTH - FACE_SIZE.x),
+			randf_range(TOP_MARGIN, SPAWN_HEIGHT - BOTTOM_MARGIN - FACE_SIZE.y)
 		)
 		rect.position = pos
 		rect.size = FACE_SIZE
@@ -67,10 +72,12 @@ func place_face_randomly(face: TextureButton):
 		attempt += 1
 
 func _on_smile_pressed():
-	_show_result("✅ Teisingai!", Color.GREEN)
+	_show_result("✅ Teisingai!", Color.WHITE)
+	emit_signal("task_completed", true)
 
 func _on_wrong_pressed():
-	_show_result("❌ Neteisingai.", Color.RED)
+	_show_result("❌ Neteisingai.", Color.WHITE)
+	emit_signal("task_completed", false)
 
 func _show_result(text: String, color: Color):
 	result_label.text = text
@@ -78,3 +85,7 @@ func _show_result(text: String, color: Color):
 	result_label.visible = true
 	await get_tree().create_timer(2.0).timeout
 	result_label.visible = false
+signal task_completed(correct: bool)
+
+func is_correct() -> bool:
+	return result_label.text == "✅ Teisingai!"  # or use a variable like `completed_correctly`

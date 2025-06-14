@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ctwha6ngu1y2q"]
 
-[ext_resource type="Script" uid="uid://cxtwf6l7cw5iq" path="res://scripts/ai_agent.gd" id="1_lmq05"]
+[ext_resource type="Script" uid="uid://cmet55px3e4lx" path="res://scripts/ai_agent.gd" id="1_lmq05"]
 [ext_resource type="Texture2D" uid="uid://n722wfypsn4l" path="res://assets/ai/Happy_Mart_Encourage_BG.png" id="2_b8dno"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l24tg"]
@@ -126,8 +126,8 @@ offset_bottom = 523.0
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")
@@ -150,8 +150,8 @@ offset_bottom = 609.0
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")
@@ -174,8 +174,8 @@ offset_bottom = 613.0
 size_flags_vertical = 3
 theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 37
 theme_override_styles/focus = SubResource("StyleBoxEmpty_r7t1r")
 theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_f2tov")

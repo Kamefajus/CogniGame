@@ -1,11 +1,11 @@
 extends Control
 
-@onready var lbl_result = $VBoxContainer/lbl_result
+@onready var lbl_result = $lbl_result
 
 @onready var btns = [
-	$VBoxContainer/hbox_choices/btn_choice_1,
-	$VBoxContainer/hbox_choices/btn_choice_2,
-	$VBoxContainer/hbox_choices/btn_choice_3,
+	$hbox_choices/btn_choice_1,
+	$hbox_choices/btn_choice_2,
+	$hbox_choices/btn_choice_3,
 ]
 
 var shapes = [
@@ -47,7 +47,7 @@ func setup_buttons():
 func _on_choice_pressed(btn_index: int):
 	if btn_index == correct_btn_index:
 		lbl_result.text = "✅ Teisingai!"
-		lbl_result.add_theme_color_override("font_color", Color.GREEN)
+		lbl_result.add_theme_color_override("font_color", Color.WHITE)
 	else:
 		lbl_result.text = "❌ Bandyk dar kartą."
-		lbl_result.add_theme_color_override("font_color", Color.RED)
+		lbl_result.add_theme_color_override("font_color", Color.WHITE)

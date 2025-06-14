@@ -1,28 +1,126 @@
 [gd_scene load_steps=7 format=3 uid="uid://depe2g5i5gvfb"]
 
-[ext_resource type="PackedScene" uid="uid://dxqcr7t1g3nvf" path="res://scenes/Tasks/Object.tscn" id="1_offv4"]
-[ext_resource type="PackedScene" uid="uid://dgp483beu1a46" path="res://scenes/Tasks/Drop.tscn" id="2_a3cl3"]
-[ext_resource type="PackedScene" uid="uid://dlwvfsu3ogby4" path="res://scenes/Tasks/Object1.tscn" id="3_aox6w"]
-[ext_resource type="PackedScene" uid="uid://bkbnwi4sjkdbp" path="res://scenes/Tasks/Object2.tscn" id="4_viv7k"]
-[ext_resource type="PackedScene" uid="uid://56gp3a0tllj3" path="res://scenes/Tasks/Drop2.tscn" id="5_phgwa"]
-[ext_resource type="PackedScene" uid="uid://dfij7mbydsr6t" path="res://scenes/Tasks/Drop1.tscn" id="6_oguxm"]
+[ext_resource type="Script" uid="uid://y1guoqrebrg7" path="res://scenes/Tasks/drop_zone.gd" id="1_egcnx"]
+[ext_resource type="Script" uid="uid://c7okoevvxvbln" path="res://scenes/Tasks/color_blind_3.gd" id="1_m6icf"]
+[ext_resource type="Texture2D" uid="uid://dhauf8lsn1jk1" path="res://minecraft_render___tree_by_danixoldier_d6t90oe-fullview.png" id="2_m6icf"]
+[ext_resource type="Script" uid="uid://dqsx3qjcjkdrf" path="res://scenes/Tasks/draggable_control.gd" id="3_8byk2"]
+[ext_resource type="Texture2D" uid="uid://djxffo7ug4iso" path="res://150px-Leather_JE2_BE2.png" id="4_7aup0"]
+[ext_resource type="Texture2D" uid="uid://bd6cvki3arv1e" path="res://image55.png" id="5_f7hyh"]
 
-[node name="ColorBlind3" type="Node2D"]
+[node name="ColorBlind3" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_m6icf")
 
-[node name="Node2D" parent="." instance=ExtResource("1_offv4")]
-position = Vector2(110, 383)
+[node name="DropZones" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 211.0
+offset_right = 954.0
+offset_bottom = 336.0
+theme_override_constants/separation = 80
 
-[node name="platform" parent="." instance=ExtResource("2_a3cl3")]
-position = Vector2(135, 86)
+[node name="DropZone1" type="ColorRect" parent="DropZones"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+color = Color(0.219501, 0.219501, 0.219501, 1)
+script = ExtResource("1_egcnx")
 
-[node name="Node2D2" parent="." instance=ExtResource("3_aox6w")]
-position = Vector2(453, 351)
+[node name="DropZone2" type="ColorRect" parent="DropZones"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+color = Color(0.219501, 0.219501, 0.219501, 1)
+script = ExtResource("1_egcnx")
 
-[node name="Node2D3" parent="." instance=ExtResource("4_viv7k")]
-position = Vector2(826, 359)
+[node name="DropZone3" type="ColorRect" parent="DropZones"]
+custom_minimum_size = Vector2(125, 125)
+layout_mode = 2
+color = Color(0.219501, 0.219501, 0.219501, 1)
+script = ExtResource("1_egcnx")
 
-[node name="platform3" parent="." instance=ExtResource("5_phgwa")]
-position = Vector2(799, 78)
+[node name="Draggables" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="platform2" parent="." instance=ExtResource("6_oguxm")]
-position = Vector2(444, 79)
+[node name="DraggableItem1" type="TextureRect" parent="Draggables"]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 0
+offset_left = 216.0
+offset_top = 363.0
+offset_right = 366.0
+offset_bottom = 513.0
+texture = ExtResource("2_m6icf")
+expand_mode = 1
+script = ExtResource("3_8byk2")
+
+[node name="DraggableItem2" type="TextureRect" parent="Draggables"]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 0
+offset_left = 635.0
+offset_top = 375.0
+offset_right = 785.0
+offset_bottom = 525.0
+texture = ExtResource("4_7aup0")
+expand_mode = 1
+script = ExtResource("3_8byk2")
+
+[node name="DraggableItem3" type="TextureRect" parent="Draggables"]
+custom_minimum_size = Vector2(125, 150)
+layout_mode = 0
+offset_left = 424.0
+offset_top = 367.0
+offset_right = 574.0
+offset_bottom = 517.0
+texture = ExtResource("5_f7hyh")
+expand_mode = 1
+script = ExtResource("3_8byk2")
+
+[node name="ResultLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 19.0
+offset_right = 748.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 32
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 132.0
+offset_right = 758.0
+offset_bottom = 171.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Surikiuok objektus pagal tekstūrą"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 668.0
+offset_top = 181.0
+offset_right = 744.0
+offset_bottom = 207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Mediena"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 177.0
+offset_right = 542.0
+offset_bottom = 203.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Metalas"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 183.0
+offset_right = 352.0
+offset_bottom = 238.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 18
+text = "Oda
+"
