@@ -28,6 +28,8 @@ func _on_login_button_pressed() -> void:
 
 	if Database.verify_login(nickname, password):
 		error_label.text = "Prisijungimas sėkmingas"
+		Database.login_user(Database.get_user_id(nickname))
+		print(Database.get_user_id(nickname))
 		SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	else:
 		error_label.text = "Neteisingas prisijungimo vardas arba slaptažodis."

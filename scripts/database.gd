@@ -1,6 +1,7 @@
 extends Node
 
 var db
+var curr_uid = -1
 
 func _ready():
 	db = SQLite.new()
@@ -192,3 +193,35 @@ func change_equipped_item(item_id: int, user_id: int) -> void:
 		print("changed item")
 	else:
 		print("Error retreving items: ", db.get_last_error_message())
+
+
+func login_user(uid: int) -> void:
+	curr_uid = uid
+
+
+func get_user_id(nickname: String) -> int:
+	var insert_query = "SELECT users.id FROM users WHERE users.nickname = ?;"
+	if db.query_with_bindings(insert_query, [nickname]):
+		#print("User found")
+		return db.query_result[0]['id']
+	else:
+		print("Error inserting user: ", db.get_last_error_message())
+		return -1
+
+
+func get_user_money_amount(uid: int) -> int:
+	var insert_query = "SELECT users.cions FROM users WHERE users.id = ?;"
+	if db.query_with_bindings(insert_query, [uid]):
+		return db.query_result[0]['cions']
+	else:
+		print("Error inserting user: ", db.get_last_error_message())
+		return -1
+
+
+func update_user_money_amount(uid: int, money: int) -> bool:
+	var update_query = "UPDATE users SET cions = ? WHERE id = ?;"
+	if db.query_with_bindings(update_query, [money, uid]):
+		return true
+	else:
+		print("Error inserting user: ", db.get_last_error_message())
+		return false

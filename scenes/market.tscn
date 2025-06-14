@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cnr40r3xcjlw6" path="res://assets/pngimg.com - coin_PNG36871.png" id="3_7bpo7"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_d6tgm"]
 [ext_resource type="Script" uid="uid://boilin5o2upr4" path="res://scripts/market_scripts/tab_bar.gd" id="4_d6tgm"]
-[ext_resource type="Script" path="res://scripts/market_scripts/clothes_tab.gd" id="5_co8of"]
-[ext_resource type="Script" path="res://scripts/market_scripts/accessories_tab.gd" id="6_ennqm"]
+[ext_resource type="Script" uid="uid://3t0ufoda4ep4" path="res://scripts/market_scripts/clothes_tab.gd" id="5_co8of"]
+[ext_resource type="Script" uid="uid://bngqvrbi4t0qd" path="res://scripts/market_scripts/accessories_tab.gd" id="6_ennqm"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ygeob"]
 texture = ExtResource("2_7bpo7")

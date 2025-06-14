@@ -3,11 +3,13 @@ extends Control
 @onready var money_label = $ColorRect/Label
 var money = 150
 var temp_id = -1
-var u_id = 1
+var u_id = -1
 
 signal update(change: bool)
 
 func _ready() -> void:
+	u_id = Database.curr_uid
+	money = Database.get_user_money_amount(u_id)
 	money_label.text = str(money)
 	$Button.pressed.connect(Callable(AudioManager, "play_click"))
 	$Panel2/NoButton.pressed.connect(Callable(AudioManager, "play_click"))
@@ -36,9 +38,10 @@ func _on_no_button_pressed() -> void:
 func _on_yes_button_pressed() -> void:
 	var cost = Database.get_iten_price_by_id(temp_id)
 	if cost > 0:
-		money = money - cost
-		money_label.text = str(money)
-		$Panel2.hide()
-		Database.insert_owned_item(1, temp_id)
-		temp_id = -1
-		emit_signal("update", true)
+		if Database.update_user_money_amount(u_id, money - cost):
+			money = money - cost
+			money_label.text = str(money)
+			$Panel2.hide()
+			Database.insert_owned_item(1, temp_id)
+			temp_id = -1
+			emit_signal("update", true)
