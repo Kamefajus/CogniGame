@@ -15,7 +15,7 @@ const SCENE_PATHS = [
 ]
 
 var current_scene = null
-var current_scene_index = -1  # Start with no scene loaded
+var current_scene_index = 0  # Start with no scene loaded
 var tabs = []
 
 # ✅ Tracking logic
@@ -32,7 +32,7 @@ func _ready():
 	create_tab_buttons()
 	next_button.connect("pressed", Callable(self, "_on_next_button_pressed"))
 	# Optionally load the first scene
-	# show_scene(0)
+	show_scene(0)
 
 func create_tab_buttons():
 	for i in range(SCENE_PATHS.size()):
@@ -90,8 +90,11 @@ func update_tab_buttons():
 func _on_next_button_pressed():
 	var next_index = current_scene_index + 1
 	if next_index >= SCENE_PATHS.size():
-		next_index = 0  # Loop to first scene
-	show_scene(next_index)
+		# Load the main menu scene instead of looping
+		SceneTransition.change_scene("res://scenes/main_menu.tscn")
+	else:
+		show_scene(next_index)
+
 
 func update_next_button_state():
 	# Optionally disable if on last scene or customize behavior
