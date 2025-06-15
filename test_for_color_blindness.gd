@@ -15,7 +15,7 @@ const SCENE_PATHS = [
 ]
 
 var current_scene = null
-var current_scene_index = 0  # Start with no scene loaded
+var current_scene_index = -1  # Start with no scene loaded
 var tabs = []
 
 # ✅ Tracking logic
