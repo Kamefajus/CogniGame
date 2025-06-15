@@ -39,7 +39,7 @@ func _on_register_button_pressed() -> void:
 	if Database.register_user(name, nickname, email, password):
 		error_label.text = "Registracija sėkminga! Perkeliama..."
 		await get_tree().create_timer(1.5).timeout
-		SceneTransition.change_scene("res://scenes/login_menu.tscn")
+		SceneTransition.change_scene("res://scenes/inicial_test_scenes/initial_test.tscn")
 	else:
 		error_label.text = "Prisijungimo vardas ar el. paštas jau naudojamas"
 
