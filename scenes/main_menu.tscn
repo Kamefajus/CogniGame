@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://cglsxsyeetk5d"]
+[gd_scene load_steps=16 format=3 uid="uid://cglsxsyeetk5d"]
 
 [ext_resource type="Script" uid="uid://ciojxcnbyoop" path="res://scripts/main_menu.gd" id="1_28nqc"]
 [ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_64pis"]
 [ext_resource type="FontFile" uid="uid://4ivejuabvoq3" path="res://Game Bubble.ttf" id="3_gxfir"]
 [ext_resource type="Theme" uid="uid://cg805hpb7bv8k" path="res://label.tres" id="3_wu84c"]
+[ext_resource type="Texture2D" uid="uid://dq7rx8trsf7m2" path="res://image8000.png" id="5_8ln24"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3a456"]
 texture = ExtResource("2_64pis")
@@ -211,7 +212,18 @@ text = "CogniGame"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 984.0
+offset_top = 495.0
+offset_right = 1137.0
+offset_bottom = 636.0
+texture_normal = ExtResource("5_8ln24")
+ignore_texture_size = true
+stretch_mode = 0
+
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button4" to="." method="_on_button_4_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

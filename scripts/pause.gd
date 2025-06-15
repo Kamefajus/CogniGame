@@ -20,6 +20,7 @@ func _add_click_sounds_to_buttons(node):
 func _on_settings_pressed():
 	if settings == null:
 		settings = settings_scene.instantiate()
+		settings.caller = self  # 👈 Pass reference
 		settings.connect("settings_closed", Callable(self, "_on_settings_closed"))
 		get_tree().get_root().add_child(settings)
 		hide()

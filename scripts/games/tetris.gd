@@ -32,6 +32,7 @@ const COLORS = {
 	"J": Color(0.13, 0.59, 0.95), # Blue
 	"L": Color(1.0, 0.6, 0.0)     # Orange
 }
+var background_texture: Texture2D
 
 # --- Game State Variables ---
 var board := []
@@ -66,7 +67,7 @@ func _ready():
 	# --- NEW: Load the custom font ---
 	# Make sure the path is correct to your font file in the FileSystem dock
 	custom_font = load("res://Game Bubble.ttf")
-	
+	background_texture = load("res://retro-sun-dq764hrrdv0ywcg5.jpg")
 	new_board()
 	generate_next_piece()
 	spawn_piece()
@@ -231,42 +232,50 @@ func update_score_and_level(cleared_count: int):
 # --- Drawing ---
 
 func _draw():
+	# --- Draw Background ---
+	if background_texture:
+		var tex_size = background_texture.get_size()
+		for y in range(0, int(get_viewport_rect().size.y), tex_size.y):
+			for x in range(0, int(get_viewport_rect().size.x), tex_size.x):
+				draw_texture(background_texture, Vector2(x, y))
+
 	var screen_size = get_viewport_rect().size
 	var grid_pixel_size = Vector2(GRID_WIDTH, GRID_HEIGHT) * TILE_SIZE
 	var start_pos = (screen_size - grid_pixel_size) / 2
-	
+
+	# --- Draw Grid Background ---
 	draw_rect(Rect2(start_pos, grid_pixel_size), Color(0.1, 0.1, 0.1, 0.8))
-	
+
+	# --- Draw Grid Lines ---
 	for i in range(GRID_WIDTH + 1):
 		draw_line(start_pos + Vector2(i * TILE_SIZE, 0), start_pos + Vector2(i * TILE_SIZE, grid_pixel_size.y), Color8(255, 255, 255, 50), 1)
 	for i in range(GRID_HEIGHT + 1):
 		draw_line(start_pos + Vector2(0, i * TILE_SIZE), start_pos + Vector2(grid_pixel_size.x, i * TILE_SIZE), Color8(255, 255, 255, 50), 1)
 
+	# --- Draw Locked Pieces ---
 	for y in range(GRID_HEIGHT):
 		for x in range(GRID_WIDTH):
 			if board[y][x] != null:
 				var block_pos = Vector2(x, y) * TILE_SIZE + start_pos
-				draw_rect(Rect2(block_pos, Vector2(TILE_SIZE, TILE_SIZE)), board[y][x], )
+				draw_rect(Rect2(block_pos, Vector2(TILE_SIZE, TILE_SIZE)), board[y][x])
 				draw_rect(Rect2(block_pos, Vector2(TILE_SIZE, TILE_SIZE)), Color.BLACK, false, 1)
 
+	# --- Draw Current Piece ---
 	for block in current_piece:
 		var pos = (current_position + block) * TILE_SIZE + start_pos
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), current_color)
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), Color.BLACK, false, 1)
-		
-	# --- UI Drawing (Score, Level, Next Piece) ---
-	# --- MODIFIED: Pass custom_font to draw_string ---
-	
-	# Draw Score and Level
+
+	# --- Draw Score and Level ---
 	var score_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 40)
 	draw_string(custom_font, score_pos, "SCORE", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_string(custom_font, score_pos + Vector2(0, 30), str(score), HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.YELLOW)
-	
+
 	var level_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 100)
 	draw_string(custom_font, level_pos, "LEVEL", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_string(custom_font, level_pos + Vector2(0, 30), str(level), HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.YELLOW)
-	
-	# Draw Next Piece Preview
+
+	# --- Draw Next Piece Preview ---
 	var next_piece_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 160)
 	draw_string(custom_font, next_piece_pos, "NEXT", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	for block in next_piece:
@@ -274,9 +283,8 @@ func _draw():
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), next_color)
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), Color.BLACK, false, 1)
 
-	# Draw Game Over message
+	# --- Draw Game Over Message ---
 	if game_over:
 		var game_over_pos = Vector2(screen_size.x / 2 - 100, screen_size.y / 2 - 50)
-		# You can also change font size for specific text
 		draw_string(custom_font, game_over_pos, "GAME OVER", HORIZONTAL_ALIGNMENT_LEFT, -1, 40, Color.RED)
 		draw_string(custom_font, game_over_pos + Vector2(10, 50), "Press Enter to Restart", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)

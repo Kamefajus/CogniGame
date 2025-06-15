@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=3 uid="uid://nm6gpot2yhe7"]
+
+[ext_resource type="Script" uid="uid://bmv6473mp71ms" path="res://selection_menu.gd" id="1_x387y"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_wjwov"]
+[ext_resource type="Texture2D" uid="uid://x0lg3acp3d2n" path="res://pngtree-cartoon-snake-green-png-image_6659195.png" id="3_8s4yu"]
+[ext_resource type="Texture2D" uid="uid://51l2couliywe" path="res://387403.png" id="4_gonsf"]
+[ext_resource type="Texture2D" uid="uid://ca6xcsify52bt" path="res://ChatGPT Image Jun 15, 2025, 12_03_31 PM.png" id="5_dxs32"]
+[ext_resource type="Texture2D" uid="uid://dqwkumpmopefd" path="res://ChatGPT Image Jun 15, 2025, 11_57_01 AM.png" id="6_8bnr6"]
+[ext_resource type="Texture2D" uid="uid://cw412c0hecboe" path="res://ChatGPT Image Jun 15, 2025, 11_58_55 AM.png" id="7_gvxs6"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h741m"]
+texture = ExtResource("2_wjwov")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_17s7a"]
+bg_color = Color(0.522223, 0.569276, 0.391464, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvxum"]
+bg_color = Color(0.837722, 0.895231, 0.948114, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x387y")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_h741m")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 0.889711, 0.99685, 1)
+layout_mode = 0
+offset_left = 279.0
+offset_top = 111.0
+offset_right = 882.0
+offset_bottom = 578.0
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 2.0
+offset_right = 554.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Žaidimai:"
+
+[node name="TextureButton" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 75.0
+offset_right = 252.0
+offset_bottom = 230.0
+texture_normal = ExtResource("3_8s4yu")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton2" type="TextureButton" parent="ColorRect"]
+layout_mode = 0
+offset_left = 316.0
+offset_top = 78.0
+offset_right = 532.0
+offset_bottom = 233.0
+texture_normal = ExtResource("4_gonsf")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label2" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 218.0
+offset_top = 249.0
+offset_right = 562.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Užduotys:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 281.0
+offset_right = 610.0
+offset_bottom = 477.0
+
+[node name="TextureButton3" type="TextureButton" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(202, 196)
+layout_mode = 2
+texture_normal = ExtResource("5_dxs32")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton4" type="TextureButton" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(202, 196)
+layout_mode = 2
+texture_normal = ExtResource("6_8bnr6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="TextureButton5" type="TextureButton" parent="ColorRect/HBoxContainer"]
+custom_minimum_size = Vector2(202, 196)
+layout_mode = 2
+texture_normal = ExtResource("7_gvxs6")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 569.0
+offset_right = 155.0
+offset_bottom = 627.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_17s7a")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tvxum")
+text = "Atgal"
+
+[connection signal="pressed" from="ColorRect/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="ColorRect/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/TextureButton4" to="." method="_on_texture_button_4_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/TextureButton5" to="." method="_on_texture_button_5_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

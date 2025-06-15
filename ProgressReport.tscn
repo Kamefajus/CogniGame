@@ -1,0 +1,270 @@
+[gd_scene load_steps=6 format=3 uid="uid://be3qiypg41j0d"]
+
+[ext_resource type="Script" uid="uid://bahg5spk1b5xb" path="res://progress_report.gd" id="1_0kw5o"]
+[ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="1_1k3n2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0kw5o"]
+texture = ExtResource("1_1k3n2")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ay4w"]
+bg_color = Color(0.522223, 0.569276, 0.391464, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snjlq"]
+bg_color = Color(0.837722, 0.895231, 0.948114, 1)
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0kw5o")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_0kw5o")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 88.0
+offset_right = 115.0
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+text = "Pažangos stebėjimas"
+
+[node name="ADHD" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 190.0
+offset_top = 197.0
+offset_right = 428.0
+offset_bottom = 510.0
+
+[node name="Label" type="Label" parent="ADHD"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Dėmesio palaikymas"
+
+[node name="HSeparator" type="HSeparator" parent="ADHD"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ADHD"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Vaikas rodo pažangą trumpalaikio dėmesio užduotyse, ypač tose, kurios pateikiamos žaidimo forma"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="ADHD"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label2" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "✅ Gerai sekasi:"
+
+[node name="Label3" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Užduotys su greitu sprendimu"
+
+[node name="Label4" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Animuotos veiklos"
+
+[node name="Label5" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⚠️ Sunkumai:"
+
+[node name="Label6" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Ilgos užduotys be pertraukos"
+
+[node name="Label7" type="Label" parent="ADHD"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Sudėtingos instrukcijos"
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 203.0
+offset_right = 726.0
+offset_bottom = 492.0
+theme_override_constants/separation = 10
+
+[node name="ADHD2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -128.0
+offset_right = 124.0
+offset_bottom = 192.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ADHD2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Spalvų atpažinimas"
+
+[node name="HSeparator2" type="HSeparator" parent="ADHD2"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ADHD2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Vaikas geba atskirti formas ir simbolius, kai jie nėra priklausomi nuo spalvų. Progresas  matomas, kada naudojami tekstūriniai skirtumai."
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+offset_left = 465.0
+offset_top = 378.0
+offset_right = 686.0
+offset_bottom = 390.0
+theme_override_constants/separation = 12
+
+[node name="Label8" type="Label" parent="."]
+layout_mode = 2
+offset_left = 453.0
+offset_top = 389.0
+offset_right = 691.0
+offset_bottom = 412.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "✅ Gerai sekasi:"
+
+[node name="Label10" type="Label" parent="."]
+layout_mode = 2
+offset_left = 455.0
+offset_top = 417.0
+offset_right = 693.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Formų, simbolių atpažinimas  "
+
+[node name="Label9" type="Label" parent="."]
+layout_mode = 2
+offset_left = 449.0
+offset_top = 442.0
+offset_right = 687.0
+offset_bottom = 465.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⚠️ Sunkumai:"
+
+[node name="Label11" type="Label" parent="."]
+layout_mode = 2
+offset_left = 450.0
+offset_top = 473.0
+offset_right = 688.0
+offset_bottom = 496.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Užduotys su vien tik spalvomis   "
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 0
+offset_left = 421.0
+offset_top = 210.0
+offset_right = 463.0
+offset_bottom = 499.0
+theme_override_constants/separation = 10
+
+[node name="ADHD3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -434.0
+offset_top = -127.0
+offset_right = -197.0
+offset_bottom = 204.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ADHD3"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Matematikos įgūdžiai"
+
+[node name="HSeparator" type="HSeparator" parent="ADHD3"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ADHD3"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "Vaikas stiprina skaitmeninio mąstymo pagrindus. Pastebimas geras įsitraukimas, kai matematika pateikiama žaidimo kontekste"
+fit_content = true
+
+[node name="HSeparator2" type="HSeparator" parent="ADHD3"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label2" type="Label" parent="ADHD3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "✅ Gerai sekasi:"
+
+[node name="Label3" type="Label" parent="ADHD3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "-Objektų skaičiavimas 
+ (Pvz., Kiek obuolių matai)"
+
+[node name="Label4" type="Label" parent="ADHD3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "⚠️ Sunkumai:"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ADHD3"]
+layout_mode = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "-Užduotyse, kuriose reikia atlikti kelių veiksmų seką"
+fit_content = true
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 50.0
+offset_top = 566.0
+offset_right = 132.0
+offset_bottom = 616.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_6ay4w")
+theme_override_styles/normal = SubResource("StyleBoxFlat_snjlq")
+text = "Atgal"
+
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

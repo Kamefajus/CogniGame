@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 
 func _on_start_pressed() -> void:
 
-	SceneTransition.change_scene_slide_animation("res://scenes/Game.tscn", false)
+	SceneTransition.change_scene_slide_animation("res://scenes/Selection_Menu.tscn", false)
 
 
 func _on_button_2_pressed():
@@ -29,6 +29,7 @@ func _on_button_2_pressed():
 		SceneTransition.slide_animation_in_parts(1, false)
 		await get_tree().create_timer(0.5).timeout
 		settings = settings_scene.instantiate()
+		settings.caller = self  # 👈 Pass reference
 		settings.connect("settings_closed", Callable(self, "_on_settings_closed"))
 		get_tree().get_root().add_child(settings)
 		hide()
@@ -38,11 +39,19 @@ func _on_exit_pressed():
 	get_tree().quit()
 
 func _on_settings_closed():
+	# Start first part of animation
 	SceneTransition.slide_animation_in_parts(1, true)
 	await get_tree().create_timer(0.5).timeout
+
+	# Show main menu again
 	show()
 	settings = null
-	show() 
 
+	# Continue with second part of animation
+	SceneTransition.slide_animation_in_parts(2, true)
 func _on_button_4_pressed() -> void:
 	SceneTransition.change_scene("res://scenes/market.tscn")
+
+
+func _on_texture_button_pressed() -> void:
+	SceneTransition.change_scene("res://ProgressReport.tscn")

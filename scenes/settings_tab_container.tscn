@@ -1,11 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgi1b7b1th8rb"]
+[gd_scene load_steps=9 format=3 uid="uid://dgi1b7b1th8rb"]
 
 [ext_resource type="Script" uid="uid://dtvbauws8pcgt" path="res://scenes/settings_tab_container.gd" id="1_0njai"]
 [ext_resource type="PackedScene" uid="uid://vq2qn38o21xg" path="res://scenes/audio_slider_settings.tscn" id="1_fx2h6"]
+[ext_resource type="Texture2D" uid="uid://uxq7ruma2fy5" path="res://FknQrN.png" id="2_gach1"]
 [ext_resource type="PackedScene" uid="uid://ex10i4xoris7" path="res://scenes/window_mode.tscn" id="2_r3sq7"]
 [ext_resource type="PackedScene" uid="uid://blug8kcfvb2ct" path="res://scenes/resolution_mode.tscn" id="3_61cl2"]
 [ext_resource type="PackedScene" uid="uid://x7sypmx5df0c" path="res://input_settings.tscn" id="5_csgdr"]
 [ext_resource type="PackedScene" uid="uid://dno7jrcxmys5p" path="res://subtitles_toggle_button.tscn" id="6_m2kta"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k3l5e"]
+texture = ExtResource("2_gach1")
 
 [node name="Settings_Tab_Container" type="Control"]
 layout_mode = 3
@@ -15,6 +19,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0njai")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_right = 10.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_k3l5e")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -28,10 +44,9 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 3
+current_tab = 0
 
 [node name="Garsas" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -114,6 +129,7 @@ theme_override_constants/separation = 64
 layout_mode = 1
 
 [node name="Prieinamumas" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
