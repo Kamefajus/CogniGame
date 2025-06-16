@@ -209,6 +209,10 @@ func clear_lines():
 			lines_to_clear.append(y)
 	
 	if lines_to_clear.size() > 0:
+		# --- FIX: First, reverse the array in-place. ---
+		lines_to_clear.reverse()
+		
+		# --- Second, iterate over the now-reversed array. ---
 		for y in lines_to_clear:
 			board.remove_at(y)
 			
@@ -268,23 +272,30 @@ func _draw():
 
 	# --- Draw Score and Level ---
 	var score_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 40)
-	draw_string(custom_font, score_pos, "SCORE", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_string(custom_font, score_pos, "TAŠKAI", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_string(custom_font, score_pos + Vector2(0, 30), str(score), HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.YELLOW)
 
 	var level_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 100)
-	draw_string(custom_font, level_pos, "LEVEL", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_string(custom_font, level_pos, "LYGYS", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	draw_string(custom_font, level_pos + Vector2(0, 30), str(level), HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.YELLOW)
 
 	# --- Draw Next Piece Preview ---
 	var next_piece_pos = Vector2(start_pos.x + grid_pixel_size.x + 20, start_pos.y + 160)
-	draw_string(custom_font, next_piece_pos, "NEXT", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+	draw_string(custom_font, next_piece_pos, "SEKANTIS", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
 	for block in next_piece:
 		var pos = block * TILE_SIZE + next_piece_pos + Vector2(40, 60)
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), next_color)
 		draw_rect(Rect2(pos, Vector2(TILE_SIZE, TILE_SIZE)), Color.BLACK, false, 1)
 
-	# --- Draw Game Over Message ---
 	if game_over:
-		var game_over_pos = Vector2(screen_size.x / 2 - 100, screen_size.y / 2 - 50)
-		draw_string(custom_font, game_over_pos, "GAME OVER", HORIZONTAL_ALIGNMENT_LEFT, -1, 40, Color.RED)
-		draw_string(custom_font, game_over_pos + Vector2(10, 50), "Press Enter to Restart", HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)
+		var game_over_string = "ŽAIDIMO PABAIGA"
+		# --- FIX: Measure the string's width to properly center it ---
+		var text_size = custom_font.get_string_size(game_over_string, HORIZONTAL_ALIGNMENT_LEFT, -1, 40)
+		var game_over_pos = Vector2(screen_size.x / 2 - text_size.x / 2, screen_size.y / 2 - 50)
+		
+		var restart_string = "Paspausk \"Enter\", kad pradėti iš naujo."
+		var restart_text_size = custom_font.get_string_size(restart_string, HORIZONTAL_ALIGNMENT_LEFT, -1, 20)
+		var restart_pos = Vector2(screen_size.x / 2 - restart_text_size.x / 2, screen_size.y / 2)
+		
+		draw_string(custom_font, game_over_pos, game_over_string, HORIZONTAL_ALIGNMENT_LEFT, -1, 40, Color.RED)
+		draw_string(custom_font, restart_pos, restart_string, HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color.WHITE)

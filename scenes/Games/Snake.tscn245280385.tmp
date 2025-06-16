@@ -7,7 +7,6 @@
 script = ExtResource("1_ctobu")
 
 [node name="MoveSpeedSlider" type="HSlider" parent="."]
-modulate = Color(1, 0, 0, 1)
 offset_left = 904.0
 offset_top = 331.0
 offset_right = 1036.0
