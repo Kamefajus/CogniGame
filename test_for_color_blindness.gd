@@ -79,8 +79,6 @@ func _on_task_completed(correct: bool, scene_index: int):
 		print("❌ Scene", scene_index + 1, "completed incorrectly.")
 
 	print("🧠 Total correct scenes so far:", correct_completion_count, "/", SCENE_PATHS.size())
-	var AI = get_node("/root/AiHelper")
-	AI.visible = false
 
 func update_tab_buttons():
 	for i in range(tabs.size()):
@@ -95,6 +93,8 @@ func _on_next_button_pressed():
 	var next_index = current_scene_index + 1
 	if next_index >= SCENE_PATHS.size():
 		# Load the main menu scene instead of looping
+		var AI = get_node("/root/AiHelper")
+		AI.visible = false
 		SceneTransition.change_scene("res://scenes/main_menu.tscn")
 	else:
 		show_scene(next_index)

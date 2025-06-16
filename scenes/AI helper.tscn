@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bfw6vtb1u1i7d"]
 
-[ext_resource type="Script" uid="uid://b1bhcyhv0svv7" path="res://scenes/ai_helper.gd" id="1_how6i"]
+[ext_resource type="Script" uid="uid://bpwem32t2gbuh" path="res://scenes/ai_helper.gd" id="1_how6i"]
 [ext_resource type="Texture2D" uid="uid://dnl4bllfjd4am" path="res://assets/Mart_png.png" id="2_fnoug"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_nwbp8"]
