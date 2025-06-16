@@ -7,6 +7,8 @@ var temp_number = 0
 var correct = 0
 
 func _ready() -> void:
+	var AI = get_node("/root/AiHelper")
+	AI.visible = true
 	apple_number = randi_range(1, 20)
 	Generate_apple_calculation_task(apple_number)
 	clock_number = randi_range(0, 10)
@@ -188,6 +190,8 @@ func _on_button_last_pressed() -> void:
 	Check_if_correct(9, clock_number)
 	$Panel/Panel2/TabContainer.visible = false
 	Show_how_correct(correct, $Panel/Panel2)
+	var AI = get_node("/root/AiHelper")
+	AI.visible = false
 	var rate_sys = load("res://scripts/rating_system.gd").new()
 	rate_sys.spawn_items($Panel/Panel2, "res://scenes/main_menu.tscn", Color.BLACK)
 

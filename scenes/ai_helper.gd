@@ -1,15 +1,12 @@
 extends Node
 
 @onready var http_request  : HTTPRequest = $HTTPRequest
-@onready var background     : TextureRect = $Background
 @onready var label          : Label       = $EncouragementLabel
 @onready var input_line     : LineEdit    = $InputLine
-@onready var send_button    : Button      = $SendButton
-@onready var next_button    : Button      = $NextButton
-@onready var help_button    : Button      = $HelpButton
+@onready var send_button    : Button      = $HelpButton
 @onready var type_timer     : Timer       = $TypeTimer
 
-var API_KEY  := "AIzaSyDL2Y-eAg5OkxaU1K1gErgm5UraijO6KLU"
+var API_KEY  := "API"
 var ENDPOINT := "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=%s" % API_KEY
 
 const HINT_PROMPT := """
@@ -131,7 +128,6 @@ func _on_TypeTimer_timeout() -> void:
 
 func _on_followup_done() -> void:
 	phase = Phase.DONE
-	next_button.visible = true
 
 func _reset_help() -> void:
 	_help_count = 0

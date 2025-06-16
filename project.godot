@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Database="*res://scripts/database.gd"
+AiHelper="*res://scenes/AI helper.tscn"
 SceneTransition="*res://scenes/scene_transition.tscn"
 AudioManager="*res://scripts/AudioManager.gd"
 AudioControl="*res://scenes/audio_control.tscn"

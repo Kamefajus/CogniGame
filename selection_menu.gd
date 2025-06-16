@@ -4,7 +4,6 @@ extends Control
 func _on_texture_button_pressed() -> void:
 	SceneTransition.change_scene("res://scenes/Games/Snake.tscn")
 
-
 func _on_texture_button_2_pressed() -> void:
 	SceneTransition.change_scene("res://scenes/Games/tetris.tscn")
 

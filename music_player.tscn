@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ccgeydi3vrxfc"]
+
+[ext_resource type="AudioStream" uid="uid://djm7vsb42x1ey" path="res://sounds/768284__lolamoore__reflective-melancholic-piano.mp3" id="1_fvyft"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_fvyft")
+autoplay = true
+parameters/looping = true

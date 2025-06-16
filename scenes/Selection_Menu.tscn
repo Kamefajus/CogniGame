@@ -118,6 +118,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="NextButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 569.0
 offset_right = 155.0

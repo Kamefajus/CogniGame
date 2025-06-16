@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://i85ix1ci3gg3"]
 
 [ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="1_7mviy"]
-[ext_resource type="Script" uid="uid://dqw5prj3xtm2o" path="res://adhd_tests.gd" id="1_tve25"]
+[ext_resource type="Script" path="res://adhd_tests.gd" id="1_tve25"]
 [ext_resource type="PackedScene" uid="uid://dy0y2o4i6ex5g" path="res://ADHD/ADHD1.tscn" id="2_n4fec"]
 [ext_resource type="PackedScene" uid="uid://cnunrvvgoa4qc" path="res://ADHD/ADHD2.tscn" id="3_0p77d"]
 [ext_resource type="PackedScene" uid="uid://dvocxdp5lj8k0" path="res://ADHD/ADHD3.tscn" id="4_6ewbu"]
@@ -43,7 +43,10 @@ layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Main" parent="TabContainer/1" instance=ExtResource("2_n4fec")]
-position = Vector2(452, 240)
+offset_left = 452.0
+offset_top = 240.0
+offset_right = 452.0
+offset_bottom = 240.0
 
 [node name="2" type="TabBar" parent="TabContainer"]
 visible = false

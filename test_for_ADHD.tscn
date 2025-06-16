@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c271m63fbn3at"]
+[gd_scene load_steps=7 format=3 uid="uid://c271m63fbn3at"]
 
 [ext_resource type="Script" uid="uid://b8dukjl6mdd4x" path="res://Band.gd" id="1_1u4kb"]
 [ext_resource type="Texture2D" uid="uid://bwwjaeung0r8b" path="res://Background.png" id="2_co810"]
+[ext_resource type="PackedScene" uid="uid://ccgeydi3vrxfc" path="res://music_player.tscn" id="3_eidaf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gv86e"]
 texture = ExtResource("2_co810")
@@ -73,3 +74,5 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_1u4kb")
 theme_override_styles/normal = SubResource("StyleBoxFlat_co810")
 text = "Kitas"
+
+[node name="MusicPlayer" parent="." instance=ExtResource("3_eidaf")]

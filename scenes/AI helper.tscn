@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=3 uid="uid://bfw6vtb1u1i7d"]
+
+[ext_resource type="Script" uid="uid://b1bhcyhv0svv7" path="res://scenes/ai_helper.gd" id="1_how6i"]
+[ext_resource type="Texture2D" uid="uid://dnl4bllfjd4am" path="res://assets/Mart_png.png" id="2_fnoug"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nwbp8"]
+font_size = 17
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_072vw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_468vf"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xpx1f"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nrtul"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gdpxr"]
+bg_color = Color(0.65834, 0.65834, 0.65834, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4wmxy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_re0vb"]
+bg_color = Color(0.20871, 0.20871, 0.20871, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vu2s"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_75p42"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[node name="AiHelper" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_how6i")
+
+[node name="MartPng" type="Sprite2D" parent="."]
+position = Vector2(1018, 580)
+scale = Vector2(0.11225, 0.11725)
+texture = ExtResource("2_fnoug")
+flip_h = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="EncouragementLabel" type="Label" parent="."]
+offset_left = 980.0
+offset_top = 396.0
+offset_right = 1150.0
+offset_bottom = 518.0
+label_settings = SubResource("LabelSettings_nwbp8")
+vertical_alignment = 1
+autowrap_mode = 3
+justification_flags = 162
+
+[node name="InputLine" type="LineEdit" parent="."]
+offset_left = 530.0
+offset_top = 565.0
+offset_right = 796.0
+offset_bottom = 615.0
+placeholder_text = "Reikia pagalbos? Kreipkis drąsiai!"
+
+[node name="HelpButton" type="Button" parent="."]
+offset_left = 819.0
+offset_top = 564.0
+offset_right = 957.0
+offset_bottom = 615.0
+size_flags_vertical = 3
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 37
+theme_override_styles/focus = SubResource("StyleBoxEmpty_072vw")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_468vf")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_xpx1f")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxFlat_nrtul")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gdpxr")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxFlat_4wmxy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_re0vb")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_7vu2s")
+theme_override_styles/normal = SubResource("StyleBoxFlat_75p42")
+text = "Padėk
+"
+
+[node name="TypeTimer" type="Timer" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[connection signal="pressed" from="HelpButton" to="." method="_on_help_button_pressed"]

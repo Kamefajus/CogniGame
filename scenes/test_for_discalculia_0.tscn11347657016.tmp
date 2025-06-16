@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://ccjkaun3v3w8q"]
+[gd_scene load_steps=10 format=3 uid="uid://ccjkaun3v3w8q"]
 
 [ext_resource type="Script" uid="uid://de0bh88du7p74" path="res://scripts/test_for_discalculia_0.gd" id="1_vn2dy"]
 [ext_resource type="Texture2D" uid="uid://drf1r46gnxfao" path="res://assets/U1f.jpg" id="2_yqjod"]
 [ext_resource type="Script" path="res://scripts/slot.gd" id="3_vn2dy"]
 [ext_resource type="Texture2D" uid="uid://xn3x87cqfeci" path="res://assets/red-apple-generative-ai-png.webp" id="4_yqjod"]
-[ext_resource type="PackedScene" uid="uid://ccgeydi3vrxfc" path="res://music_player.tscn" id="5_mqjto"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqnmk"]
 texture = ExtResource("2_yqjod")
@@ -2086,8 +2085,6 @@ theme_override_font_sizes/font_size = 25
 theme_override_styles/normal_mirrored = SubResource("StyleBoxFlat_ryg1s")
 theme_override_styles/normal = SubResource("StyleBoxFlat_vn2dy")
 text = "Kitas"
-
-[node name="MusicPlayer" parent="." instance=ExtResource("5_mqjto")]
 
 [connection signal="pressed" from="Panel/Panel2/TabContainer/1/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Panel/Panel2/TabContainer/2/Button2" to="." method="_on_button_pressed"]

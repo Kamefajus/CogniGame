@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://c0fyt1j8ewqfc"]
 
-[ext_resource type="Script" uid="uid://buyet6ipidy2c" path="res://scripts/scene_transition.gd" id="1_0wykx"]
+[ext_resource type="Script" path="res://scripts/scene_transition.gd" id="1_0wykx"]
 [ext_resource type="Texture2D" uid="uid://4eybyvuippgy" path="res://assets/transi.png" id="2_rujfs"]
 
 [sub_resource type="Animation" id="Animation_rujfs"]
@@ -95,10 +95,6 @@ modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 37.0
-offset_top = -71.0
-offset_right = 37.0
-offset_bottom = -71.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2

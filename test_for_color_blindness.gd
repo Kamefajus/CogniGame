@@ -27,6 +27,8 @@ var correct_completion_count := 0
 @onready var next_button = $Navigation/NextButton
 
 func _ready():
+	var AI = get_node("/root/AiHelper")
+	AI.visible = true
 	mouse_filter = MOUSE_FILTER_PASS
 	scene_container.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	create_tab_buttons()
@@ -77,6 +79,8 @@ func _on_task_completed(correct: bool, scene_index: int):
 		print("❌ Scene", scene_index + 1, "completed incorrectly.")
 
 	print("🧠 Total correct scenes so far:", correct_completion_count, "/", SCENE_PATHS.size())
+	var AI = get_node("/root/AiHelper")
+	AI.visible = false
 
 func update_tab_buttons():
 	for i in range(tabs.size()):
